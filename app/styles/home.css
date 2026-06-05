@@ -7,6 +7,22 @@
     linear-gradient(180deg, var(--green-deep) 0%, #143d28 45%, var(--green-deep) 100%);
 }
 
+:root {
+  --wallet-toolbar-height: 2.75rem;
+  --discovery-stage-top-clearance: calc(var(--space-8) + 1.5rem);
+}
+
+.home-header {
+  position: relative;
+  width: 100%;
+}
+
+.home-header__toolbar {
+  position: relative;
+  min-height: var(--wallet-toolbar-height);
+  width: 100%;
+}
+
 .home-main {
   max-width: 42rem;
   margin: 0 auto;
@@ -23,7 +39,7 @@
 .discovery-stage {
   position: relative;
   min-height: 24rem;
-  padding: var(--space-6) var(--space-2) var(--space-8);
+  padding: var(--discovery-stage-top-clearance) var(--space-2) var(--space-8);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +85,7 @@
 @media (min-width: 400px) {
   .discovery-stage {
     min-height: 28rem;
-    padding: var(--space-8) var(--space-3) var(--space-6);
+    padding: var(--discovery-stage-top-clearance) var(--space-3) var(--space-6);
   }
 
   .discovery-stage__frame {
@@ -81,7 +97,7 @@
 @media (min-width: 640px) {
   .discovery-stage {
     min-height: 32rem;
-    padding: var(--space-8) 0 var(--space-4);
+    padding: var(--discovery-stage-top-clearance) 0 var(--space-4);
   }
 
   .discovery-stage__frame {
@@ -129,10 +145,10 @@
   margin-bottom: var(--space-4);
 }
 
-/* Story banner */
+/* Story banner — row 2 below wallet toolbar */
 .story-banner {
   text-align: center;
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-4) var(--space-3);
   background: linear-gradient(
     90deg,
     transparent,
@@ -159,10 +175,10 @@
   }
 }
 
-/* Wallet */
+/* Wallet — row 1 inside home-header toolbar */
 .greenroad-wallet {
-  position: fixed;
-  top: var(--space-3);
+  position: absolute;
+  top: var(--space-2);
   left: var(--space-3);
   z-index: 50;
 }

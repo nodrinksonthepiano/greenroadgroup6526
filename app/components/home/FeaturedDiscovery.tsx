@@ -86,8 +86,8 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
 
   const { discovery, onLearnMore, onJoin } = props;
   const ecosystem = getEcosystem(discovery.room);
-  const problemLine = discovery.problem_solved[0] ?? "";
-  const alternativeLine = discovery.alternative_to[0] ?? "";
+  const whyLine = discovery.why_we_like_it[0] ?? "";
+  const hookLine = discovery.featured_hook ?? "";
 
   return (
     <article className="featured-discovery">
@@ -99,15 +99,15 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
       </div>
       <div className="featured-discovery__body">
         <h1 className="featured-discovery__title">{discovery.title}</h1>
-        {alternativeLine && (
+        {hookLine && (
           <p className="featured-discovery__alternative">
-            Instead of {alternativeLine.toLowerCase()}, consider this.
+            {hookLine} — consider this.
           </p>
         )}
-        {problemLine && (
+        {whyLine && (
           <>
             <p className="featured-discovery__why-label">Why it&apos;s here</p>
-            <p className="featured-discovery__why-copy">{problemLine}</p>
+            <p className="featured-discovery__why-copy">{whyLine}</p>
           </>
         )}
         <div className="featured-discovery__actions">

@@ -78,8 +78,12 @@ export function HomePage({ discovery }: HomePageProps) {
 
   return (
     <div className="home-page">
-      <StoryBanner />
-      <GreenroadWallet onJoinClick={scrollToJoin} />
+      <header className="home-header">
+        <div className="home-header__toolbar">
+          <GreenroadWallet onJoinClick={scrollToJoin} />
+        </div>
+        <StoryBanner />
+      </header>
 
       <div className="home-main">
         <section

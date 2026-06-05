@@ -78,6 +78,8 @@ export interface Discovery {
   room: Room;
   system: string;
   alternative_to: string[];
+  /** Landing-page hook only — warmer than alternative_to SEO language. */
+  featured_hook?: string;
   problem_solved: string[];
   why_we_like_it: string[];
   considerations: string[];

@@ -8,7 +8,7 @@ import { StoryBanner } from "./StoryBanner";
 import { GreenroadWallet } from "./GreenroadWallet";
 import { OvalGlowBackdrop } from "./OvalGlowBackdrop";
 import { FeaturedDiscovery } from "./FeaturedDiscovery";
-import { EcosystemOrbitRing } from "./EcosystemOrbitRing";
+import { EcosystemOrbitRenderer } from "./EcosystemOrbitRenderer";
 import { DiscoveryAccordions } from "./DiscoveryAccordions";
 import { ContinueExploring } from "./ContinueExploring";
 import {
@@ -16,6 +16,7 @@ import {
   type CommandSearchHandle,
 } from "./CommandSearch";
 import "@/app/styles/home.css";
+import "@/app/styles/ecosystem-orbit.css";
 
 interface HomePageProps {
   discovery: Discovery;
@@ -31,6 +32,7 @@ export function HomePage({ discovery }: HomePageProps) {
   const contextRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLElement>(null);
   const stageCenterRef = useRef<HTMLDivElement>(null);
+  const isOrbitAnimationPaused = useRef(false);
   const commandRef = useRef<CommandSearchHandle>(null);
 
   const featuredView = useMemo(
@@ -85,10 +87,6 @@ export function HomePage({ discovery }: HomePageProps) {
           className="discovery-stage"
           aria-label="Featured discovery and ecosystems"
         >
-          <EcosystemOrbitRing
-            activeEcosystem={activeEcosystem}
-            onSelect={handleEcosystemSelect}
-          />
           <div ref={stageCenterRef} className="discovery-stage__frame">
             <OvalGlowBackdrop
               containerRef={stageCenterRef}
@@ -112,6 +110,12 @@ export function HomePage({ discovery }: HomePageProps) {
               )}
             </div>
           </div>
+          <EcosystemOrbitRenderer
+            activeEcosystem={activeEcosystem}
+            onSelect={handleEcosystemSelect}
+            stageCenterRef={stageCenterRef}
+            isOrbitAnimationPaused={isOrbitAnimationPaused}
+          />
           <p className="discovery-stage__hint">
             Ecosystems orbit this discovery — tap a room to explore
           </p>

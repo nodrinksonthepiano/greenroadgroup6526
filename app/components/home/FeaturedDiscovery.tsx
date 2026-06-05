@@ -104,8 +104,12 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
             Instead of {alternativeLine.toLowerCase()}, consider this.
           </p>
         )}
-        <p className="featured-discovery__problem-label">Problem Solved</p>
-        <p className="featured-discovery__problem">{problemLine}</p>
+        {problemLine && (
+          <>
+            <p className="featured-discovery__why-label">Why it&apos;s here</p>
+            <p className="featured-discovery__why-copy">{problemLine}</p>
+          </>
+        )}
         <div className="featured-discovery__actions">
           <button
             type="button"

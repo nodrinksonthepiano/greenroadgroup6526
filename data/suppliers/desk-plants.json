@@ -1,0 +1,15 @@
+{
+  "id": "desk-plants",
+  "name": "Desk Plants",
+  "location": "Austin, TX",
+  "website": "https://www.deskplants.com",
+  "relationship": "direct",
+  "via": "velocity",
+  "story": "Founded in Austin as a brick-and-mortar shop, Desk Plants pivoted to B2B promotional plants with custom engraving, drop-ship fulfillment, and on-site activations.",
+  "capabilities": [
+    "laser_engraving",
+    "drop_ship",
+    "kitting",
+    "on_site_activations"
+  ]
+}

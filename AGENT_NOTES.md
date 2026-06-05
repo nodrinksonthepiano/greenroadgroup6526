@@ -22,7 +22,21 @@ Created:
 - Memory docs: VOICE_AND_VISION, GREENROAD_KNOWLEDGE_BASE, PRD.json, LAUNCH_ROADMAP, SESSION_REPORT
 - Empty page (no UI — Session 1 spec)
 
-**Not started:** Session 2 (Desk Plants JSON), Session 3 (discovery page).
+## Session 2 complete (2026-06-05)
+
+Created:
+- `data/types/discovery.ts` — Discovery + Supplier types
+- `data/discoveries/desk-plants-mini-harlow.json` — first discovery
+- `data/suppliers/desk-plants.json` — supplier record
+- `data/index.ts` — typed loader for Session 3+
+
+## Session 3 complete (2026-06-05)
+
+Built homepage-as-discovery at `/`:
+- Story banner, wallet top-left, featured Desk Plants, ecosystem orbit, six accordions, Continue Exploring, command search shell
+- All context from `desk-plants-mini-harlow.json`
+
+**Not started:** Session 4+ unless Jai requests refinements or next session.
 
 ## Zeyoda reference files to port (later)
 

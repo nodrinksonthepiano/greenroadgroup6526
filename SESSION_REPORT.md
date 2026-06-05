@@ -1,45 +1,50 @@
-# Session Report — Session 1
+# Session Report — Session 3
 
 **Date:** 2026-06-05  
-**Scope:** Scaffold, tokens, fonts, folders, memory docs. No UI.  
+**Scope:** Homepage as first discovery experience — trust milestone.  
 **Status:** Complete
 
 ## Built
 
-| Item | Location |
-|------|----------|
-| Next.js 15 + React 19 + Tailwind 4 | Project root |
-| Color tokens | `app/styles/tokens.css` |
-| Global styles + Tailwind theme | `app/globals.css` |
-| Fonts (Cormorant Garamond, Inter) | `app/layout.tsx` |
-| Empty page (no UI) | `app/page.tsx` |
-| Room folders | `data/rooms/{sleep,office,kitchen,bathroom,land,community}/` |
-| Discovery + supplier placeholders | `data/discoveries/`, `data/suppliers/` |
-| Memory docs | `VOICE_AND_VISION.md`, `GREENROAD_KNOWLEDGE_BASE.md`, `AGENT_NOTES.md`, `PRD.json`, `LAUNCH_ROADMAP.md` |
+| Section | Component |
+|---------|-----------|
+| Story banner | `StoryBanner.tsx` |
+| Wallet top-left | `GreenroadWallet.tsx` |
+| Featured Desk Plants | `FeaturedDiscovery.tsx` + `OvalGlowBackdrop.tsx` |
+| Ecosystem orbit (6 nodes) | `EcosystemOrbit.tsx` |
+| Six context accordions | `DiscoveryAccordions.tsx` |
+| Continue Exploring (3 placeholders) | `ContinueExploring.tsx` |
+| Bottom search shell | `CommandSearch.tsx` |
+| Page orchestration | `HomePage.tsx`, `app/page.tsx` |
+| Styles | `app/styles/home.css` |
+| Ecosystem definitions | `data/ecosystems.ts` |
+
+## Data
+
+All accordion content loaded from `getDiscovery("desk-plants-mini-harlow")`.
 
 ## Locked in this session
 
-- Homepage H1: We're discovering the Green Road together.
-- Homepage sub: Explore practical alternatives for everyday life.
-- Fonts: Cormorant Garamond + Inter
-- First page target (Session 3): Desk Plants discovery only
-- GitHub repo: `nodrinksonthepiano/greenroadgroup6526`
+- Homepage = discovery experience (not separate marketing page)
+- Wallet top-left — ecosystem infrastructure position
+- Rooms = ecosystems (UI copy)
+- Continue Exploring (not Recent Discoveries)
+- Join The Green Road (not Sign Up)
+- Conservatory feel — curiosity before commerce
+- No scores, no buy button, no Stripe
+
+## Trust check (Jai)
+
+Open greenroad.group on your phone. Ask: does a stranger think "I trust these people"?
 
 ## Not built (intentional)
 
-- Discovery JSON (Session 2)
-- Discovery page (Session 3)
-- Homepage UI (Session 4)
-- Vercel deployment (Jai, after git push)
-
-## Jai next steps
-
-1. `npm install` and `npm run dev` locally
-2. First commit + push to GitHub
-3. Import repo in Vercel
-4. Rebecca continues Desk Plants sheet row
-5. Say **Start Session 2** when ready
+- Stripe / buy button
+- Email backend
+- Magic.link
+- GPT search (input is read-only shell)
+- Orbit changing featured discovery on tap (static V1)
 
 ## Stop line
 
-Session 1 is complete. Do not begin Session 2 until Jai says so.
+Session 3 complete. Do not begin Session 4 until Jai says so.

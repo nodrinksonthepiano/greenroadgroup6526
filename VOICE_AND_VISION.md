@@ -50,11 +50,16 @@ Examples:
 - **Frog** — wisdom, curiosity, discovery
 - **Lion** — courage, stewardship, leadership
 
-## Homepage copy (locked Session 1)
+## Homepage copy (locked Session 1, refined Session 3)
 
-- **H1:** We're discovering the Green Road together.
+- **Banner:** We're discovering the Green Road together.
 - **Sub:** Explore practical alternatives for everyday life.
-- **Search placeholder (future):** What would you like to explore?
+- **Search placeholder:** What do you want to explore, learn, or buy?
+- **Section:** Continue Exploring (not Recent Discoveries)
+- **CTA:** Join The Green Road (not Sign Up)
+- **Wallet:** top-left — ecosystem infrastructure position across sovereign instances
+- **Rooms:** ecosystems, not categories (Sleep Ecosystem, Office Ecosystem, etc.)
+- **Homepage = discovery experience** — not a separate marketing page
 
 ## Visual identity
 

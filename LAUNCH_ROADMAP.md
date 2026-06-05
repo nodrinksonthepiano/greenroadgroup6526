@@ -14,8 +14,8 @@
 ## Phase 1 — Trust (Sessions 2–3)
 
 - [ ] Rebecca: Desk Plants row on sheet (six context blocks, no scores)
-- [ ] Session 2: `data/discoveries/desk-plants-*.json`
-- [ ] Session 3: Beautiful mobile-first Desk Plants discovery page
+- [x] Session 2: `data/discoveries/desk-plants-mini-harlow.json`
+- [x] Session 3: Homepage discovery experience — Desk Plants trust milestone
 
 **Milestone:** A stranger reads the page and trusts Greenroad.
 

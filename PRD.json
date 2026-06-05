@@ -3,7 +3,7 @@
   "project": "Greenroad",
   "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
   "domain": "greenroad.group",
-  "updatedAt": "2026-06-05T00:00:00.000Z",
+  "updatedAt": "2026-06-05T12:00:00.000Z",
   "vision": {
     "tagline": "We're discovering the Green Road together.",
     "subhead": "Explore practical alternatives for everyday life.",
@@ -20,14 +20,14 @@
     {
       "id": "session-2",
       "name": "Discovery data",
-      "status": "todo",
+      "status": "done",
       "scope": "Discovery JSON schema + Desk Plants data only"
     },
     {
       "id": "session-3",
-      "name": "Discovery page",
-      "status": "todo",
-      "scope": "Desk Plants page — trust milestone"
+      "name": "Discovery homepage",
+      "status": "done",
+      "scope": "Homepage as discovery experience — Desk Plants trust milestone"
     },
     {
       "id": "session-4",

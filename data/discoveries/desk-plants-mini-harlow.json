@@ -1,0 +1,83 @@
+{
+  "id": "desk-plants-mini-harlow",
+  "slug": "desk-plants-mini-harlow",
+  "type": "product",
+  "title": "Desk Plants — Mini Harlow",
+  "room": "office",
+  "system": "plants",
+  "alternative_to": [
+    "Plastic desk decor",
+    "Sterile desk accessories",
+    "Fake plants that collect dust"
+  ],
+  "problem_solved": [
+    "Workspace feels sterile and lifeless",
+    "No connection to nature while working indoors",
+    "Desk decor that looks generic instead of intentional"
+  ],
+  "why_we_like_it": [
+    "Real living plants, not plastic",
+    "Custom engraved pots through an Austin supplier we trust",
+    "Hard-to-kill varieties suited for office desks",
+    "Drop-ship fulfillment with no minimum order for a first test SKU"
+  ],
+  "considerations": [
+    "Needs indirect light — not ideal for windowless interior offices",
+    "Some watering required; hard-to-kill, not zero-maintenance",
+    "Shipping live plants in extreme winter weather needs extra care",
+    "Greenroad price pending final NET quote from supplier"
+  ],
+  "evidence": [
+    "Biophilic design research links indoor plants to reduced stress and improved focus in workspaces",
+    "Desk Plants supplies engraved promotional plants to teams nationwide from Austin, TX",
+    "Living desk plants outperform typical swag for daily visibility (supplier claim — verify before publishing)"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Durability for a live plant",
+      "Giftability for clients and teammates",
+      "Custom engraving on the pot",
+      "Feels premium compared to plastic desk toys"
+    ],
+    "criticized_for": [
+      "Higher cost than fake plants",
+      "Winter shipping can stress sensitive varieties",
+      "Needs a little light and occasional water"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "Greenroad Notes",
+      "signal": "Best first discovery for the Office room — everyone understands a desk plant immediately"
+    },
+    {
+      "source": "Desk Plants",
+      "signal": "39 SKUs · custom engraving · Austin-based · drop-ship"
+    }
+  ],
+  "supplier_id": "desk-plants",
+  "hero_image": "/discoveries/desk-plants-mini-harlow-hero.jpg",
+  "seo_title": "Best Desk Plants for a Home Office",
+  "seo_description": "A living desk plant alternative to plastic decor — real greenery, custom pots, and honest context for your home office. Rebecca: refine this description.",
+  "faqs": [
+    {
+      "q": "Do I need a sunny window?",
+      "a": "Indirect light is enough for most Desk Plants varieties. A desk near a window works well; a completely dark room does not."
+    },
+    {
+      "q": "How much care do they need?",
+      "a": "Occasional watering and indirect light. They are chosen to be hard-to-kill, not zero-maintenance."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "direct_resale",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.deskplants.com"
+  },
+  "featured": true,
+  "published": false
+}

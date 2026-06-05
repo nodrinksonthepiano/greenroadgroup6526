@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "project": "Greenroad",
+  "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
+  "domain": "greenroad.group",
+  "updatedAt": "2026-06-05T00:00:00.000Z",
+  "vision": {
+    "tagline": "We're discovering the Green Road together.",
+    "subhead": "Explore practical alternatives for everyday life.",
+    "primaryEntity": "discovery",
+    "trustMilestone": "Session 3 — Desk Plants discovery page"
+  },
+  "sessions": [
+    {
+      "id": "session-1",
+      "name": "Scaffold",
+      "status": "done",
+      "scope": "Next.js, tokens, fonts, folders, memory docs, no UI"
+    },
+    {
+      "id": "session-2",
+      "name": "Discovery data",
+      "status": "todo",
+      "scope": "Discovery JSON schema + Desk Plants data only"
+    },
+    {
+      "id": "session-3",
+      "name": "Discovery page",
+      "status": "todo",
+      "scope": "Desk Plants page — trust milestone"
+    },
+    {
+      "id": "session-4",
+      "name": "Homepage skeleton",
+      "status": "todo",
+      "scope": "H1, email capture, wallet shell"
+    },
+    {
+      "id": "session-5",
+      "name": "Room orbit",
+      "status": "todo",
+      "scope": "Five rooms + Community placeholder"
+    },
+    {
+      "id": "session-6",
+      "name": "Featured discovery",
+      "status": "todo",
+      "scope": "Desk Plants featured card on homepage"
+    },
+    {
+      "id": "session-7",
+      "name": "Stripe",
+      "status": "todo",
+      "scope": "One Desk Plants SKU, webhook, first sale"
+    }
+  ],
+  "lockedDecisions": [
+    "Discovery is primary entity",
+    "Six context blocks, no scores",
+    "Rooms: Sleep, Kitchen, Office, Bathroom, Land, Community",
+    "Desk Plants first discovery",
+    "Mom = occasional introductions only",
+    "Fonts: Cormorant Garamond + Inter",
+    "Focus Office Package showcase only in V1"
+  ],
+  "doNotBuildV1": [
+    "sustainability scoring",
+    "approval badges",
+    "affiliate scores visible to users",
+    "party line",
+    "Magic.link auth",
+    "Venmo PayPal live rails",
+    "full 39-SKU Desk Plants import",
+    "full 13-article publish at once"
+  ]
+}

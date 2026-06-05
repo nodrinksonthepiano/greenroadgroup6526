@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+@theme inline {
+  --color-green-deep: var(--green-deep);
+  --color-green-mid: var(--green-mid);
+  --color-green-accent: var(--green-accent);
+  --color-gold-lion: var(--gold-lion);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-amber: var(--gold-amber);
+  --color-silver: var(--silver);
+  --color-sapphire: var(--sapphire);
+  --color-ruby: var(--ruby);
+
+  --font-headline: var(--font-cormorant);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background-color: var(--green-deep);
+  color: var(--silver);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}

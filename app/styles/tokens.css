@@ -1,0 +1,42 @@
+:root {
+  /* Forest */
+  --green-deep: #1a4a2e;
+  --green-mid: #2d6a4f;
+  --green-accent: #52b788;
+
+  /* Lion gold */
+  --gold-lion: #c9a84c;
+  --gold-bright: #f0c040;
+  --gold-amber: #e8a020;
+
+  /* Accents */
+  --silver: #c0c8d0;
+  --sapphire: #1b4f8a;
+  --ruby: #8b1a2a;
+
+  /* Typography scale (Session 1 tokens only) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Spacing rhythm */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Orbit / card surfaces (for future sessions) */
+  --surface-forest: var(--green-mid);
+  --surface-glow: rgba(201, 168, 76, 0.15);
+  --border-gold: var(--gold-lion);
+  --shimmer-silver: rgba(192, 200, 208, 0.35);
+}

@@ -1,19 +1,90 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import type { Discovery } from "@/data/types/discovery";
+import type { Room } from "@/data/types/discovery";
 import { getEcosystem } from "@/data/ecosystems";
 
-interface FeaturedDiscoveryProps {
-  discovery: Discovery;
-  onLearnMore: () => void;
-  onJoin: () => void;
+export type FeaturedViewProps =
+  | {
+      mode: "discovery";
+      discovery: Discovery;
+      onLearnMore: () => void;
+      onJoin: () => void;
+    }
+  | {
+      mode: "coming-into-view";
+      ecosystem: Room;
+      onJoin: () => void;
+    };
+
+function HeroImage({ discovery }: { discovery: Discovery }) {
+  const [imgError, setImgError] = useState(false);
+
+  if (imgError) {
+    return (
+      <div className="featured-discovery__hero-media featured-discovery__hero-media--fallback">
+        <div className="featured-discovery__hero-fallback" aria-hidden>
+          <span className="featured-discovery__hero-fallback-title">
+            Desk Plants
+          </span>
+          <span className="featured-discovery__hero-fallback-sub">
+            Office Ecosystem
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="featured-discovery__hero-media">
+      <Image
+        src={discovery.hero_image}
+        alt={discovery.title}
+        fill
+        sizes="(max-width: 640px) 320px, 320px"
+        className="featured-discovery__hero-img"
+        priority
+        onError={() => setImgError(true)}
+      />
+    </div>
+  );
 }
 
-export function FeaturedDiscovery({
-  discovery,
-  onLearnMore,
-  onJoin,
-}: FeaturedDiscoveryProps) {
+export function FeaturedDiscovery(props: FeaturedViewProps) {
+  if (props.mode === "coming-into-view") {
+    const ecosystem = getEcosystem(props.ecosystem);
+    return (
+      <article className="featured-discovery featured-discovery--coming">
+        <div className="featured-discovery__hero featured-discovery__hero--coming">
+          <span className="featured-discovery__ecosystem-badge">
+            {ecosystem?.tagline ?? "Ecosystem"}
+          </span>
+        </div>
+        <div className="featured-discovery__body">
+          <p className="featured-discovery__coming-label">Coming Into View</p>
+          <h1 className="featured-discovery__title">
+            {ecosystem?.tagline ?? "Ecosystem"}
+          </h1>
+          <p className="featured-discovery__coming-copy">
+            {ecosystem?.coming_into_view}
+          </p>
+          <div className="featured-discovery__actions">
+            <button
+              type="button"
+              className="featured-discovery__cta-secondary"
+              onClick={props.onJoin}
+            >
+              Join The Green Road
+            </button>
+          </div>
+        </div>
+      </article>
+    );
+  }
+
+  const { discovery, onLearnMore, onJoin } = props;
   const ecosystem = getEcosystem(discovery.room);
   const problemLine = discovery.problem_solved[0] ?? "";
   const alternativeLine = discovery.alternative_to[0] ?? "";
@@ -21,6 +92,7 @@ export function FeaturedDiscovery({
   return (
     <article className="featured-discovery">
       <div className="featured-discovery__hero">
+        <HeroImage discovery={discovery} />
         <span className="featured-discovery__ecosystem-badge">
           {ecosystem?.tagline ?? "Office Ecosystem"}
         </span>

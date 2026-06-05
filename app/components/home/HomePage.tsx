@@ -1,15 +1,20 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { Discovery } from "@/data/types/discovery";
+import type { Room } from "@/data/types/discovery";
+import { resolveFeaturedView } from "@/data/discoverySearch";
 import { StoryBanner } from "./StoryBanner";
 import { GreenroadWallet } from "./GreenroadWallet";
 import { OvalGlowBackdrop } from "./OvalGlowBackdrop";
 import { FeaturedDiscovery } from "./FeaturedDiscovery";
-import { EcosystemOrbitShell } from "./EcosystemOrbit";
+import { EcosystemOrbitRing } from "./EcosystemOrbitRing";
 import { DiscoveryAccordions } from "./DiscoveryAccordions";
 import { ContinueExploring } from "./ContinueExploring";
-import { CommandSearch } from "./CommandSearch";
+import {
+  CommandSearch,
+  type CommandSearchHandle,
+} from "./CommandSearch";
 import "@/app/styles/home.css";
 
 interface HomePageProps {
@@ -17,7 +22,25 @@ interface HomePageProps {
 }
 
 export function HomePage({ discovery }: HomePageProps) {
+  const [activeEcosystem, setActiveEcosystem] = useState<Room>(discovery.room);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [pinnedDiscovery, setPinnedDiscovery] = useState<Discovery | null>(
+    null,
+  );
+
   const contextRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLElement>(null);
+  const stageCenterRef = useRef<HTMLDivElement>(null);
+  const commandRef = useRef<CommandSearchHandle>(null);
+
+  const featuredView = useMemo(
+    () =>
+      resolveFeaturedView(activeEcosystem, searchQuery, pinnedDiscovery),
+    [activeEcosystem, searchQuery, pinnedDiscovery],
+  );
+
+  const accordionDiscovery =
+    featuredView.mode === "discovery" ? featuredView.discovery : discovery;
 
   const scrollToContext = useCallback(() => {
     contextRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -27,6 +50,28 @@ export function HomePage({ discovery }: HomePageProps) {
     document
       .getElementById("join-section")
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => commandRef.current?.focusEmail(), 400);
+  }, []);
+
+  const handleEcosystemSelect = useCallback((room: Room) => {
+    setActiveEcosystem(room);
+    setPinnedDiscovery(null);
+    setSearchQuery("");
+    stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, []);
+
+  const handleSearchSelect = useCallback((d: Discovery) => {
+    setPinnedDiscovery(d);
+    setActiveEcosystem(d.room);
+    setSearchQuery(d.title);
+    stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, []);
+
+  const handleContinueExplore = useCallback((room: Room) => {
+    setActiveEcosystem(room);
+    setPinnedDiscovery(null);
+    setSearchQuery("");
+    stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, []);
 
   return (
@@ -35,27 +80,70 @@ export function HomePage({ discovery }: HomePageProps) {
       <GreenroadWallet onJoinClick={scrollToJoin} />
 
       <div className="home-main">
-        <section className="home-hero" aria-label="Featured discovery">
-          <div className="home-hero__glow-wrap">
-            <OvalGlowBackdrop />
-            <FeaturedDiscovery
-              discovery={discovery}
-              onLearnMore={scrollToContext}
-              onJoin={scrollToJoin}
+        <section
+          ref={stageRef}
+          className="discovery-stage"
+          aria-label="Featured discovery and ecosystems"
+        >
+          <EcosystemOrbitRing
+            activeEcosystem={activeEcosystem}
+            onSelect={handleEcosystemSelect}
+          />
+          <div ref={stageCenterRef} className="discovery-stage__frame">
+            <OvalGlowBackdrop
+              containerRef={stageCenterRef}
+              intensity={0.88}
+              zIndex={0}
             />
+            <div className="discovery-stage__center">
+              {featuredView.mode === "discovery" ? (
+                <FeaturedDiscovery
+                  mode="discovery"
+                  discovery={featuredView.discovery}
+                  onLearnMore={scrollToContext}
+                  onJoin={scrollToJoin}
+                />
+              ) : (
+                <FeaturedDiscovery
+                  mode="coming-into-view"
+                  ecosystem={featuredView.ecosystem}
+                  onJoin={scrollToJoin}
+                />
+              )}
+            </div>
           </div>
+          <p className="discovery-stage__hint">
+            Ecosystems orbit this discovery — tap a room to explore
+          </p>
         </section>
 
-        <EcosystemOrbitShell initialRoom={discovery.room} />
+        {featuredView.mode === "discovery" && (
+          <section ref={contextRef}>
+            <DiscoveryAccordions discovery={accordionDiscovery} />
+          </section>
+        )}
 
-        <section ref={contextRef}>
-          <DiscoveryAccordions discovery={discovery} />
-        </section>
+        {featuredView.mode === "coming-into-view" && (
+          <section className="discovery-context-placeholder">
+            <p className="discovery-context-placeholder__text">
+              Discovery context will appear here as we publish discoveries for
+              this ecosystem.
+            </p>
+          </section>
+        )}
 
-        <ContinueExploring />
+        <ContinueExploring onExplore={handleContinueExplore} />
       </div>
 
-      <CommandSearch />
+      <CommandSearch
+        ref={commandRef}
+        searchQuery={searchQuery}
+        onSearchChange={(value) => {
+          setSearchQuery(value);
+          setPinnedDiscovery(null);
+        }}
+        onSelectDiscovery={handleSearchSelect}
+      />
     </div>
   );
 }

@@ -4,16 +4,53 @@ export interface Ecosystem {
   id: Room;
   label: string;
   tagline: string;
+  coming_into_view: string;
 }
 
 /** Rooms are ecosystems, not categories. */
 export const ECOSYSTEMS: Ecosystem[] = [
-  { id: "sleep", label: "Sleep", tagline: "Sleep Ecosystem" },
-  { id: "office", label: "Office", tagline: "Office Ecosystem" },
-  { id: "kitchen", label: "Kitchen", tagline: "Kitchen Ecosystem" },
-  { id: "bathroom", label: "Bathroom", tagline: "Bathroom Ecosystem" },
-  { id: "land", label: "Land", tagline: "Land Ecosystem" },
-  { id: "community", label: "Community", tagline: "Community Ecosystem" },
+  {
+    id: "sleep",
+    label: "Sleep",
+    tagline: "Sleep Ecosystem",
+    coming_into_view:
+      "We're collecting discoveries for better sleep, restoration, comfort, and recovery.",
+  },
+  {
+    id: "office",
+    label: "Office",
+    tagline: "Office Ecosystem",
+    coming_into_view:
+      "We're collecting discoveries for focus, plants, light, ergonomics, and a workspace that feels alive.",
+  },
+  {
+    id: "kitchen",
+    label: "Kitchen",
+    tagline: "Kitchen Ecosystem",
+    coming_into_view:
+      "We're collecting discoveries for coffee, storage, hosting, cleaning, and everyday kitchen alternatives.",
+  },
+  {
+    id: "bathroom",
+    label: "Bathroom",
+    tagline: "Bathroom Ecosystem",
+    coming_into_view:
+      "We're collecting discoveries for hygiene, cleaning, and practical bathroom alternatives.",
+  },
+  {
+    id: "land",
+    label: "Land",
+    tagline: "Land Ecosystem",
+    coming_into_view:
+      "We're collecting discoveries for lawn, garden, outdoor living, and land stewardship.",
+  },
+  {
+    id: "community",
+    label: "Community",
+    tagline: "Community Ecosystem",
+    coming_into_view:
+      "We're collecting discoveries we can grow together — local makers, gatherings, and shared Green Road stories.",
+  },
 ];
 
 export function getEcosystem(id: Room): Ecosystem | undefined {

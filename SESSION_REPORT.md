@@ -1,50 +1,40 @@
-# Session Report — Session 3
+# Session Report — Session 3A (Experience Pass)
 
 **Date:** 2026-06-05  
-**Scope:** Homepage as first discovery experience — trust milestone.  
+**Scope:** Experience polish — hero image, orbit wraps discovery, live interactions, search.  
 **Status:** Complete
 
 ## Built
 
-| Section | Component |
-|---------|-----------|
-| Story banner | `StoryBanner.tsx` |
-| Wallet top-left | `GreenroadWallet.tsx` |
-| Featured Desk Plants | `FeaturedDiscovery.tsx` + `OvalGlowBackdrop.tsx` |
-| Ecosystem orbit (6 nodes) | `EcosystemOrbit.tsx` |
-| Six context accordions | `DiscoveryAccordions.tsx` |
-| Continue Exploring (3 placeholders) | `ContinueExploring.tsx` |
-| Bottom search shell | `CommandSearch.tsx` |
-| Page orchestration | `HomePage.tsx`, `app/page.tsx` |
-| Styles | `app/styles/home.css` |
-| Ecosystem definitions | `data/ecosystems.ts` |
+| Priority | Delivered |
+|----------|-----------|
+| Hero image | `public/discoveries/desk-plants-mini-harlow-hero.jpg` (Desk Plants Mini Harlow Cream, supplier photo) + `next/image` wiring + emerald/gold fallback |
+| Orbit around discovery | `discovery-stage` — orbit ring + featured card share one container (Zeyoda pattern) |
+| Coming Into View | Tap non-Office ecosystems → ecosystem tagline + copy; Office → Desk Plants |
+| Join The Green Road | Scroll to command bar + focus email field |
+| Search | Local discovery search over JSON fields + ecosystem matching; result list |
+| Continue Exploring | Cards tap → switch ecosystem / scroll to stage |
 
-## Data
+## New / updated files
 
-All accordion content loaded from `getDiscovery("desk-plants-mini-harlow")`.
-
-## Locked in this session
-
-- Homepage = discovery experience (not separate marketing page)
-- Wallet top-left — ecosystem infrastructure position
-- Rooms = ecosystems (UI copy)
-- Continue Exploring (not Recent Discoveries)
-- Join The Green Road (not Sign Up)
-- Conservatory feel — curiosity before commerce
-- No scores, no buy button, no Stripe
+- `public/discoveries/desk-plants-mini-harlow-hero.jpg`
+- `data/discoverySearch.ts`
+- `data/ecosystems.ts` (coming_into_view copy per ecosystem)
+- `app/components/home/EcosystemOrbitRing.tsx`
+- `app/components/home/HomePage.tsx`
+- `app/components/home/FeaturedDiscovery.tsx`
+- `app/components/home/CommandSearch.tsx`
+- `app/components/home/ContinueExploring.tsx`
+- `app/styles/home.css`
 
 ## Trust check (Jai)
 
-Open greenroad.group on your phone. Ask: does a stranger think "I trust these people"?
+Open greenroad.group on phone. Ask: does a stranger immediately understand what Greenroad is, why Desk Plants is here, what ecosystems mean, and how to begin?
 
 ## Not built (intentional)
 
-- Stripe / buy button
-- Email backend
-- Magic.link
-- GPT search (input is read-only shell)
-- Orbit changing featured discovery on tap (static V1)
+Stripe, Magic.link, email backend, multi-discovery swipe carousel, GOSHBOT
 
 ## Stop line
 
-Session 3 complete. Do not begin Session 4 until Jai says so.
+Session 3A complete.

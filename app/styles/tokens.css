@@ -9,6 +9,12 @@
   --gold-bright: #f0c040;
   --gold-amber: #e8a020;
 
+  /* Print (ribbon pearl preview) */
+  --print-pearl: #f5f0e6;
+  --print-olive: #b8ba84;
+  --ink: var(--green-deep);
+  --ink-muted: rgba(26, 74, 46, 0.88);
+
   /* Accents */
   --silver: #c0c8d0;
   --sapphire: #1b4f8a;

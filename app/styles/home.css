@@ -282,11 +282,7 @@
   margin: 0 auto;
   border-radius: var(--space-4);
   border: 1px solid var(--border-gold);
-  background: linear-gradient(
-    165deg,
-    rgba(45, 106, 79, 0.95) 0%,
-    rgba(26, 74, 46, 0.98) 100%
-  );
+  background: transparent;
   box-shadow:
     0 0 0 1px var(--shimmer-silver),
     0 0 20px rgba(201, 168, 76, 0.1),
@@ -355,22 +351,23 @@
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--gold-lion);
+  color: var(--ink);
   padding: var(--space-1) var(--space-2);
-  border: 1px solid rgba(201, 168, 76, 0.4);
+  border: 1px solid var(--border-gold);
   border-radius: var(--space-1);
-  background: rgba(26, 74, 46, 0.6);
+  background: var(--print-olive);
 }
 
 .featured-discovery__body {
   padding: var(--space-4);
+  background: var(--print-pearl);
 }
 
 .featured-discovery__title {
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: var(--text-2xl);
   font-weight: 600;
-  color: var(--gold-bright);
+  color: var(--ink);
   line-height: 1.2;
   margin-bottom: var(--space-2);
 }
@@ -378,7 +375,7 @@
 .featured-discovery__alternative {
   font-size: var(--text-sm);
   line-height: 1.5;
-  color: rgba(224, 220, 208, 0.9);
+  color: rgba(26, 74, 46, 0.88);
   margin-bottom: var(--space-4);
 }
 
@@ -387,14 +384,14 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--gold-lion);
+  color: var(--ink);
   margin-bottom: var(--space-1);
 }
 
 .featured-discovery__why-copy {
   font-size: var(--text-sm);
   line-height: 1.5;
-  color: var(--silver);
+  color: var(--ink);
   margin-bottom: var(--space-4);
 }
 
@@ -424,9 +421,9 @@
 .featured-discovery__cta-secondary {
   padding: var(--space-3) var(--space-4);
   border-radius: var(--space-2);
-  border: 1px solid var(--shimmer-silver);
+  border: 1px solid rgba(26, 74, 46, 0.28);
   background: transparent;
-  color: var(--silver);
+  color: var(--ink);
   font-size: var(--text-sm);
   font-weight: 500;
   cursor: pointer;
@@ -434,7 +431,7 @@
 
 .featured-discovery__cta-secondary:hover {
   border-color: var(--gold-lion);
-  color: var(--gold-bright);
+  color: var(--ink);
 }
 
 .featured-discovery--coming .featured-discovery__coming-label {
@@ -442,14 +439,14 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold-lion);
+  color: var(--ink);
   margin-bottom: var(--space-2);
 }
 
 .featured-discovery--coming .featured-discovery__coming-copy {
   font-size: var(--text-sm);
   line-height: 1.6;
-  color: rgba(192, 200, 208, 0.9);
+  color: var(--ink);
   margin-bottom: var(--space-4);
 }
 
@@ -495,8 +492,20 @@
   transform: rotate(180deg);
 }
 
+.discovery-accordion:has(.discovery-accordion__panel) .discovery-accordion__trigger {
+  color: var(--gold-bright);
+}
+
 .discovery-accordion__panel {
-  padding-bottom: var(--space-4);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  padding: var(--space-4);
+  background: var(--print-pearl);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--space-3);
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .discovery-accordion__list {
@@ -511,14 +520,14 @@
   margin-bottom: var(--space-2);
   font-size: var(--text-sm);
   line-height: 1.55;
-  color: rgba(192, 200, 208, 0.92);
+  color: var(--ink);
 }
 
 .discovery-accordion__list li::before {
   content: "·";
   position: absolute;
   left: 0;
-  color: var(--green-accent);
+  color: var(--green-mid);
 }
 
 .discovery-accordion__subsection {
@@ -530,7 +539,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--gold-lion);
+  color: var(--ink);
   margin-bottom: var(--space-2);
 }
 
@@ -543,8 +552,8 @@
 .discovery-accordion__signal {
   padding: var(--space-3);
   border-radius: var(--space-2);
-  border: 1px solid var(--shimmer-silver);
-  background: rgba(45, 106, 79, 0.35);
+  border: 1px solid var(--border-gold);
+  background: var(--print-olive);
 }
 
 .discovery-accordion__signal-source {
@@ -556,7 +565,7 @@
 
 .discovery-accordion__signal-text {
   font-size: var(--text-sm);
-  color: var(--silver);
+  color: var(--ink);
 }
 
 /* Continue exploring */
@@ -578,35 +587,35 @@
 .continue-exploring__card {
   padding: var(--space-4);
   border-radius: var(--space-3);
-  border: 1px solid var(--shimmer-silver);
-  background: rgba(45, 106, 79, 0.25);
+  border: 1px solid var(--border-gold);
+  background: var(--print-olive);
   cursor: pointer;
   text-align: left;
   width: 100%;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .continue-exploring__card:hover {
-  border-color: var(--gold-lion);
-  background: rgba(45, 106, 79, 0.4);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.2);
 }
 
 .continue-exploring__card-ecosystem {
   font-size: var(--text-xs);
-  color: var(--gold-lion);
+  color: var(--ink);
   margin-bottom: var(--space-2);
 }
 
 .continue-exploring__card-title {
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: var(--text-lg);
-  color: var(--silver);
+  color: var(--ink);
   margin-bottom: var(--space-2);
 }
 
 .continue-exploring__card-teaser {
   font-size: var(--text-sm);
-  color: rgba(192, 200, 208, 0.75);
+  color: rgba(26, 74, 46, 0.85);
   line-height: 1.45;
 }
 
@@ -614,7 +623,7 @@
   display: inline-block;
   margin-top: var(--space-3);
   font-size: var(--text-xs);
-  color: rgba(192, 200, 208, 0.5);
+  color: rgba(26, 74, 46, 0.65);
 }
 
 /* Command search — single bar, two modes (explore | join) */

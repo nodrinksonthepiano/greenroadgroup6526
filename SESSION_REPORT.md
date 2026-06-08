@@ -1,40 +1,92 @@
-# Session Report — Session 3A (Experience Pass)
+# Session Report
 
-**Date:** 2026-06-05  
+---
+
+## Session 3A — Experience Pass (2026-06-05)
+
 **Scope:** Experience polish — hero image, orbit wraps discovery, live interactions, search.  
 **Status:** Complete
 
-## Built
+### Built
 
 | Priority | Delivered |
 |----------|-----------|
-| Hero image | `public/discoveries/desk-plants-mini-harlow-hero.jpg` (Desk Plants Mini Harlow Cream, supplier photo) + `next/image` wiring + emerald/gold fallback |
-| Orbit around discovery | `discovery-stage` — orbit ring + featured card share one container (Zeyoda pattern) |
-| Coming Into View | Tap non-Office ecosystems → ecosystem tagline + copy; Office → Desk Plants |
+| Hero image | `public/discoveries/desk-plants-mini-harlow-hero.jpg` + `next/image` + emerald/gold fallback |
+| Orbit around discovery | `discovery-stage` — orbit ring + featured card share one container |
+| Coming Into View | Tap non-Office ecosystems → tagline + copy; Office → Desk Plants |
 | Join The Green Road | Scroll to command bar + focus email field |
-| Search | Local discovery search over JSON fields + ecosystem matching; result list |
+| Search | Local discovery search over JSON fields + ecosystem matching |
 | Continue Exploring | Cards tap → switch ecosystem / scroll to stage |
 
-## New / updated files
-
-- `public/discoveries/desk-plants-mini-harlow-hero.jpg`
-- `data/discoverySearch.ts`
-- `data/ecosystems.ts` (coming_into_view copy per ecosystem)
-- `app/components/home/EcosystemOrbitRing.tsx`
-- `app/components/home/HomePage.tsx`
-- `app/components/home/FeaturedDiscovery.tsx`
-- `app/components/home/CommandSearch.tsx`
-- `app/components/home/ContinueExploring.tsx`
-- `app/styles/home.css`
-
-## Trust check (Jai)
-
-Open greenroad.group on phone. Ask: does a stranger immediately understand what Greenroad is, why Desk Plants is here, what ecosystems mean, and how to begin?
-
-## Not built (intentional)
+### Not built (intentional)
 
 Stripe, Magic.link, email backend, multi-discovery swipe carousel, GOSHBOT
 
-## Stop line
+---
 
-Session 3A complete.
+## Header Polish (`13df07d`)
+
+**Date:** 2026-06-05  
+**Scope:** Header layering and featured discovery copy  
+**Status:** Complete
+
+### Changed
+
+- `app/components/home/FeaturedDiscovery.tsx` — copy refinements
+- `app/components/home/HomePage.tsx` — header layering
+- `app/styles/home.css` — header spacing
+- `data/discoveries/desk-plants-mini-harlow.json` — hook copy
+- `data/types/discovery.ts` — type field addition
+
+---
+
+## Pearl/Olive Material System (`4cf6e9e`)
+
+**Date:** 2026-06-05 (merged to main)  
+**Scope:** Print material system for homepage reading surfaces  
+**Status:** Complete — live on main, build passed
+
+### What changed
+
+| File | Change |
+|------|--------|
+| `app/styles/tokens.css` | Added `--print-pearl`, `--print-olive`, `--ink`, `--ink-muted` |
+| `app/styles/home.css` | Migrated featured body, badge, accordions, signals, continue-exploring to print system |
+
+### Material rules applied
+
+```text
+Forest = world (unchanged)
+Pearl  = featured body, accordion open panels
+Olive  = ecosystem badge, signal cards, continue-exploring cards
+Gold   = borders, buttons, accordion trim (not body text on print surfaces)
+```
+
+### Rejected (do not retry without ask)
+
+- Full-page sage/olive background
+- Olive as main card reading body
+- Gold title/body text on pearl or olive
+
+### Not changed
+
+Page background, orbit coin fills, glow, wallet, command search chrome, accordion closed triggers (silver on forest).
+
+### Trust check (Jai)
+
+Open greenroad.group on phone. Pearl card should read clearly. Olive badge and explore cards should feel secondary. Forest world should feel calm around the reading surfaces.
+
+---
+
+## Next — Priority 2A (not started)
+
+Mobile calm + readability polish:
+
+1. Slow orbit coin motion
+2. Slightly larger tiny mobile text where needed
+3. Spacing between featured discovery → orbit hint → Discovery Context → Continue Exploring → command search
+4. Command search less visually loud
+
+**Constraints:** No new colors, no new features, no Stripe, no new pages. Surgical CSS only.
+
+See `GREENROAD_MEMORY.md` for full scope and file targets.

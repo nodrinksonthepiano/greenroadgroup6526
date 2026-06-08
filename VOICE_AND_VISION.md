@@ -2,13 +2,16 @@
 
 ## One sentence
 
-Greenroad is a discovery operating system for living well. It helps people find practical alternatives — one room, one choice, one discovery at a time.
+Greenroad is a trusted curator of sustainable living systems — a discovery operating system for living well. It helps people find practical alternatives — one room, one choice, one discovery at a time.
 
 ## What Greenroad is
 
-- A guide and curator for everyday alternatives
+- A **trusted curator** of sustainable living systems
+- A field guide and recommendation journal for everyday alternatives
 - A place to explore, learn, and choose what aligns with you
 - A discovery platform — closer to Artistocks than Wirecutter
+
+We organize around **ecosystems** (sleep, kitchen, office, home routines), not isolated product headlines.
 
 ## What Greenroad is not
 
@@ -16,8 +19,9 @@ Greenroad is a discovery operating system for living well. It helps people find 
 - Affiliate scoreboard
 - Blog
 - Review site with ratings
-- Sustainability certification authority
+- Sustainability certification authority or "police"
 - A site that tells people how to live
+- Wirecutter, Consumer Reports, or Good Housekeeping
 
 ## Core pattern
 
@@ -27,6 +31,17 @@ Examples:
 - Instead of plastic desk decor → consider a living plant (Desk Plants)
 - Instead of bleached TP → consider Betterway
 - Instead of harsh office LEDs → consider full-spectrum lighting
+
+## Content strategy — guides first
+
+Do not build around individual product articles first. Build around **ecosystem guides**.
+
+Examples:
+- Sustainable Sleep Ecosystem
+- Sustainable Coffee Ecosystem
+- Sustainable Kitchen Ecosystem
+
+The guide is the story. Products are supporting evidence.
 
 ## Philosophy
 
@@ -43,7 +58,7 @@ Examples:
 
 **Preferred words:** discover, explore, choose, align, cultivate, steward, grow, gather, restore
 
-**Avoid:** optimize, upgrade, dominate, maximize, approved, certified, score
+**Avoid:** optimize, upgrade, dominate, maximize, approved, certified, score, rating
 
 ## Mascots
 
@@ -64,6 +79,25 @@ Examples:
 ## Visual identity
 
 Forest emerald as the world, golden hour as warmth, silver shimmer as precision — alive, rich, premium, natural.
+
+**Primary design reference:** Pony Club ribbon — forest + cream satin + olive layers + gold embroidery.
+
+### Material system (live on main — 4cf6e9e)
+
+```text
+Forest = world / background / orbit / chrome
+Pearl  = primary reading surface (cream parchment)
+Olive  = labels + secondary cards
+Gold   = trim / buttons / reward — NOT body text on pearl or olive
+```
+
+**4th-grade version:** Cream paper is for reading. Olive is for little labels and cards. Forest is the world. Gold is ribbon trim.
+
+**Non-negotiable:**
+- No gold body text on pearl or olive
+- No olive long-form reading surfaces
+- No full-page sage/olive background
+- No crypto-dark visual direction
 
 ## Typography (locked Session 1)
 
@@ -86,8 +120,12 @@ Someone lands, reads a discovery, and thinks: **"I trust these people."**
 
 Session 3 (Desk Plants discovery page) is the critical path. Sales follow trust.
 
+Homepage is live but needs Priority 2A polish (mobile calm, readability, spacing) before promotion push.
+
 ## Reference
 
+- Agent handoff: `GREENROAD_MEMORY.md`
 - Zeyoda patterns (orbit, featured, wallet, search): `/Users/j/Dev/zeyoda-nextjs-091825`
 - GitHub: `https://github.com/nodrinksonthepiano/greenroadgroup6526`
 - Domain: `greenroad.group`
+- Current commit: `4cf6e9e` on `main`

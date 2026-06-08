@@ -3,12 +3,83 @@
   "project": "Greenroad",
   "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
   "domain": "greenroad.group",
-  "updatedAt": "2026-06-05T12:00:00.000Z",
+  "updatedAt": "2026-06-08T12:00:00.000Z",
+  "currentCommit": "4cf6e9e",
+  "activeBranch": "main",
   "vision": {
     "tagline": "We're discovering the Green Road together.",
     "subhead": "Explore practical alternatives for everyday life.",
     "primaryEntity": "discovery",
+    "positioning": "Trusted curator of sustainable living systems — field guide, not judge",
     "trustMilestone": "Session 3 — Desk Plants discovery page"
+  },
+  "strategicEvolution": {
+    "date": "2026-06-08",
+    "shift": "From possible product-scoring concept to trusted curator of sustainable living systems",
+    "notLike": ["Wirecutter", "Consumer Reports", "Good Housekeeping", "sustainability police platform"],
+    "actLike": ["trusted field guide", "curator of signals", "system-builder for better homes and routines"],
+    "contentStrategy": "Ecosystem guides first; products are supporting evidence, not the main story"
+  },
+  "materialSystem": {
+    "status": "live-on-main",
+    "commit": "4cf6e9e",
+    "rules": {
+      "forest": "world / background / orbit / chrome",
+      "pearl": "primary reading surface",
+      "olive": "labels and secondary cards",
+      "gold": "trim / buttons / reward — not body text on pearl or olive"
+    },
+    "nonNegotiable": [
+      "no gold body text on pearl or olive",
+      "no olive long-form reading surfaces",
+      "no full-page sage/olive background",
+      "no scores ratings certified or approved badge language"
+    ]
+  },
+  "nextPriority": {
+    "id": "2A",
+    "name": "Mobile calm and readability polish",
+    "scope": [
+      "slow orbit coin motion",
+      "slightly increase tiny mobile text where readability suffers",
+      "improve spacing between featured discovery orbit hint Discovery Context Continue Exploring and command search",
+      "make command search useful but less visually loud"
+    ],
+    "constraints": [
+      "no new color system",
+      "no page background changes",
+      "no orbit fill color changes",
+      "no glow changes unless explicitly asked",
+      "no Stripe email backend or new pages",
+      "no scores ratings or badge language"
+    ]
+  },
+  "ecosystemGuides": {
+    "priority": [
+      "Sustainable Sleep Ecosystem",
+      "Sustainable Coffee Ecosystem",
+      "Sustainable Kitchen Ecosystem",
+      "Sustainable Cleaning Ecosystem",
+      "Sustainable Lighting Ecosystem",
+      "Sustainable Hosting Ecosystem",
+      "Non-Toxic Home Basics"
+    ]
+  },
+  "operatingSpreadsheet": {
+    "tabs": [
+      {
+        "name": "Products",
+        "columns": ["Product", "Ecosystem", "Problem Solved", "Why We Like It", "Considerations", "Evidence", "Supplier", "Status", "Publish Priority"]
+      },
+      {
+        "name": "Suppliers",
+        "columns": ["Brand", "Contact", "Product Category", "Relationship Strength", "Outreach Status", "Notes"]
+      },
+      {
+        "name": "Guides",
+        "columns": ["Guide Title", "Ecosystem", "Status", "Publish Priority", "Products Needed", "Notes"]
+      }
+    ]
   },
   "sessions": [
     {
@@ -36,16 +107,24 @@
       "scope": "Hero image, orbit wraps discovery, search, wallet email focus, coming into view"
     },
     {
-      "id": "session-5",
-      "name": "Room orbit",
-      "status": "todo",
-      "scope": "Five rooms + Community placeholder"
+      "id": "session-header-polish",
+      "name": "Header polish",
+      "status": "done",
+      "commit": "13df07d",
+      "scope": "Header layering and featured discovery copy"
     },
     {
-      "id": "session-6",
-      "name": "Featured discovery",
+      "id": "session-pearl-olive",
+      "name": "Pearl/olive material system",
+      "status": "done",
+      "commit": "4cf6e9e",
+      "scope": "Print material system merged to main — pearl reading, olive secondary, forest world unchanged"
+    },
+    {
+      "id": "session-2a",
+      "name": "Mobile calm and readability polish",
       "status": "todo",
-      "scope": "Desk Plants featured card on homepage"
+      "scope": "Slow orbit, mobile text, section spacing, quieter command search — CSS only"
     },
     {
       "id": "session-7",
@@ -61,7 +140,10 @@
     "Desk Plants first discovery",
     "Mom = occasional introductions only",
     "Fonts: Cormorant Garamond + Inter",
-    "Focus Office Package showcase only in V1"
+    "Focus Office Package showcase only in V1",
+    "Forest = world, Pearl = reading, Olive = labels/secondary, Gold = trim",
+    "Ecosystem guides are main content engine; products support guides",
+    "Pearl/olive material system live on main at 4cf6e9e"
   ],
   "doNotBuildV1": [
     "sustainability scoring",
@@ -71,6 +153,9 @@
     "Magic.link auth",
     "Venmo PayPal live rails",
     "full 39-SKU Desk Plants import",
-    "full 13-article publish at once"
+    "full 13-article publish at once",
+    "ratings",
+    "certified or approved language",
+    "marketplace-first behavior"
   ]
 }

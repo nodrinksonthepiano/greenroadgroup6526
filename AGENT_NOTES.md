@@ -12,6 +12,24 @@ Begin every build session with:
 
 **Jai handles all git.** Agent does not commit, push, or configure remotes unless explicitly asked.
 
+## Current state (June 8, 2026)
+
+```text
+Active branch:  main
+Commit:         4cf6e9e — Refine Greenroad pearl and olive material system
+origin/main:    4cf6e9e (up to date)
+Build:          npm run build passed
+Working tree:   clean
+```
+
+**Do not use** `experiment/pearl-print-surface` as the active branch. Pearl/olive is merged to main. That experiment branch is historical at the same commit.
+
+**Read first:** `GREENROAD_MEMORY.md`
+
+**Next work:** Priority 2A — mobile calm + readability polish only. No app code until docs are synced and Jai approves the polish task.
+
+---
+
 ## Session 1 complete (2026-06-05)
 
 Created:
@@ -36,7 +54,27 @@ Built homepage-as-discovery at `/`:
 - Story banner, wallet top-left, featured Desk Plants, ecosystem orbit, six accordions, Continue Exploring, command search shell
 - All context from `desk-plants-mini-harlow.json`
 
-**Not started:** Session 4+ unless Jai requests refinements or next session.
+## Session 3A complete (2026-06-05)
+
+Experience pass: hero image, orbit wraps discovery, search, coming into view, join focus.
+
+## Header polish complete (`13df07d`)
+
+Header layering and featured discovery copy refinements.
+
+## Pearl/olive material system complete (`4cf6e9e`)
+
+Merged to main:
+- `--print-pearl`, `--print-olive`, `--ink` tokens in `tokens.css`
+- Pearl reading surfaces on featured body and accordion panels
+- Olive on ecosystem badge, signal cards, Continue Exploring cards
+- Gold trim on frames and buttons; forest world unchanged
+
+**Priority 1 (reading surface) — DONE.**
+
+**Not started:** Priority 2A (mobile calm/readability polish) unless Jai requests it.
+
+---
 
 ## Zeyoda reference files to port (later)
 
@@ -59,4 +97,4 @@ Built homepage-as-discovery at `/`:
 
 ## Vercel
 
-Create Vercel project **after** first local run + git push. Order: scaffold → local runs → commit → push → Vercel import → connect greenroad.group.
+Site live at `greenroad.group`. Vercel deploys from `main`. Redeploy follows push to origin/main.

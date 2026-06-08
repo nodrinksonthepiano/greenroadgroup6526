@@ -12,7 +12,7 @@ interface EcosystemOrbitRendererProps {
   orbitRadiusScale?: number;
 }
 
-const ORBIT_SPEED = 0.3;
+const ORBIT_SPEED = 0.09;
 const WHEEL_SENS = 0.0016;
 const FRICTION = 1.8;
 const V_EPS = 0.003;

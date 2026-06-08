@@ -81,7 +81,7 @@
 }
 
 .discovery-stage .orbit-theme .orbit-token[data-ecosystem-id] {
-  animation: ecosystem-orbit-pulse 2s infinite ease-in-out;
+  animation: ecosystem-orbit-pulse 5s infinite ease-in-out;
 }
 
 .discovery-stage .orbit-theme .orbit-token--active {
@@ -111,7 +111,7 @@
   .discovery-stage .orbit-theme .orbit-token {
     width: 64px;
     height: 64px;
-    font-size: 0.58rem;
+    font-size: 0.625rem;
   }
 }
 
@@ -119,7 +119,7 @@
   .discovery-stage .orbit-theme .orbit-token {
     width: 56px;
     height: 56px;
-    font-size: 0.52rem;
+    font-size: 0.58rem;
   }
 
   .discovery-stage .orbit-theme .orbital-tokens {

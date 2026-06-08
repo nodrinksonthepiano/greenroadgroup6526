@@ -120,7 +120,9 @@ Someone lands, reads a discovery, and thinks: **"I trust these people."**
 
 Session 3 (Desk Plants discovery page) is the critical path. Sales follow trust.
 
-Homepage is live but needs Priority 2A polish (mobile calm, readability, spacing) before promotion push.
+Priority 2A mobile polish is complete (`1fa3cb4`): calm orbit (`ORBIT_SPEED` 0.09, pulse 5s), mobile readability, section spacing, softer command search. Phone-test before major distribution push.
+
+**Next phase:** Priority 2B — Content System (Rebecca spreadsheet + first ecosystem guide).
 
 ## Reference
 
@@ -128,4 +130,4 @@ Homepage is live but needs Priority 2A polish (mobile calm, readability, spacing
 - Zeyoda patterns (orbit, featured, wallet, search): `/Users/j/Dev/zeyoda-nextjs-091825`
 - GitHub: `https://github.com/nodrinksonthepiano/greenroadgroup6526`
 - Domain: `greenroad.group`
-- Current commit: `4cf6e9e` on `main`
+- Current commit: `1fa3cb4` on `main` (pearl/olive at `4cf6e9e`)

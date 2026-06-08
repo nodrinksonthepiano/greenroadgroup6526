@@ -1,6 +1,6 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** June 8, 2026
+**Last synced:** June 8, 2026 (post–Priority 2A)
 
 Read this file first. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
@@ -10,15 +10,18 @@ Read this file first. Do not assume pearl/olive work is on an experiment branch 
 
 ```text
 Active branch:     main
-Current commit:    4cf6e9e — Refine Greenroad pearl and olive material system
-origin/main:       4cf6e9e (up to date)
+Current commit:    1fa3cb4 — Polish homepage mobile calm and orbit readability
+origin/main:       1fa3cb4 (up to date)
 Working tree:      clean
-Build:             npm run build passed
+Build:             npm run build passed (before 2A commit)
 ```
 
-`experiment/pearl-print-surface` is **historical/backed up** at the same commit. It is not the active working branch. Do not tell agents pearl/olive is uncommitted or only on the experiment branch.
+`experiment/pearl-print-surface` is **historical/backed up**. It is not the active working branch. Do not tell agents pearl/olive is uncommitted or only on the experiment branch.
 
-**Prior main commit (superseded):** `13df07d` — Polish Greenroad header layering and featured discovery copy
+**Recent commits:**
+- `1fa3cb4` — Priority 2A: mobile calm + orbit readability (pushed)
+- `fbca51d` — Sync Greenroad memory and product docs
+- `4cf6e9e` — Pearl/olive material system
 
 ---
 
@@ -121,12 +124,12 @@ app/components/home/FeaturedDiscovery.tsx
 app/components/home/DiscoveryAccordions.tsx
 app/components/home/ContinueExploring.tsx
 app/components/home/CommandSearch.tsx
-app/components/home/EcosystemOrbitRenderer.tsx  → ORBIT_SPEED = 0.3
+app/components/home/EcosystemOrbitRenderer.tsx  → ORBIT_SPEED = 0.09
 app/components/home/OvalGlowBackdrop.tsx
 
 app/styles/tokens.css                 → ALL color tokens (edit here first)
-app/styles/home.css                   → homepage UI including print surfaces
-app/styles/ecosystem-orbit.css        → orbit coins (forest — untouched)
+app/styles/home.css                   → homepage UI including print surfaces + 2A spacing/search
+app/styles/ecosystem-orbit.css        → orbit coins; pulse 5s; mobile labels 0.625rem / 0.58rem
 app/globals.css                       → body silver-on-forest; no print tokens in @theme
 
 data/discoveries/desk-plants-mini-harlow.json  → first discovery fixture
@@ -144,46 +147,36 @@ data/discoveries/desk-plants-mini-harlow.json  → first discovery fixture
 | 3A | 2026-06-05 | Hero image, orbit, search, coming into view |
 | Header polish | `13df07d` | Header layering, featured copy |
 | Pearl/olive | `4cf6e9e` | Print material system merged to main |
+| Doc sync | `fbca51d` | Memory/PRD/roadmap synced |
+| Priority 2A | `1fa3cb4` | Mobile calm + orbit readability polish |
 
-### Priority 1 — Reading surface ✅ DONE (on main)
+### Priority 1 — Reading surface ✅ DONE
 
 - Pearl featured body ✅
 - Olive secondary surfaces ✅
 - Pearl accordion panels + gold frame ✅
 
+### Priority 2A — Mobile calm + readability ✅ DONE (`1fa3cb4`)
+
+Delivered (no new colors, features, or pages):
+
+- Orbit rotation slowed: `ORBIT_SPEED` 0.3 → **0.09**
+- Coin pulse slowed: 2s → **5s**
+- Orbit coin label readability on mobile: **0.625rem** (≤768px), **0.58rem** (≤480px)
+- Mobile spacing: featured discovery → orbit hint → Discovery Context → Continue Exploring
+- Command search softened: lower gradient opacity, lighter input, smaller focus ring
+- Files: `EcosystemOrbitRenderer.tsx`, `ecosystem-orbit.css`, `home.css`
+
 ---
 
-## Next Work — Priority 2A: Mobile Calm + Readability Polish
+## Next Work — Priority 2B: Content System
 
-Homepage is live but not promotion-ready. **No new features. No color system changes.**
+**No app code unless Jai asks.** Strategic phase:
 
-### Scope
+1. Rebecca operating spreadsheet (Products, Suppliers, Guides tabs)
+2. First ecosystem guide(s) — guides are the story; products are evidence
 
-1. Slow orbit coin motion (`ORBIT_SPEED` in `EcosystemOrbitRenderer.tsx`; pulse in `ecosystem-orbit.css`)
-2. Slightly increase tiny mobile text only where readability clearly suffers
-3. Improve spacing/hierarchy between:
-   - Featured Discovery
-   - orbit hint
-   - Discovery Context
-   - Continue Exploring
-   - fixed command search
-4. Make command search useful but less visually loud
-
-### Constraints
-
-- No new color system
-- No page background changes
-- No orbit fill color changes
-- No glow changes unless explicitly asked
-- No Stripe, email backend, new pages
-- No scores, ratings, certified, or approved language
-- Prefer surgical CSS changes in `home.css` and `ecosystem-orbit.css`
-
-### Likely files (Task 2 — not started)
-
-- `app/styles/home.css`
-- `app/styles/ecosystem-orbit.css`
-- `app/components/home/EcosystemOrbitRenderer.tsx` (ORBIT_SPEED constant only)
+Homepage UX polish (2A) is complete. Phone-test before major distribution push.
 
 ---
 
@@ -232,23 +225,22 @@ Guide Title | Ecosystem | Status | Publish Priority | Products Needed | Notes
 ### Continue from main (current)
 
 ```text
-Read GREENROAD_MEMORY.md first. I'm on main at 4cf6e9e.
-Pearl/olive material system is merged and live.
+Read GREENROAD_MEMORY.md first. I'm on main at 1fa3cb4.
+Pearl/olive material system is live (4cf6e9e). Priority 2A mobile polish is done (1fa3cb4).
 Material system: forest=world, pearl=reading, olive=labels/secondary, gold=accent only.
-Do not change page background, orbit fills, glow, or search colors unless I ask.
-Next work is Priority 2A: mobile calm/readability polish only.
+Orbit: ORBIT_SPEED 0.09, pulse 5s. Do not change page background, orbit fills, or glow unless I ask.
+Next work is Priority 2B: content system (spreadsheet + ecosystem guides).
 ```
 
-### Priority 2A polish pass
+### Priority 2B content pass
 
 ```text
-Implement Priority 2A only — slow orbit, mobile text readability, section spacing, quieter command search.
-No color changes. No new features. Surgical CSS in home.css and ecosystem-orbit.css.
-Run npm run build. Do not push unless I ask.
+Priority 2B only — operating spreadsheet structure and first ecosystem guide planning/content.
+No homepage UI changes unless Jai asks. No scores, ratings, or badge language.
 ```
 
 ---
 
 ## One-Line Status
 
-**Pearl + olive material system is live on main at 4cf6e9e; build passed; next work is Priority 2A mobile calm/readability polish — not more color, not more features.**
+**Pearl/olive on main (`4cf6e9e`); Priority 2A mobile calm polish done and pushed (`1fa3cb4`); next work is Priority 2B content system — spreadsheet + ecosystem guides.**

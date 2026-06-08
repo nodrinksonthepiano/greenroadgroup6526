@@ -1,7 +1,7 @@
 # Greenroad Launch Roadmap
 
 **Updated:** June 8, 2026  
-**Current commit:** `4cf6e9e` on `main`
+**Current commit:** `1fa3cb4` on `main`
 
 ---
 
@@ -28,7 +28,7 @@
 
 **Milestone:** A stranger reads the page and trusts Greenroad.
 
-**Status:** Homepage live at greenroad.group. Not yet promotion-ready — needs calm/mobile polish (Phase 2A).
+**Status:** Homepage live at greenroad.group. Phase 2A mobile calm polish complete — phone-test before distribution push.
 
 ---
 
@@ -43,20 +43,19 @@
 
 ---
 
-## Phase 2A — Mobile Calm + Readability (next)
+## Phase 2A — Mobile Calm + Readability ✅ (`1fa3cb4`)
 
-- [ ] Slow orbit coin motion
-- [ ] Slightly larger tiny mobile text where readability suffers
-- [ ] Spacing: featured discovery → orbit hint → Discovery Context → Continue Exploring → command search
-- [ ] Command search useful but less visually loud
+- [x] Slow orbit coin motion (`ORBIT_SPEED` 0.09)
+- [x] Slower coin pulse (5s)
+- [x] Orbit coin text readability on mobile
+- [x] Spacing: featured discovery → orbit hint → Discovery Context → Continue Exploring → command search
+- [x] Command search useful but less visually loud
 
-**Constraints:** No new colors, no new features, no Stripe, no new pages. Surgical CSS only.
-
-See `GREENROAD_MEMORY.md` for file targets.
+**Constraints honored:** No new colors, features, or pages. Surgical CSS only.
 
 ---
 
-## Phase 2B — Content (parallel / post-polish)
+## Phase 2B — Content (next)
 
 - [ ] First operating spreadsheet (Products, Suppliers, Guides tabs)
 - [ ] 5–10 cornerstone ecosystem guides

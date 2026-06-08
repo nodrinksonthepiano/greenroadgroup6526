@@ -78,15 +78,39 @@ Open greenroad.group on phone. Pearl card should read clearly. Olive badge and e
 
 ---
 
-## Next — Priority 2A (not started)
+## Priority 2A — Mobile Calm + Orbit Readability (`1fa3cb4`)
 
-Mobile calm + readability polish:
+**Date:** 2026-06-08  
+**Scope:** Mobile calm + readability polish — CSS/constants only  
+**Status:** Complete — committed and pushed to main
 
-1. Slow orbit coin motion
-2. Slightly larger tiny mobile text where needed
-3. Spacing between featured discovery → orbit hint → Discovery Context → Continue Exploring → command search
-4. Command search less visually loud
+### Delivered
 
-**Constraints:** No new colors, no new features, no Stripe, no new pages. Surgical CSS only.
+| Change | Before | After |
+|--------|--------|-------|
+| Orbit rotation | `ORBIT_SPEED` 0.3 | **0.09** |
+| Coin pulse | 2s | **5s** |
+| Orbit labels (mobile) | 0.58rem / 0.52rem | **0.625rem / 0.58rem** |
+| Section spacing | tight | More breathing room: stage → hint → Discovery Context → Continue Exploring |
+| Command search | loud gradient/chrome | Softened gradient, input, focus ring |
 
-See `GREENROAD_MEMORY.md` for full scope and file targets.
+### Files changed
+
+- `app/components/home/EcosystemOrbitRenderer.tsx`
+- `app/styles/ecosystem-orbit.css`
+- `app/styles/home.css`
+
+### Not changed
+
+Colors, material system, page background, orbit fills, glow, wallet, new features, Stripe, new pages.
+
+Build passed before commit.
+
+---
+
+## Next — Priority 2B: Content System
+
+1. Rebecca operating spreadsheet (Products, Suppliers, Guides)
+2. First ecosystem guide(s)
+
+See `GREENROAD_MEMORY.md` and `LAUNCH_ROADMAP.md`.

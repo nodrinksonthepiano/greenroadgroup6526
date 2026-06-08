@@ -174,12 +174,28 @@ Print tokens are CSS variables only — not yet in Tailwind `@theme`.
 ## Current git state
 
 ```text
-main = 4cf6e9e — Refine Greenroad pearl and olive material system
+main = origin/main = 1fa3cb4 — Polish homepage mobile calm and orbit readability
 build passed, working tree clean
 experiment/pearl-print-surface is historical, not active
 ```
 
-**Next work:** Priority 2A — mobile calm + readability polish (orbit speed, small text, section spacing, quieter command search). No new colors or features.
+Pearl/olive material system landed at `4cf6e9e`. Priority 2A mobile polish landed at `1fa3cb4`.
+
+### Priority 2A — complete (`1fa3cb4`)
+
+- Orbit speed calm: `ORBIT_SPEED` **0.09**
+- Coin pulse slowed: **5s**
+- Orbit coin mobile text readability improved
+- Mobile spacing: featured discovery → orbit hint → Discovery Context → Continue Exploring
+- Command search softened
+- No new colors, features, or pages
+
+### Next work — Priority 2B: Content System
+
+1. Rebecca operating spreadsheet (Products, Suppliers, Guides tabs)
+2. First ecosystem guide(s) — guides are the story; products are evidence
+
+No homepage UI changes unless explicitly asked.
 
 ---
 

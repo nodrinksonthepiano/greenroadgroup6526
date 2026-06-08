@@ -16,17 +16,17 @@ Begin every build session with:
 
 ```text
 Active branch:  main
-Commit:         4cf6e9e — Refine Greenroad pearl and olive material system
-origin/main:    4cf6e9e (up to date)
-Build:          npm run build passed
+Commit:         1fa3cb4 — Polish homepage mobile calm and orbit readability
+origin/main:    1fa3cb4 (up to date)
+Build:          passed before 2A commit
 Working tree:   clean
 ```
 
-**Do not use** `experiment/pearl-print-surface` as the active branch. Pearl/olive is merged to main. That experiment branch is historical at the same commit.
+**Do not use** `experiment/pearl-print-surface` as the active branch. Pearl/olive is merged to main. That experiment branch is historical.
 
 **Read first:** `GREENROAD_MEMORY.md`
 
-**Next work:** Priority 2A — mobile calm + readability polish only. No app code until docs are synced and Jai approves the polish task.
+**Next work:** Priority 2B — content system (Rebecca spreadsheet + first ecosystem guide). No homepage UI unless Jai asks.
 
 ---
 
@@ -72,7 +72,18 @@ Merged to main:
 
 **Priority 1 (reading surface) — DONE.**
 
-**Not started:** Priority 2A (mobile calm/readability polish) unless Jai requests it.
+## Doc sync complete (`fbca51d`)
+
+Memory docs synced: `GREENROAD_MEMORY.md`, knowledge base, PRD, roadmap, session report.
+
+## Priority 2A complete (`1fa3cb4`)
+
+- Orbit speed calm (`ORBIT_SPEED` 0.09)
+- Coin pulse slowed (5s)
+- Orbit coin mobile text readability improved
+- Mobile section spacing polished
+- Command search softened
+- No new colors, features, or pages
 
 ---
 

@@ -3,8 +3,8 @@
   "project": "Greenroad",
   "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
   "domain": "greenroad.group",
-  "updatedAt": "2026-06-08T12:00:00.000Z",
-  "currentCommit": "4cf6e9e",
+  "updatedAt": "2026-06-08T22:00:00.000Z",
+  "currentCommit": "1fa3cb4",
   "activeBranch": "main",
   "vision": {
     "tagline": "We're discovering the Green Road together.",
@@ -36,22 +36,34 @@
       "no scores ratings certified or approved badge language"
     ]
   },
+  "priority2A": {
+    "status": "done",
+    "commit": "1fa3cb4",
+    "delivered": [
+      "orbit speed calm — ORBIT_SPEED 0.09",
+      "coin pulse slowed to 5s",
+      "orbit coin mobile text readability improved",
+      "mobile section spacing polished",
+      "command search softened"
+    ],
+    "constraintsHonored": [
+      "no new colors",
+      "no new features",
+      "no new pages"
+    ]
+  },
   "nextPriority": {
-    "id": "2A",
-    "name": "Mobile calm and readability polish",
+    "id": "2B",
+    "name": "Content system",
     "scope": [
-      "slow orbit coin motion",
-      "slightly increase tiny mobile text where readability suffers",
-      "improve spacing between featured discovery orbit hint Discovery Context Continue Exploring and command search",
-      "make command search useful but less visually loud"
+      "Rebecca operating spreadsheet — Products Suppliers Guides tabs",
+      "first ecosystem guide(s)",
+      "products support guides as evidence"
     ],
     "constraints": [
-      "no new color system",
-      "no page background changes",
-      "no orbit fill color changes",
-      "no glow changes unless explicitly asked",
-      "no Stripe email backend or new pages",
-      "no scores ratings or badge language"
+      "no homepage UI changes unless explicitly asked",
+      "no scores ratings or badge language",
+      "no Stripe or new commerce rails yet"
     ]
   },
   "ecosystemGuides": {
@@ -121,10 +133,18 @@
       "scope": "Print material system merged to main — pearl reading, olive secondary, forest world unchanged"
     },
     {
+      "id": "session-doc-sync",
+      "name": "Memory doc sync",
+      "status": "done",
+      "commit": "fbca51d",
+      "scope": "GREENROAD_MEMORY, PRD, roadmap, session report synced to main truth"
+    },
+    {
       "id": "session-2a",
       "name": "Mobile calm and readability polish",
-      "status": "todo",
-      "scope": "Slow orbit, mobile text, section spacing, quieter command search — CSS only"
+      "status": "done",
+      "commit": "1fa3cb4",
+      "scope": "Slow orbit (0.09), 5s pulse, mobile coin text, section spacing, quieter command search — CSS only"
     },
     {
       "id": "session-7",
@@ -143,7 +163,8 @@
     "Focus Office Package showcase only in V1",
     "Forest = world, Pearl = reading, Olive = labels/secondary, Gold = trim",
     "Ecosystem guides are main content engine; products support guides",
-    "Pearl/olive material system live on main at 4cf6e9e"
+    "Pearl/olive material system live on main at 4cf6e9e",
+    "Priority 2A mobile calm polish complete at 1fa3cb4"
   ],
   "doNotBuildV1": [
     "sustainability scoring",

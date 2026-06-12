@@ -23,7 +23,6 @@ export const ROOMS = [
   "bathroom",
   "land",
   "community",
-  "custom",
 ] as const;
 
 export type Room = (typeof ROOMS)[number];

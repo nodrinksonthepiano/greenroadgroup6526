@@ -1,5 +1,17 @@
 # Agent Notes
 
+## Read first
+
+Read `GREENROAD_MEMORY_MAP.md` before suggesting or making changes.
+
+Greenroad = better goods + greener systems + custom goods.
+
+Sustainability is the north star. Custom goods are the money-now lane, not the whole identity. The existing Greenroad Google Sheet is the control board.
+
+ZEYODA is internal-only parent/foundation memory. The word ZEYODA should not appear in public Greenroad copy, customer-facing UI, SEO text, product pages, or marketing language unless Jai explicitly approves.
+
+GOSHBOT routes memory and warns about drift.
+
 ## Session discipline
 
 Begin every build session with:
@@ -12,21 +24,23 @@ Begin every build session with:
 
 **Jai handles all git.** Agent does not commit, push, or configure remotes unless explicitly asked.
 
-## Current state (June 8, 2026)
+## Current state (June 15, 2026)
 
 ```text
 Active branch:  main
-Commit:         1fa3cb4 — Polish homepage mobile calm and orbit readability
-origin/main:    1fa3cb4 (up to date)
-Build:          passed before 2A commit
+Commit:         af1060d — Revert "Add Custom as 7th Room/orbit coin and Custom Patches & Stickers discovery"
+origin/main:    af1060d (up to date after revert)
+Build:          passed before 2A commit; not rerun during memory cleanup
 Working tree:   clean
 ```
 
 **Do not use** `experiment/pearl-print-surface` as the active branch. Pearl/olive is merged to main. That experiment branch is historical.
 
-**Read first:** `GREENROAD_MEMORY.md`
+The reverted custom-goods work exists in commit `fdb2169`, but it is not an approved active branch/work path. Do not reuse it blindly.
 
-**Next work:** Priority 2B — content system (Rebecca spreadsheet + first ecosystem guide). No homepage UI unless Jai asks.
+**Read first:** `GREENROAD_MEMORY_MAP.md`, then `GREENROAD_MEMORY.md`
+
+**Next work:** memory/PRD cleanup only — `GREENROAD_MEMORY.md`, `VOICE_AND_VISION.md`, `PRD.json`, `LAUNCH_ROADMAP.md`, then `SESSION_REPORT.md`. No homepage/code changes from this task.
 
 ---
 

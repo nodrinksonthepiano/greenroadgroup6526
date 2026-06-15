@@ -110,7 +110,60 @@ Build passed before commit.
 
 ## Next — Priority 2B: Content System
 
-1. Rebecca operating spreadsheet (Products, Suppliers, Guides)
-2. First ecosystem guide(s)
+1. Memory + operating-system cleanup
+2. Existing Google Sheet tabs
+3. Google Sheets MCP after sheet structure
+4. Site/code later
 
 See `GREENROAD_MEMORY.md` and `LAUNCH_ROADMAP.md`.
+
+---
+
+## Strategy Correction + Memory Cleanup (2026-06-15)
+
+**Scope:** Project brain cleanup only — docs/memory/PRD/roadmap alignment.  
+**Status:** Complete
+
+### Current truth recorded
+
+```text
+Greenroad = everyday goods + greener systems + custom goods.
+Sustainability = the north star.
+Custom Goods = money-now lane, not the whole identity.
+Thoughtful everyday goods = trust/content engine.
+```
+
+The existing Greenroad Google Sheet is the control board. Do not create a separate custom goods sheet yet.
+
+ZEYODA is internal-only parent/foundation memory and should not appear in public Greenroad copy unless Jai explicitly approves.
+
+GOSHBOT routes memory and warns about drift.
+
+### Docs updated
+
+| File | Update |
+|------|--------|
+| `GREENROAD_MEMORY_MAP.md` | Created memory router for Greenroad, ZEYODA, Artistocks, ArtisTalks, GOSHBOT, shared patterns, and operations |
+| `AGENT_NOTES.md` | Updated read-first guidance and current state (`af1060d`) |
+| `GREENROAD_MEMORY.md` | Updated strategy, current git truth, existing sheet control board, MCP status, custom-goods strategy, Becca role |
+| `VOICE_AND_VISION.md` | Updated voice: everyday/thoughtful goods, curated commerce with purpose, custom-goods lane, public ZEYODA boundary |
+| `PRD.json` | Updated and validated; added work sequence and active work items |
+| `LAUNCH_ROADMAP.md` | Updated next phases: memory, existing sheet, ADG sorting, starter offers, surgical site update, manual proof flow, later listings/checkout |
+
+### Custom Goods notes
+
+- Custom Goods is the money-now lane, not the whole identity.
+- The ADG `POD Adventure Brite Stainless Tumbler 20 oz` is a strong starter candidate and proof-preview example, not the whole custom strategy.
+- Patches and stickers should stay separate product types under Custom, not one forced combined product card.
+- Avoid using "better goods" as the main Greenroad phrase. Prefer everyday goods, thoughtful goods, useful goods, responsible goods, greener systems, custom goods, and curated commerce with purpose.
+
+### Next order
+
+1. Add tabs to the existing Greenroad Google Sheet: Custom Goods, ADG Items, First Offers, Questions
+2. Sort ADG / promo-on-demand products inside the existing control board
+3. Resume Google Sheets MCP only after sheet structure is clear
+4. Site/code later, after docs and sheet are coherent
+
+### Not changed
+
+Homepage/code, colors, material system, page background, orbit fills, glow, wallet, Stripe, checkout, proof editor, full catalog, MCP setup.

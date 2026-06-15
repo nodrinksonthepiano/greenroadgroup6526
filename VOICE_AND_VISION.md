@@ -2,7 +2,7 @@
 
 ## One sentence
 
-Greenroad is a trusted curator of sustainable living systems — a discovery operating system for living well. It helps people find practical alternatives — one room, one choice, one discovery at a time.
+Greenroad is a trusted curator of everyday goods, greener systems, and custom goods — curated commerce with purpose. It helps people find practical, thoughtful alternatives — one room, one choice, one discovery at a time.
 
 ## What Greenroad is
 
@@ -10,12 +10,16 @@ Greenroad is a trusted curator of sustainable living systems — a discovery ope
 - A field guide and recommendation journal for everyday alternatives
 - A place to explore, learn, and choose what aligns with you
 - A discovery platform — closer to Artistocks than Wirecutter
+- A thoughtful commerce project for useful goods, greener systems, and custom goods
+- A place where custom merch and thoughtful everyday goods can be grouped in one place
 
 We organize around **ecosystems** (sleep, kitchen, office, home routines), not isolated product headlines.
 
+**Current truth:** Greenroad = everyday goods + greener systems + custom goods. Sustainability is the north star. Custom Goods is the money-now lane, not the whole identity. Everyday Goods / Thoughtful Goods is the trust and content engine.
+
 ## What Greenroad is not
 
-- Amazon / ecommerce store
+- Amazon-style commodity ecommerce
 - Affiliate scoreboard
 - Blog
 - Review site with ratings
@@ -41,7 +45,23 @@ Examples:
 - Sustainable Coffee Ecosystem
 - Sustainable Kitchen Ecosystem
 
-The guide is the story. Products are supporting evidence.
+The guide is the story. Products are supporting evidence. Custom goods can also stand alone when they are useful, proof-ready, and margin-ready.
+
+## Custom Goods Lane
+
+Custom Goods is the money-now lane, not the whole Greenroad identity.
+
+Working phrase:
+
+**Custom merch and thoughtful everyday goods — grouped in one place.**
+
+Custom-goods action phrase:
+
+**Upload it. Preview it. Gribbit.**
+
+Meaning: a customer uploads a logo, name, art, initials, or idea; sees a proof or mockup; approves it; then gribbits / grabs it / orders it.
+
+**Get Grouped In** can later mean join, save items, list, sell, become part of the community, or participate in Greenroad's commerce ecosystem.
 
 ## Philosophy
 
@@ -56,9 +76,26 @@ The guide is the story. Products are supporting evidence.
 
 **Avoid:** "Buy this." / "This is approved." / "Be more sustainable."
 
-**Preferred words:** discover, explore, choose, align, cultivate, steward, grow, gather, restore
+**Preferred words:** discover, explore, choose, align, cultivate, steward, grow, gather, restore, useful, thoughtful, responsible, everyday, custom, grouped
 
 **Avoid:** optimize, upgrade, dominate, maximize, approved, certified, score, rating
+
+Greenroad voice should be:
+
+- upscale
+- conscious
+- useful
+- peaceful
+- trusted
+- creative
+- practical
+- human-edited
+- commerce with purpose
+- positively disruptive
+
+Greenroad is its own kind of rock n roll: peaceful, useful, independent, creative, and positively disruptive.
+
+Avoid using "better goods" as the main Greenroad phrase. Prefer everyday goods, thoughtful goods, useful goods, responsible goods, greener systems, custom goods, and curated commerce with purpose.
 
 ## Mascots
 
@@ -75,6 +112,8 @@ The guide is the story. Products are supporting evidence.
 - **Wallet:** top-left — ecosystem infrastructure position across sovereign instances
 - **Rooms:** ecosystems, not categories (Sleep Ecosystem, Office Ecosystem, etc.)
 - **Homepage = discovery experience** — not a separate marketing page
+
+Future homepage copy should route through `GREENROAD_MEMORY_MAP.md` before changing public positioning. ZEYODA is internal parent/foundation memory only and should not appear in public Greenroad frontend copy, SEO text, customer UI, product pages, or marketing unless Jai explicitly approves.
 
 ## Visual identity
 
@@ -114,6 +153,8 @@ Gold   = trim / buttons / reward — NOT body text on pearl or olive
 
 Greenroad must work if Mom does nothing. Her relationships are an accelerator, not an operating system.
 
+Rebecca remains the editorial and curator voice for publishable content. AI can organize and draft, but final public language should be human-edited for originality, trust, and Greenroad voice.
+
 ## Trust milestone
 
 Someone lands, reads a discovery, and thinks: **"I trust these people."**
@@ -122,12 +163,13 @@ Session 3 (Desk Plants discovery page) is the critical path. Sales follow trust.
 
 Priority 2A mobile polish is complete (`1fa3cb4`): calm orbit (`ORBIT_SPEED` 0.09, pulse 5s), mobile readability, section spacing, softer command search. Phone-test before major distribution push.
 
-**Next phase:** Priority 2B — Content System (Rebecca spreadsheet + first ecosystem guide).
+**Next phase:** Priority 2B — Memory + Operating System cleanup before sheet/MCP/site work.
 
 ## Reference
 
 - Agent handoff: `GREENROAD_MEMORY.md`
-- Zeyoda patterns (orbit, featured, wallet, search): `/Users/j/Dev/zeyoda-nextjs-091825`
+- Memory routing: `GREENROAD_MEMORY_MAP.md`
+- Internal shared ecosystem patterns (orbit, featured, wallet, search): `/Users/j/Dev/zeyoda-nextjs-091825`
 - GitHub: `https://github.com/nodrinksonthepiano/greenroadgroup6526`
 - Domain: `greenroad.group`
-- Current commit: `1fa3cb4` on `main` (pearl/olive at `4cf6e9e`)
+- Current commit: `af1060d` on `main` after custom-coin revert (pearl/olive at `4cf6e9e`; Priority 2A at `1fa3cb4`)

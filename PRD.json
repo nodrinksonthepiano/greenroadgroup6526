@@ -3,22 +3,26 @@
   "project": "Greenroad",
   "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
   "domain": "greenroad.group",
-  "updatedAt": "2026-06-08T22:00:00.000Z",
-  "currentCommit": "1fa3cb4",
+  "memoryMap": "GREENROAD_MEMORY_MAP.md",
+  "updatedAt": "2026-06-15T20:27:00.000Z",
+  "currentCommit": "af1060d",
   "activeBranch": "main",
   "vision": {
     "tagline": "We're discovering the Green Road together.",
     "subhead": "Explore practical alternatives for everyday life.",
     "primaryEntity": "discovery",
-    "positioning": "Trusted curator of sustainable living systems — field guide, not judge",
+    "positioning": "Trusted curator of everyday goods, greener systems, and custom goods — curated commerce with purpose",
     "trustMilestone": "Session 3 — Desk Plants discovery page"
   },
   "strategicEvolution": {
-    "date": "2026-06-08",
-    "shift": "From possible product-scoring concept to trusted curator of sustainable living systems",
-    "notLike": ["Wirecutter", "Consumer Reports", "Good Housekeeping", "sustainability police platform"],
-    "actLike": ["trusted field guide", "curator of signals", "system-builder for better homes and routines"],
-    "contentStrategy": "Ecosystem guides first; products are supporting evidence, not the main story"
+    "date": "2026-06-15",
+    "shift": "From ecosystem-guide-only planning to everyday goods + greener systems + custom goods, with sustainability as the north star",
+    "currentTruth": "Greenroad = everyday goods + greener systems + custom goods. Custom Goods is the money-now lane, not the whole identity. Thoughtful everyday goods are the trust/content engine.",
+    "notLike": ["Wirecutter", "Consumer Reports", "Good Housekeeping", "sustainability police platform", "Amazon-style commodity ecommerce"],
+    "actLike": ["trusted field guide", "curator of signals", "system-builder for healthier homes and routines", "curated commerce with purpose"],
+    "contentStrategy": "Ecosystem guides remain a core content engine. Products support guides as evidence; custom products can also stand alone when they are useful, proof-ready, and margin-ready.",
+    "publicBoundary": "ZEYODA is internal-only parent/foundation memory and should not appear in public Greenroad frontend copy, customer UI, SEO text, product pages, or marketing unless Jai explicitly approves.",
+    "goshbotRole": "GOSHBOT routes memory and warns about drift before the project confuses lanes."
   },
   "materialSystem": {
     "status": "live-on-main",
@@ -54,16 +58,21 @@
   },
   "nextPriority": {
     "id": "2B",
-    "name": "Content system",
+    "name": "Memory + operating system",
     "scope": [
-      "Rebecca operating spreadsheet — Products Suppliers Guides tabs",
-      "first ecosystem guide(s)",
-      "products support guides as evidence"
+      "sync docs to corrected strategy",
+      "use existing Greenroad Google Sheet as the control board",
+      "add Custom Goods / ADG tabs inside the existing sheet",
+      "sort ADG Promo On Demand products before site work",
+      "choose 5–8 starter custom offers before adding anything large to the site"
     ],
     "constraints": [
       "no homepage UI changes unless explicitly asked",
       "no scores ratings or badge language",
-      "no Stripe or new commerce rails yet"
+      "no Stripe or new commerce rails yet",
+      "do not create a separate custom goods sheet yet",
+      "do not treat Cursor as able to write Sheets until Google Sheets MCP is configured and tested",
+      "do not place ZEYODA in public Greenroad copy unless Jai explicitly approves"
     ]
   },
   "ecosystemGuides": {
@@ -78,6 +87,8 @@
     ]
   },
   "operatingSpreadsheet": {
+    "name": "AI Copy of Greenroad Group Product List 6.8.26",
+    "role": "Existing Greenroad Google Sheet is the operating control board. Do not create a separate custom goods sheet yet.",
     "tabs": [
       {
         "name": "Products",
@@ -90,9 +101,114 @@
       {
         "name": "Guides",
         "columns": ["Guide Title", "Ecosystem", "Status", "Publish Priority", "Products Needed", "Notes"]
+      },
+      {
+        "name": "Custom Goods",
+        "status": "to_add",
+        "columns": ["Category", "Product Type", "Buyer Type", "Use Case", "Supplier", "Proof Available?", "Minimum Order", "Production Time", "Sustainability Angle", "Priority", "Notes"]
+      },
+      {
+        "name": "ADG Items",
+        "status": "to_add",
+        "columns": ["Product Name", "Category", "Supplier Link", "Suggested Site Price", "Greenroad Advertised Price", "Estimated Cost", "Fee", "Shipping", "Margin", "Minimum Order", "Decoration Type", "Proof Available?", "Production Time", "Greenroad Fit", "Buyer Type", "Sustainability Angle", "Priority", "Notes"]
+      },
+      {
+        "name": "First Offers",
+        "status": "to_add",
+        "columns": ["Product Type", "Supplier", "Why First", "Buyer", "Proof Flow", "Margin Status", "Sustainability Angle", "Publish Readiness", "Notes"]
+      },
+      {
+        "name": "Questions",
+        "status": "to_add",
+        "columns": ["Question", "Status", "Answer / Notes", "Blocks"]
       }
     ]
   },
+  "workSequence": [
+    "docs first",
+    "existing sheet second",
+    "Google Sheets MCP third",
+    "site/code fourth"
+  ],
+  "activeWorkItems": [
+    {
+      "id": "memory-001",
+      "title": "Create Greenroad memory map",
+      "status": "done",
+      "priority": "critical",
+      "scope": "Created GREENROAD_MEMORY_MAP.md to route ZEYODA, Artistocks, ArtisTalks, Greenroad, GOSHBOT, operations, and shared ecosystem patterns."
+    },
+    {
+      "id": "memory-002",
+      "title": "Sync docs to corrected strategy",
+      "status": "in_progress",
+      "priority": "critical",
+      "scope": "Update AGENT_NOTES.md, GREENROAD_MEMORY.md, VOICE_AND_VISION.md, PRD.json, LAUNCH_ROADMAP.md, and SESSION_REPORT.md to everyday goods + greener systems + custom goods."
+    },
+    {
+      "id": "ops-001",
+      "title": "Use existing Google Sheet as control board",
+      "status": "todo",
+      "priority": "high",
+      "scope": "Keep Products, Suppliers, Guides, sleep eco., and OKRs; do not create a separate custom goods sheet yet."
+    },
+    {
+      "id": "sheet-001",
+      "title": "Add Custom Goods / ADG tabs to existing sheet",
+      "status": "todo",
+      "priority": "high",
+      "dependsOn": ["memory-002", "ops-001"],
+      "scope": "Add Custom Goods, ADG Items, First Offers, and Questions tabs inside the existing Greenroad control board."
+    },
+    {
+      "id": "custom-001",
+      "title": "Sort ADG Promo On Demand products",
+      "status": "todo",
+      "priority": "high",
+      "dependsOn": ["sheet-001"],
+      "scope": "Sort products by category, supplier link, pricing, cost, fee, shipping, margin, minimum order, decoration type, proof availability, production time, Greenroad fit, buyer type, sustainability angle, priority, and notes."
+    },
+    {
+      "id": "custom-002",
+      "title": "Pick 5–8 starter offers",
+      "status": "todo",
+      "priority": "high",
+      "dependsOn": ["custom-001"],
+      "scope": "Choose first custom offers before adding anything large to the site. ADG tumbler is a strong candidate/proof-preview example, not the whole strategy."
+    },
+    {
+      "id": "custom-003",
+      "title": "Define manual proof workflow",
+      "status": "todo",
+      "priority": "medium",
+      "dependsOn": ["custom-002"],
+      "scope": "Define Upload it. Preview it. Gribbit. as a manual or semi-manual proof process for MVP."
+    },
+    {
+      "id": "mcp-001",
+      "title": "Resume Google Sheets MCP after sheet structure is clear",
+      "status": "todo",
+      "priority": "medium",
+      "dependsOn": ["sheet-001"],
+      "scope": "Configure and test Google Sheets MCP before treating Cursor as able to write Sheets. Run safe Z999 write test before controlled writes."
+    },
+    {
+      "id": "site-001",
+      "title": "Later add Custom as a main category if approved",
+      "status": "todo",
+      "priority": "medium",
+      "dependsOn": ["memory-002", "custom-002"],
+      "scope": "Only after docs and sheet are coherent, consider adding Custom to site structure. Do not add full 78-item catalog."
+    },
+    {
+      "id": "commerce-001",
+      "title": "Later inquiry/proof/order flow",
+      "status": "todo",
+      "priority": "low",
+      "dependsOn": ["custom-003", "site-001"],
+      "scope": "Future flow for inquiries, proof approval, pricing, and orders. Do not build checkout or full commerce too early."
+    }
+  ],
   "sessions": [
     {
       "id": "session-1",
@@ -147,9 +263,22 @@
       "scope": "Slow orbit (0.09), 5s pulse, mobile coin text, section spacing, quieter command search — CSS only"
     },
     {
+      "id": "session-custom-revert",
+      "name": "Custom coin revert",
+      "status": "done",
+      "commit": "af1060d",
+      "scope": "Reverted custom as 7th Room/orbit coin from main. The reverted custom-goods work exists in commit fdb2169, but it is not an approved active branch/work path. Do not reuse it blindly."
+    },
+    {
+      "id": "session-memory-map",
+      "name": "Greenroad memory map",
+      "status": "done",
+      "scope": "Created GREENROAD_MEMORY_MAP.md and began syncing docs to corrected everyday goods + greener systems + custom goods strategy."
+    },
+    {
       "id": "session-7",
       "name": "Stripe",
-      "status": "todo",
+      "status": "deferred",
       "scope": "One Desk Plants SKU, webhook, first sale"
     }
   ],
@@ -164,7 +293,15 @@
     "Forest = world, Pearl = reading, Olive = labels/secondary, Gold = trim",
     "Ecosystem guides are main content engine; products support guides",
     "Pearl/olive material system live on main at 4cf6e9e",
-    "Priority 2A mobile calm polish complete at 1fa3cb4"
+    "Priority 2A mobile calm polish complete at 1fa3cb4",
+    "Greenroad = everyday goods + greener systems + custom goods",
+    "Sustainability is the north star",
+    "Custom Goods is the money-now lane, not the whole identity",
+    "Thoughtful everyday goods are the trust/content engine",
+    "Existing Greenroad Google Sheet is the control board",
+    "Do not create a separate custom goods sheet yet",
+    "ZEYODA is internal-only and should not appear in public Greenroad frontend copy unless Jai explicitly approves",
+    "GOSHBOT routes memory and warns about drift"
   ],
   "doNotBuildV1": [
     "sustainability scoring",
@@ -175,8 +312,15 @@
     "Venmo PayPal live rails",
     "full 39-SKU Desk Plants import",
     "full 13-article publish at once",
+    "full ADG catalog",
+    "proof editor",
+    "account system",
+    "TinaCMS",
+    "sub-orbits",
+    "payment or Stripe before offer/margin validation",
     "ratings",
     "certified or approved language",
-    "marketplace-first behavior"
+    "Amazon-style commodity marketplace",
+    "public ZEYODA copy on Greenroad"
   ]
 }

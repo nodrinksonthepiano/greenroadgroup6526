@@ -1,0 +1,84 @@
+{
+  "id": "pod-cruise-brite-tumbler-12oz",
+  "slug": "pod-cruise-brite-tumbler-12oz",
+  "type": "product",
+  "title": "POD Cruise Brite Tumbler 12 oz",
+  "room": "custom",
+  "system": "drinkware-tumbler",
+  "alternative_to": [
+    "Bulk-only promo tumblers with high minimums",
+    "Disposable event cups with no brand staying power",
+    "Oversized drinkware when a compact gift fits better"
+  ],
+  "featured_hook": "Compact custom drinkware, min qty 1",
+  "problem_solved": [
+    "Need a smaller custom tumbler for events and client gifts",
+    "Want logo drinkware without ordering cases",
+    "Prefer a compact size for bags and cup holders"
+  ],
+  "why_we_like_it": [
+    "12 oz laser-engraved stainless tumbler — minimum order of one",
+    "From $14.58 + $25 order fee + shipping estimate",
+    "Smaller footprint than the 20 oz Adventure Brite — good for gifts and events",
+    "Same ADG Promo on Demand workflow as the flagship tumbler"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "Search-only on Greenroad for now — Custom orbit still features the 20 oz tumbler",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item A401190PD at $14.58 each with minimum order of one",
+    "Laser engraved, powder coated stainless steel, 12 oz",
+    "ADG Promo on Demand catalog — customizable drinkware with low minimums"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Compact size fits cup holders and gift bags",
+      "Order one or many — no bulk pressure",
+      "Durable stainless construction",
+      "Clean laser engraving presentation"
+    ],
+    "criticized_for": [
+      "Smaller capacity than 20 oz tumblers",
+      "Single-unit orders can feel expensive once fees and shipping are added",
+      "Proof preview is not instant yet — manual ADG mockup for now"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD Cruise Brite Tumbler 12 oz — A401190PD — laser engraved, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "ADG search-only extra — compact drinkware option alongside flagship 20 oz tumbler"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-cruise-brite-tumbler-12oz-hero.jpg",
+  "seo_title": "Custom Logo Tumbler 12 oz — Minimum Order of One",
+  "seo_description": "POD Cruise Brite Tumbler 12 oz with laser engraving. From $14.58 + order fee + shipping estimate. Search Greenroad custom goods or inquire to start.",
+  "faqs": [
+    {
+      "q": "How is this different from the 20 oz tumbler?",
+      "a": "This is a smaller 12 oz Cruise Brite model — better for compact gifts and events. The 20 oz Adventure Brite remains the featured Custom orbit discovery."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $14.58 per tumbler, plus a $25 order fee and shipping based on your ZIP and quantity."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 14.58,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-cruise-brite-tumbler-12-oz?id=A401190PD"
+  },
+  "featured": true,
+  "published": false
+}

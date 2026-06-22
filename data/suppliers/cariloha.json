@@ -1,0 +1,14 @@
+{
+  "id": "cariloha",
+  "name": "Cariloha",
+  "location": "USA",
+  "website": "https://www.cariloha.com",
+  "relationship": "affiliate",
+  "via": null,
+  "story": "Cariloha makes bamboo bedding and bath goods with a resort-soft feel. A practical sleep upgrade when you want natural fibers without sacrificing comfort.",
+  "capabilities": [
+    "bamboo_bedding",
+    "direct_to_consumer",
+    "retail_imagery"
+  ]
+}

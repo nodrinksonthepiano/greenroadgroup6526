@@ -1,0 +1,85 @@
+{
+  "id": "ego-z6-zero-turn-mower",
+  "slug": "ego-z6-zero-turn-mower",
+  "type": "product",
+  "title": "EGO Power+ Z6 42\" Zero-Turn Mower",
+  "room": "land",
+  "system": "lawn-care",
+  "alternative_to": [
+    "Gas zero-turn mowers with fumes and maintenance",
+    "Push mowers that take all weekend on larger lawns",
+    "Outdoor power gear that ties you to fuel and oil changes"
+  ],
+  "featured_hook": "Battery power. Zero-turn precision.",
+  "problem_solved": [
+    "Large lawn but want to move off gas equipment",
+    "Need zero-turn maneuverability without engine maintenance",
+    "Want quieter mowing for neighborhoods and early mornings"
+  ],
+  "why_we_like_it": [
+    "42-inch zero-turn riding mower on EGO's 56V ARC Lithium platform",
+    "Up to 4 acres of cutting on a single charge (per manufacturer claims)",
+    "A high-impact Land discovery — makes the orbit feel unmistakably alive",
+    "Strong Instead of gas lawn care, consider battery-powered mowing story"
+  ],
+  "considerations": [
+    "Major purchase — compare deck size, runtime, and property needs",
+    "Battery charging infrastructure matters for large lawns",
+    "Not every property needs a zero-turn — match tool to lot size",
+    "Retail imagery used for MVP — confirm rights before major promotion"
+  ],
+  "evidence": [
+    "EGO ZT4214L listed as 42-inch zero-turn with 56V battery platform",
+    "EGO markets up to 4 acres per charge and zero-turn maneuverability",
+    "Battery outdoor power is a common land-stewardship upgrade path"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Quiet compared to gas mowers",
+      "Zero-turn handling on larger lots",
+      "No gas, oil, or spark plugs",
+      "Strong cut quality when batteries are charged"
+    ],
+    "criticized_for": [
+      "High upfront cost vs. entry gas mowers",
+      "Runtime limits on very large properties",
+      "Heavy unit — storage and trailer needs matter",
+      "Replacement batteries add to long-term cost"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "EGO Power+",
+      "signal": "Z6 42-inch Zero-Turn Riding Mower — ZT4214L — 56V ARC Lithium"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "First Land orbit discovery — biggest visual wow on the homepage orbit"
+    }
+  ],
+  "supplier_id": "ego-power-plus",
+  "hero_image": "/discoveries/ego-z6-zero-turn-mower-hero.jpg",
+  "seo_title": "EGO Power+ Z6 Zero-Turn Mower — Land Discovery",
+  "seo_description": "Instead of gas lawn care, consider the EGO Power+ Z6 42-inch zero-turn mower — battery-powered cutting with honest context for your land ecosystem.",
+  "faqs": [
+    {
+      "q": "How much lawn can it handle?",
+      "a": "EGO markets up to 4 acres per charge for the Z6 platform. Real-world runtime depends on grass height, terrain, and speed."
+    },
+    {
+      "q": "Is this right for my property?",
+      "a": "Zero-turn mowers shine on larger, open lawns. For small urban yards, a smaller EGO mower may be a better fit."
+    }
+  ],
+  "commerce": {
+    "bucket": "affiliate",
+    "sale_type": "affiliate_link",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": "https://egopowerplus.com/42-inch-zero-turn-riding-mower-zt4214l/",
+    "product_url": "https://egopowerplus.com/42-inch-zero-turn-riding-mower-zt4214l/"
+  },
+  "featured": true,
+  "published": false
+}

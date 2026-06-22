@@ -1,0 +1,14 @@
+{
+  "id": "purity-coffee",
+  "name": "Purity Coffee",
+  "location": "USA",
+  "website": "https://puritycoffee.com",
+  "relationship": "affiliate",
+  "via": null,
+  "story": "Purity Coffee roasts organic, low-acid coffee with a focus on antioxidant levels and clean sourcing. A strong kitchen anchor for a sustainable coffee routine.",
+  "capabilities": [
+    "organic_coffee",
+    "subscription",
+    "direct_to_consumer"
+  ]
+}

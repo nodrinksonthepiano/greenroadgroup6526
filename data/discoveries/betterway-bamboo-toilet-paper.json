@@ -1,0 +1,84 @@
+{
+  "id": "betterway-bamboo-toilet-paper",
+  "slug": "betterway-bamboo-toilet-paper",
+  "type": "product",
+  "title": "Betterway Premium Bamboo Toilet Paper",
+  "room": "bathroom",
+  "system": "hygiene",
+  "alternative_to": [
+    "Conventional bleached toilet paper",
+    "Virgin-tree pulp rolls with plastic wrap",
+    "Rough recycled paper that feels like a compromise"
+  ],
+  "featured_hook": "Unbleached bamboo, everyday swap",
+  "problem_solved": [
+    "Want a simple bathroom upgrade without a complicated routine",
+    "Prefer unbleached, tree-free paper for daily use",
+    "Looking for a brand that makes bamboo TP feel mainstream, not niche"
+  ],
+  "why_we_like_it": [
+    "Premium bamboo toilet paper in unbleached brown rolls",
+    "Straightforward swap — no new habits required",
+    "Betterway has built recognizable branding in the bamboo TP category",
+    "A practical first Bathroom discovery everyone understands immediately"
+  ],
+  "considerations": [
+    "Bamboo TP can cost more per roll than conventional brands",
+    "Texture and ply preference is personal — try a starter pack first",
+    "Subscription may be the best value — check current pricing",
+    "Retail imagery used for MVP — confirm rights before major promotion"
+  ],
+  "evidence": [
+    "Betterway Premium Bamboo rolls are marketed as unbleached and tree-free",
+    "Bamboo toilet paper is a common non-toxic home basics recommendation",
+    "Product page lists roll count, ply, and material details"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Soft enough for daily use",
+      "Unbleached look feels more natural",
+      "Easy subscription delivery",
+      "Good brand story and packaging"
+    ],
+    "criticized_for": [
+      "Higher price than store brands",
+      "Some households go through rolls faster than expected",
+      "Not everyone prefers bamboo texture over conventional ply"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "Betterway",
+      "signal": "Premium Bamboo Toilet Paper — unbleached brown rolls, tree-free"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "First Bathroom orbit discovery — classic Instead of X, consider Y swap"
+    }
+  ],
+  "supplier_id": "betterway",
+  "hero_image": "/discoveries/betterway-bamboo-toilet-paper-hero.jpg",
+  "seo_title": "Betterway Bamboo Toilet Paper — Bathroom Discovery",
+  "seo_description": "Instead of conventional bleached rolls, consider Betterway Premium Bamboo toilet paper — unbleached, tree-free, with honest context for your bathroom routine.",
+  "faqs": [
+    {
+      "q": "Is it really unbleached?",
+      "a": "Betterway markets these as unbleached bamboo rolls. Check the product page for the latest material and certification details."
+    },
+    {
+      "q": "How does it compare to regular TP?",
+      "a": "Most buyers notice a different color and feel. If you are switching households, start with a small order to compare."
+    }
+  ],
+  "commerce": {
+    "bucket": "affiliate",
+    "sale_type": "affiliate_link",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": "https://www.gobetterway.com/products/premium-bamboo-brown-rolls",
+    "product_url": "https://www.gobetterway.com/products/premium-bamboo-brown-rolls"
+  },
+  "featured": true,
+  "published": false
+}

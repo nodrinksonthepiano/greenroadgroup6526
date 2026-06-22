@@ -1,0 +1,14 @@
+{
+  "id": "betterway",
+  "name": "Betterway",
+  "location": "USA",
+  "website": "https://www.gobetterway.com",
+  "relationship": "affiliate",
+  "via": null,
+  "story": "Betterway makes unbleached bamboo toilet paper — a straightforward bathroom swap away from conventional bleached rolls.",
+  "capabilities": [
+    "bamboo_paper",
+    "subscription",
+    "direct_to_consumer"
+  ]
+}

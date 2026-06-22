@@ -1,0 +1,84 @@
+{
+  "id": "cariloha-resort-bamboo-sheets",
+  "slug": "cariloha-resort-bamboo-sheets",
+  "type": "product",
+  "title": "Cariloha Resort Bamboo Bed Sheets",
+  "room": "sleep",
+  "system": "bedding",
+  "alternative_to": [
+    "Conventional cotton sheets that run hot",
+    "Synthetic bedding that traps heat",
+    "Budget sheets that pill and fade quickly"
+  ],
+  "featured_hook": "Resort-soft sleep, bamboo cool",
+  "problem_solved": [
+    "Night sweats and overheating in bed",
+    "Wanting softer sheets without heavy synthetic blends",
+    "Looking for a natural-fiber sleep upgrade that still feels premium"
+  ],
+  "why_we_like_it": [
+    "Bamboo viscose sateen with a resort-soft hand feel",
+    "Naturally breathable and moisture-wicking for warmer sleepers",
+    "Cariloha is a known bamboo bedding brand with a clear product line",
+    "A practical first Sleep discovery — everyone understands sheets"
+  ],
+  "considerations": [
+    "Bamboo viscose is a processed fiber — not the same as raw bamboo",
+    "Premium price point compared to basic cotton sets",
+    "Care instructions matter — follow label to preserve softness",
+    "Retail imagery used for MVP — confirm rights before major promotion"
+  ],
+  "evidence": [
+    "Cariloha Resort sheets are marketed as breathable, moisture-wicking bamboo viscose sateen",
+    "Bamboo bedding is a common sleep-ecosystem upgrade in sustainable home guides",
+    "Cariloha product page lists Resort collection sizing and material details"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Soft, cool feel against skin",
+      "Helpful for people who sleep warm",
+      "Premium packaging and presentation",
+      "Holds up well with proper care"
+    ],
+    "criticized_for": [
+      "Higher cost than basic sheet sets",
+      "Some buyers prefer 100% cotton over viscose blends",
+      "Color options can sell out on popular sizes"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "Cariloha",
+      "signal": "Resort Bamboo Bed Sheets — sateen weave, breathable bamboo viscose"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "First Sleep orbit discovery — sheets are an immediate, understandable upgrade"
+    }
+  ],
+  "supplier_id": "cariloha",
+  "hero_image": "/discoveries/cariloha-resort-bamboo-sheets-hero.jpg",
+  "seo_title": "Cariloha Resort Bamboo Bed Sheets — Sleep Discovery",
+  "seo_description": "Instead of conventional cotton, consider Cariloha Resort bamboo bed sheets — breathable, resort-soft bedding with honest context for your sleep ecosystem.",
+  "faqs": [
+    {
+      "q": "Are these good for hot sleepers?",
+      "a": "Many buyers choose bamboo bedding for breathability and a cooler feel. Individual results vary by climate, bedding layers, and personal preference."
+    },
+    {
+      "q": "What material are they?",
+      "a": "Cariloha Resort sheets are bamboo viscose in a sateen weave. Check the product page for the latest material and care details."
+    }
+  ],
+  "commerce": {
+    "bucket": "affiliate",
+    "sale_type": "affiliate_link",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": "https://www.cariloha.com/resort-bamboo-bed-sheets",
+    "product_url": "https://www.cariloha.com/resort-bamboo-bed-sheets"
+  },
+  "featured": true,
+  "published": false
+}

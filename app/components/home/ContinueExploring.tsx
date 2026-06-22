@@ -1,22 +1,22 @@
 import type { Room } from "@/data/types/discovery";
 
-const PLACEHOLDER_DISCOVERIES: {
+const EXPLORE_CARDS: {
   ecosystem: Room;
   ecosystemLabel: string;
   title: string;
   teaser: string;
 }[] = [
   {
+    ecosystem: "sleep",
+    ecosystemLabel: "Sleep Ecosystem",
+    title: "Cariloha Resort Bamboo Sheets",
+    teaser: "Instead of conventional cotton, consider bamboo cool.",
+  },
+  {
     ecosystem: "bathroom",
     ecosystemLabel: "Bathroom Ecosystem",
     title: "Betterway Bamboo TP",
     teaser: "Instead of conventional bleached rolls, consider bamboo.",
-  },
-  {
-    ecosystem: "office",
-    ecosystemLabel: "Office Ecosystem",
-    title: "NorbSMILE Full Spectrum Light",
-    teaser: "Instead of harsh office lighting, consider sunlike spectrum.",
   },
   {
     ecosystem: "land",
@@ -37,7 +37,7 @@ export function ContinueExploring({ onExplore }: ContinueExploringProps) {
       <p className="home-section-subtitle">More along the Green Road.</p>
 
       <div className="continue-exploring__grid">
-        {PLACEHOLDER_DISCOVERIES.map((item) => (
+        {EXPLORE_CARDS.map((item) => (
           <button
             key={item.title}
             type="button"
@@ -49,7 +49,7 @@ export function ContinueExploring({ onExplore }: ContinueExploringProps) {
             </p>
             <h3 className="continue-exploring__card-title">{item.title}</h3>
             <p className="continue-exploring__card-teaser">{item.teaser}</p>
-            <span className="continue-exploring__card-soon">Coming soon</span>
+            <span className="continue-exploring__card-cta">Explore</span>
           </button>
         ))}
       </div>

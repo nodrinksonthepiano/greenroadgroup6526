@@ -1,0 +1,14 @@
+{
+  "id": "ego-power-plus",
+  "name": "EGO Power+",
+  "location": "USA",
+  "website": "https://egopowerplus.com",
+  "relationship": "affiliate",
+  "via": null,
+  "story": "EGO Power+ builds battery-powered outdoor equipment — including zero-turn mowers — for homeowners who want to move off gas without giving up performance.",
+  "capabilities": [
+    "battery_outdoor_power",
+    "zero_turn_mowers",
+    "retail_imagery"
+  ]
+}

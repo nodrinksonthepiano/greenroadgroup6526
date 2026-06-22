@@ -620,7 +620,8 @@
   line-height: 1.45;
 }
 
-.continue-exploring__card-soon {
+.continue-exploring__card-soon,
+.continue-exploring__card-cta {
   display: inline-block;
   margin-top: var(--space-3);
   font-size: var(--text-xs);
@@ -804,7 +805,8 @@
   }
 
   .continue-exploring__card-ecosystem,
-  .continue-exploring__card-soon {
+  .continue-exploring__card-soon,
+  .continue-exploring__card-cta {
     font-size: 0.8125rem;
   }
 

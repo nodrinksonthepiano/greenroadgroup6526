@@ -1,0 +1,84 @@
+{
+  "id": "pod-accent-mug-full-color-11oz",
+  "slug": "pod-accent-mug-full-color-11oz",
+  "type": "product",
+  "title": "POD Accent Mug Full Color 11 oz",
+  "room": "custom",
+  "system": "drinkware-mug",
+  "alternative_to": [
+    "Generic promo mugs nobody keeps",
+    "Bulk-only custom mugs with high minimums",
+    "Low-quality ceramic that chips in the dishwasher"
+  ],
+  "featured_hook": "Full-color mug, min qty 1",
+  "problem_solved": [
+    "Want branded mugs for teams, events, or client gifts",
+    "Need full-color logo presentation on drinkware",
+    "Prefer minimum order of one for testing designs"
+  ],
+  "why_we_like_it": [
+    "11 oz ceramic mug with full-color print — minimum order of one",
+    "From $7.92 + $25 order fee + shipping estimate",
+    "Useful desk-and-kitchen gift that people actually use",
+    "Expands custom goods beyond tumblers for search discovery"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "Search-only on Greenroad for now — Custom orbit still features the 20 oz tumbler",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item AHDACNTPD at $7.92 each with minimum order of one",
+    "Full-color print on 11 oz ceramic mug",
+    "ADG Promo on Demand catalog — customizable drinkware with low minimums"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Affordable entry point for custom merch",
+      "Full-color logos show well on white ceramic",
+      "Order one to test art before a larger run",
+      "Familiar mug format for office and home"
+    ],
+    "criticized_for": [
+      "Ceramic mugs are less durable than stainless tumblers for travel",
+      "Single-unit orders can feel expensive once fees and shipping are added",
+      "Proof preview is not instant yet — manual ADG mockup for now"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD Accent Mug Full Color 11 oz — AHDACNTPD — full-color print, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "ADG search-only extra — mug option for teams who want desk drinkware"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-accent-mug-full-color-11oz-hero.jpg",
+  "seo_title": "Custom Full-Color Mug 11 oz — Minimum Order of One",
+  "seo_description": "POD Accent Mug Full Color 11 oz. From $7.92 + order fee + shipping estimate. Search Greenroad custom goods or inquire to start.",
+  "faqs": [
+    {
+      "q": "Is this dishwasher safe?",
+      "a": "Check ADG product specs for the latest care guidance. Many promo mugs are top-rack dishwasher safe — confirm on the product page."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $7.92 per mug, plus a $25 order fee and shipping based on your ZIP and quantity."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 7.92,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-accent-mug-full-color-11-oz?id=AHDACNTPD"
+  },
+  "featured": true,
+  "published": false
+}

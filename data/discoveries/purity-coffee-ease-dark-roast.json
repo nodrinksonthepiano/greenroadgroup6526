@@ -1,0 +1,84 @@
+{
+  "id": "purity-coffee-ease-dark-roast",
+  "slug": "purity-coffee-ease-dark-roast",
+  "type": "product",
+  "title": "Purity Coffee EASE Dark Roast",
+  "room": "kitchen",
+  "system": "coffee",
+  "alternative_to": [
+    "Conventional dark roast with unclear sourcing",
+    "Low-quality grocery coffee that sits on shelves for months",
+    "High-acid coffee that bothers sensitive stomachs"
+  ],
+  "featured_hook": "Clean dark roast for daily mornings",
+  "problem_solved": [
+    "Want better morning coffee without guessing at sourcing",
+    "Sensitive to acidic coffee but still prefer a dark roast",
+    "Looking for an organic option that fits a sustainable kitchen routine"
+  ],
+  "why_we_like_it": [
+    "Organic, low-acid dark roast positioned for antioxidant levels",
+    "Whole-bean format for fresher grinding at home",
+    "Clear brand story around health-conscious coffee drinkers",
+    "Strong Kitchen anchor — coffee is a daily ritual people already care about"
+  ],
+  "considerations": [
+    "Premium price vs. mass-market coffee",
+    "Subscription model may be a better value — check current offers",
+    "Taste is subjective — dark roast fans should expect a bold profile",
+    "Retail imagery used for MVP — confirm rights before major promotion"
+  ],
+  "evidence": [
+    "Purity Coffee EASE line is marketed as low-acid, organic, and antioxidant-focused",
+    "Dark roast whole-bean SKU listed on puritycoffee.com with subscription options",
+    "Sustainable coffee ecosystem guides often start with sourcing and daily ritual upgrades"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Easier on the stomach than many dark roasts",
+      "Consistent quality batch to batch",
+      "Good fit for health-conscious coffee routines",
+      "Subscription convenience"
+    ],
+    "criticized_for": [
+      "More expensive than grocery-store coffee",
+      "Not everyone loves the low-acid flavor profile",
+      "Whole bean requires a grinder at home"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "Purity Coffee",
+      "signal": "EASE Dark Roast — organic, low-acid whole-bean coffee"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "First Kitchen orbit discovery — coffee anchors the sustainable kitchen story"
+    }
+  ],
+  "supplier_id": "purity-coffee",
+  "hero_image": "/discoveries/purity-coffee-ease-dark-roast-hero.jpg",
+  "seo_title": "Purity Coffee EASE Dark Roast — Kitchen Discovery",
+  "seo_description": "Instead of conventional dark roast, consider Purity Coffee EASE — organic, low-acid whole-bean coffee with honest context for your kitchen routine.",
+  "faqs": [
+    {
+      "q": "Is this low acid?",
+      "a": "Purity markets the EASE line as low-acid. If acidity is a concern, start with their guidance and consider how you brew."
+    },
+    {
+      "q": "Whole bean or ground?",
+      "a": "This discovery points to the whole-bean dark roast SKU. Grind fresh for best flavor."
+    }
+  ],
+  "commerce": {
+    "bucket": "affiliate",
+    "sale_type": "affiliate_link",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": "https://puritycoffee.com/products/dark-roast-whole-bean-coffee",
+    "product_url": "https://puritycoffee.com/products/dark-roast-whole-bean-coffee"
+  },
+  "featured": true,
+  "published": false
+}

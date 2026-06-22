@@ -1,0 +1,85 @@
+{
+  "id": "pod-adult-fleece-hoodie-full-color",
+  "slug": "pod-adult-fleece-hoodie-full-color",
+  "type": "product",
+  "title": "POD Adult Fleece Hoodie Full Color",
+  "room": "custom",
+  "system": "apparel-hoodie",
+  "alternative_to": [
+    "Bulk-only custom hoodies with high minimums",
+    "Cheap event apparel that shrinks or fades",
+    "Generic swag nobody wears after the conference"
+  ],
+  "featured_hook": "Full-color hoodie, min qty 1",
+  "problem_solved": [
+    "Teams want branded apparel without ordering dozens",
+    "Event merch that people wear after the event",
+    "Need full-color logo presentation on fleece"
+  ],
+  "why_we_like_it": [
+    "Adult fleece hoodie with full-color print — minimum order of one",
+    "From $37.00 + $25 order fee + shipping estimate",
+    "Apparel expands custom goods beyond drinkware",
+    "Useful for teams, schools, events, and employee gifts"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "Search-only on Greenroad for now — Custom orbit still features the 20 oz tumbler",
+    "Sizing and fit vary — confirm size chart before ordering",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item WM401639FCPD at $37.00 each with minimum order of one",
+    "Full-color print on adult fleece hoodie",
+    "ADG Promo on Demand catalog — customizable apparel with low minimums"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Order one to sample quality before a team run",
+      "Full-color logos work well on fleece",
+      "Practical apparel people actually wear",
+      "Good for events, schools, and employee gifts"
+    ],
+    "criticized_for": [
+      "Higher unit cost than drinkware once fees and shipping are added",
+      "Fit varies by brand — check size chart",
+      "Proof preview is not instant yet — manual ADG mockup for now"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD Adult Fleece Hoodie Full Color — WM401639FCPD — full-color print, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "ADG search-only extra — apparel option for teams beyond drinkware"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-adult-fleece-hoodie-full-color-hero.jpg",
+  "seo_title": "Custom Full-Color Hoodie — Minimum Order of One",
+  "seo_description": "POD Adult Fleece Hoodie Full Color. From $37.00 + order fee + shipping estimate. Search Greenroad custom goods or inquire to start.",
+  "faqs": [
+    {
+      "q": "Can I order just one hoodie?",
+      "a": "Yes. Through ADG Promo on Demand, the minimum order for this hoodie is one unit."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $37.00 per hoodie, plus a $25 order fee and shipping based on your ZIP and quantity."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 37.0,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-adult-fleece-hoodie-full-color?id=WM401639FCPD"
+  },
+  "featured": true,
+  "published": false
+}

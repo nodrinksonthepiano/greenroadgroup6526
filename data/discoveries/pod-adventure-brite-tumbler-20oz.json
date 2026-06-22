@@ -1,0 +1,88 @@
+{
+  "id": "pod-adventure-brite-tumbler-20oz",
+  "slug": "pod-adventure-brite-tumbler-20oz",
+  "type": "product",
+  "title": "POD Adventure Brite Stainless Tumbler 20 oz",
+  "room": "custom",
+  "system": "drinkware-tumbler",
+  "alternative_to": [
+    "Generic promo tumblers nobody keeps",
+    "Bulk-only custom drinkware with high minimums",
+    "Disposable event cups with no brand staying power"
+  ],
+  "featured_hook": "Upload it. Preview it. Gribbit.",
+  "problem_solved": [
+    "Companies want logo drinkware without bulk minimums",
+    "Event merch that people actually use after the event",
+    "Client and employee gifts that feel durable, not disposable"
+  ],
+  "why_we_like_it": [
+    "Laser-engraved 20 oz stainless tumbler — minimum order of one",
+    "From $15.83 + $25 order fee + shipping estimate",
+    "Powder coated stainless steel, ready to ship in about 4 business days",
+    "Useful for small businesses, events, and personalized gifts"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "Future Greenroad live proof builder desired; ADG proof/mockup still needed before production",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item A401191PD at $15.83 each with minimum order of one",
+    "Laser engraved, powder coated stainless steel, 20 oz, Made in the USA",
+    "ADG Promo on Demand catalog includes 79 customizable items with low minimums"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Order one or many — no bulk pressure",
+      "Durable drinkware people keep and use daily",
+      "Strong fit for company gifts, events, and client appreciation",
+      "Laser engraving gives a clean, premium logo presentation"
+    ],
+    "criticized_for": [
+      "Single-unit orders can feel expensive once setup fee and shipping are added",
+      "Proof preview is not instant yet — manual ADG mockup for now",
+      "Full shop checkout is not live on Greenroad yet — inquire to start"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD Adventure Brite Stainless Tumbler 20 oz — A401191PD — laser engraved, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "First custom goods discovery — tumbler-first, honest pricing, inquiry-only MVP"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-adventure-brite-tumbler-20oz-hero.jpg",
+  "seo_title": "Custom Logo Tumbler — Minimum Order of One",
+  "seo_description": "POD Adventure Brite Stainless Tumbler 20 oz with laser engraving. From $15.83 + order fee + shipping estimate. Upload it. Preview it. Gribbit. Rebecca: refine this description.",
+  "faqs": [
+    {
+      "q": "Can I really order just one?",
+      "a": "Yes. Through ADG Promo on Demand, the minimum order for this tumbler is one unit."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $15.83 per tumbler, plus a $25 order fee and shipping based on your ZIP and quantity. We confirm the full estimate before production."
+    },
+    {
+      "q": "How does proof work?",
+      "a": "Upload your art or logo with your inquiry. ADG provides a mockup before production. A live Greenroad preview builder is planned, but not live yet."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 15.83,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-adventure-brite-stainless-tumbler-20-oz?id=A401191PD"
+  },
+  "featured": true,
+  "published": false
+}

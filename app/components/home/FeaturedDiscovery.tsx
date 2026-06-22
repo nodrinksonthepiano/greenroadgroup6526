@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
@@ -21,16 +21,21 @@ export type FeaturedViewProps =
 
 function HeroImage({ discovery }: { discovery: Discovery }) {
   const [imgError, setImgError] = useState(false);
+  const ecosystem = getEcosystem(discovery.room);
+
+  useEffect(() => {
+    setImgError(false);
+  }, [discovery.id, discovery.hero_image]);
 
   if (imgError) {
     return (
       <div className="featured-discovery__hero-media featured-discovery__hero-media--fallback">
         <div className="featured-discovery__hero-fallback" aria-hidden>
           <span className="featured-discovery__hero-fallback-title">
-            Desk Plants
+            {discovery.title}
           </span>
           <span className="featured-discovery__hero-fallback-sub">
-            Office Ecosystem
+            {ecosystem?.tagline ?? "Discovery"}
           </span>
         </div>
       </div>
@@ -92,9 +97,9 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
   return (
     <article className="featured-discovery">
       <div className="featured-discovery__hero">
-        <HeroImage discovery={discovery} />
+        <HeroImage key={discovery.id} discovery={discovery} />
         <span className="featured-discovery__ecosystem-badge">
-          {ecosystem?.tagline ?? "Office Ecosystem"}
+          {ecosystem?.tagline ?? "Discovery"}
         </span>
       </div>
       <div className="featured-discovery__body">

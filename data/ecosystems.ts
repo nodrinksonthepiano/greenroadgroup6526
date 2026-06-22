@@ -51,6 +51,13 @@ export const ECOSYSTEMS: Ecosystem[] = [
     coming_into_view:
       "We're collecting discoveries we can grow together — local makers, gatherings, and shared Green Road stories.",
   },
+  {
+    id: "custom",
+    label: "Custom",
+    tagline: "Custom Goods",
+    coming_into_view:
+      "Custom merch and thoughtful everyday goods — grouped in one place. Upload it. Preview it. Gribbit.",
+  },
 ];
 
 export function getEcosystem(id: Room): Ecosystem | undefined {

@@ -1,0 +1,16 @@
+{
+  "id": "adg-promo",
+  "name": "ADG Promo",
+  "location": "USA",
+  "website": "https://www.adgpromo.com",
+  "relationship": "direct",
+  "via": null,
+  "story": "ADG Promo offers promo-on-demand with minimum order of one. Greenroad's custom goods supplier for tumblers, drinkware, apparel, journals, and more.",
+  "capabilities": [
+    "promo_on_demand",
+    "minimum_order_one",
+    "laser_engraving",
+    "full_color_print",
+    "proof_preview"
+  ]
+}

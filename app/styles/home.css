@@ -130,6 +130,43 @@
   padding: 0;
 }
 
+.home-header__brand {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.home-header__brand-frame {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-lion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.18);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.home-header__brand:hover .home-header__brand-frame {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.28);
+}
+
+/* Logo PNG is a circle on a tall transparent canvas — crop/position for optical center */
+.greenroad-logo-mark {
+  width: 148%;
+  height: 148%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 36%;
+}
+
 .home-main {
   position: relative;
   z-index: 1;
@@ -537,12 +574,6 @@ html:has(body.carousel-scroll-lock) {
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
-}
-
-.greenroad-wallet__logo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .greenroad-wallet__panel {

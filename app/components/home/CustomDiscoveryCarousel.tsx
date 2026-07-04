@@ -352,8 +352,8 @@ export function CustomDiscoveryCarousel({
       const next = wrapIndex(base + dir, count);
 
       lockBodyScroll();
-      // Next (dir +1) completes at p=-1; previous (dir -1) at p=+1.
-      await runSnapTo(dir > 0 ? -1 : 1);
+      // Next (dir +1) completes at p=+1; previous (dir -1) at p=-1 (Zeyoda convention).
+      await runSnapTo(dir > 0 ? +1 : -1);
       writeFrame();
       effectiveIndexRef.current = next;
       setEffectiveIndex(next);
@@ -427,7 +427,7 @@ export function CustomDiscoveryCarousel({
         return;
       }
 
-      const dir = s > 0 ? -1 : 1;
+      const dir = s > 0 ? +1 : -1;
       await commitIndex(dir);
     },
     [

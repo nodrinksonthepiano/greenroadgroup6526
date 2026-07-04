@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
@@ -167,6 +169,18 @@ export function HomePage({ discovery }: HomePageProps) {
             <GreenroadWallet onJoinClick={scrollToJoin} />
           </div>
           <StoryBanner />
+          <Link href="/" className="home-header__brand" aria-label="Greenroad">
+            <span className="home-header__brand-frame" aria-hidden>
+              <Image
+                src="/greenroadgrouplogo6226.png"
+                alt=""
+                width={28}
+                height={28}
+                className="greenroad-logo-mark"
+                priority
+              />
+            </span>
+          </Link>
         </div>
       </header>
 

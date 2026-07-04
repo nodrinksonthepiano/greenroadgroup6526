@@ -25,7 +25,7 @@ export function GreenroadWallet({ onJoinClick }: GreenroadWalletProps) {
             alt=""
             width={18}
             height={18}
-            className="greenroad-wallet__logo"
+            className="greenroad-logo-mark"
           />
         </span>
         <span>Your Green Road</span>

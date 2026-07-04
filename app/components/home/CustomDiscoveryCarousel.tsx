@@ -21,6 +21,33 @@ const COMMIT_GUARD_MS = 180;
 const VISIBLE_PEEK = 0.44;
 const SCALE_ANCHORS = [1.0, 0.5, 0.25, 0.125] as const;
 
+/**
+ * Progress convention for the 3-layer offset model (rel = offset + p):
+ *   offset -1 = previous peek (above), 0 = hero, +1 = next peek (below)
+ *   p < 0 → next item rising from below (offset +1 → center at p = -1)
+ *   p > 0 → previous item lowering from above (offset -1 → center at p = +1)
+ *
+ * Touch uses startY - y (swipe down → negative p → next).
+ * Wheel uses -deltaY (scroll down → negative p → next).
+ */
+function progressFromTouchPixels(startY: number, y: number): number {
+  return (startY - y) / (THRESHOLD_PX * DRAG_SLOWDOWN);
+}
+
+function progressDeltaFromWheel(deltaY: number): number {
+  return -deltaY / (THRESHOLD_PX * DRAG_SLOWDOWN);
+}
+
+function directionFromSignedProgress(s: number): number {
+  if (s < 0) return +1;
+  if (s > 0) return -1;
+  return 0;
+}
+
+function snapTargetForDirection(dir: number): number {
+  return dir > 0 ? -1 : +1;
+}
+
 function roundPx(v: number): number {
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
   return Math.round(v * dpr) / dpr;
@@ -352,8 +379,7 @@ export function CustomDiscoveryCarousel({
       const next = wrapIndex(base + dir, count);
 
       lockBodyScroll();
-      // Swipe down (positive p) → next; swipe up → previous. Snap completes at p=±1.
-      await runSnapTo(dir > 0 ? +1 : -1);
+      await runSnapTo(snapTargetForDirection(dir));
       writeFrame();
       effectiveIndexRef.current = next;
       setEffectiveIndex(next);
@@ -427,7 +453,16 @@ export function CustomDiscoveryCarousel({
         return;
       }
 
-      const dir = s > 0 ? +1 : -1;
+      const dir = directionFromSignedProgress(s);
+      if (dir === 0) {
+        lockBodyScroll();
+        await runSnapTo(0);
+        snappingRef.current = false;
+        snapLockRef.current = false;
+        unlockBodyScroll();
+        onSnapSettled?.();
+        return;
+      }
       await commitIndex(dir);
     },
     [
@@ -455,20 +490,20 @@ export function CustomDiscoveryCarousel({
     [startLoop],
   );
 
-  /** Touch: set progress from total displacement since gesture start (Zeyoda-style). */
+  /** Touch: absolute displacement since gesture start. */
   const applyTouchDisplacement = useCallback(
-    (displacementY: number, dt: number) => {
-      const raw = displacementY / (THRESHOLD_PX * DRAG_SLOWDOWN);
+    (startY: number, y: number, dt: number) => {
+      const raw = progressFromTouchPixels(startY, y);
       const next = capProgress(raw);
       setProgressFromGesture(next, dt);
     },
     [setProgressFromGesture],
   );
 
-  /** Wheel: accumulate incremental deltas between events. */
+  /** Wheel: incremental delta per event. */
   const applyWheelDelta = useCallback(
     (deltaY: number, dt: number) => {
-      const delta = deltaY / (THRESHOLD_PX * DRAG_SLOWDOWN);
+      const delta = progressDeltaFromWheel(deltaY);
       const next = capProgress(progressRef.current + delta);
       setProgressFromGesture(next, dt);
     },
@@ -513,7 +548,7 @@ export function CustomDiscoveryCarousel({
       e.preventDefault();
       const now = performance.now();
       const dt = Math.max(0.008, Math.min(0.08, (now - lastTsRef.current) * 0.001));
-      applyTouchDisplacement(y - startYRef.current, dt);
+      applyTouchDisplacement(startYRef.current, y, dt);
     },
     [applyTouchDisplacement, count, lockBodyScroll],
   );
@@ -554,7 +589,7 @@ export function CustomDiscoveryCarousel({
       const now = performance.now();
       const dt = Math.max(0.008, Math.min(0.08, (now - lastTsRef.current) * 0.001));
       if (Math.abs(e.deltaY) >= 2) {
-        applyWheelDelta(-e.deltaY, dt);
+        applyWheelDelta(e.deltaY, dt);
       }
       if (wheelIdleTimerRef.current) window.clearTimeout(wheelIdleTimerRef.current);
       wheelIdleTimerRef.current = window.setTimeout(() => {

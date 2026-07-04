@@ -352,7 +352,7 @@ export function CustomDiscoveryCarousel({
       const next = wrapIndex(base + dir, count);
 
       lockBodyScroll();
-      // Next (dir +1) completes at p=+1; previous (dir -1) at p=-1 (Zeyoda convention).
+      // Swipe down (positive p) → next; swipe up → previous. Snap completes at p=±1.
       await runSnapTo(dir > 0 ? +1 : -1);
       writeFrame();
       effectiveIndexRef.current = next;
@@ -513,7 +513,7 @@ export function CustomDiscoveryCarousel({
       e.preventDefault();
       const now = performance.now();
       const dt = Math.max(0.008, Math.min(0.08, (now - lastTsRef.current) * 0.001));
-      applyTouchDisplacement(startYRef.current - y, dt);
+      applyTouchDisplacement(y - startYRef.current, dt);
     },
     [applyTouchDisplacement, count, lockBodyScroll],
   );
@@ -554,7 +554,7 @@ export function CustomDiscoveryCarousel({
       const now = performance.now();
       const dt = Math.max(0.008, Math.min(0.08, (now - lastTsRef.current) * 0.001));
       if (Math.abs(e.deltaY) >= 2) {
-        applyWheelDelta(-e.deltaY, dt);
+        applyWheelDelta(e.deltaY, dt);
       }
       if (wheelIdleTimerRef.current) window.clearTimeout(wheelIdleTimerRef.current);
       wheelIdleTimerRef.current = window.setTimeout(() => {

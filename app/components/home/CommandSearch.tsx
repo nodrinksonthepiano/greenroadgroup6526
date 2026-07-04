@@ -52,14 +52,14 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
         className="command-search"
         aria-label="Explore and join"
       >
-        <div className="command-search__inner">
-          <div className="command-search__mode-row">
-            <label className="command-search__label" htmlFor="greenroad-command">
-              {mode === "explore"
-                ? "Explore discoveries"
-                : "Begin your Green Road"}
-            </label>
-            {mode === "join" && (
+        <div
+          className={`command-search__inner${mode === "explore" ? " command-search__inner--explore" : ""}`}
+        >
+          {mode === "join" && (
+            <div className="command-search__mode-row">
+              <label className="command-search__label" htmlFor="greenroad-command">
+                Begin your Green Road
+              </label>
               <button
                 type="button"
                 className="command-search__mode-back"
@@ -70,8 +70,8 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
               >
                 ← Explore
               </button>
-            )}
-          </div>
+            </div>
+          )}
 
           <input
             ref={inputRef}
@@ -120,11 +120,11 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
             </ul>
           )}
 
-          <p className="command-search__hint">
-            {mode === "explore"
-              ? "Explore · learn · buy"
-              : "Email saves your path (coming soon)"}
-          </p>
+          {mode === "join" && (
+            <p className="command-search__hint">
+              Email saves your path (coming soon)
+            </p>
+          )}
         </div>
       </footer>
     );

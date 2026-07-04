@@ -52,6 +52,42 @@ export function getDiscoveryForEcosystem(
   return discoveries.find((d) => d.room === ecosystem);
 }
 
+/** All discoveries for a room, in DISCOVERY_SLUGS load order. */
+export function getDiscoveriesForEcosystem(
+  ecosystem: Room,
+  discoveries: Discovery[] = getAllDiscoveries(),
+): Discovery[] {
+  return discoveries.filter((d) => d.room === ecosystem);
+}
+
+const CUSTOM_QUOTE_EMAIL = "hello@greenroad.group";
+
+export function buildCustomQuoteMailto(discovery: Discovery): string {
+  const subject = encodeURIComponent(`Custom Quote Request: ${discovery.title}`);
+  const body = encodeURIComponent(
+    [
+      "Hi Greenroad,",
+      "",
+      "I'd like a custom quote for:",
+      "",
+      `Product: ${discovery.title}`,
+      "Quantity: ",
+      "Need-by date: ",
+      "Notes: ",
+      "",
+    ].join("\n"),
+  );
+  return `mailto:${CUSTOM_QUOTE_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+export function getCustomProductIndex(
+  slug: string,
+  discoveries: Discovery[] = getDiscoveriesForEcosystem("custom"),
+): number {
+  const idx = discoveries.findIndex((d) => d.slug === slug);
+  return idx >= 0 ? idx : 0;
+}
+
 export type FeaturedView =
   | { mode: "discovery"; discovery: Discovery }
   | { mode: "coming-into-view"; ecosystem: Room };

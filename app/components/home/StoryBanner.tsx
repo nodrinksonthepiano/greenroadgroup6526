@@ -2,10 +2,10 @@
 
 export function StoryBanner() {
   return (
-    <header className="story-banner">
+    <div className="story-banner">
       <p className="story-banner__text">
         We&apos;re discovering the Green Road together.
       </p>
-    </header>
+    </div>
   );
 }

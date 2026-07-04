@@ -1,13 +1,19 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
-import { resolveFeaturedView } from "@/data/discoverySearch";
+import {
+  resolveFeaturedView,
+  getDiscoveriesForEcosystem,
+  getCustomProductIndex,
+} from "@/data/discoverySearch";
+import { getRoomBackground } from "@/data/roomBackgrounds";
 import { StoryBanner } from "./StoryBanner";
 import { GreenroadWallet } from "./GreenroadWallet";
 import { OvalGlowBackdrop } from "./OvalGlowBackdrop";
 import { FeaturedDiscovery } from "./FeaturedDiscovery";
+import { CustomGoodsStation } from "./CustomGoodsStation";
 import { EcosystemOrbitRenderer } from "./EcosystemOrbitRenderer";
 import { DiscoveryAccordions } from "./DiscoveryAccordions";
 import { ContinueExploring } from "./ContinueExploring";
@@ -28,12 +34,29 @@ export function HomePage({ discovery }: HomePageProps) {
   const [pinnedDiscovery, setPinnedDiscovery] = useState<Discovery | null>(
     null,
   );
+  const [customIndex, setCustomIndex] = useState(0);
+
+  const customProducts = useMemo(
+    () => getDiscoveriesForEcosystem("custom"),
+    [],
+  );
 
   const contextRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLElement>(null);
   const stageCenterRef = useRef<HTMLDivElement>(null);
   const isOrbitAnimationPaused = useRef(false);
   const commandRef = useRef<CommandSearchHandle>(null);
+
+  const handleCustomIndexChange = useCallback(
+    (index: number) => {
+      const clamped = Math.max(0, Math.min(customProducts.length - 1, index));
+      setCustomIndex(clamped);
+      setPinnedDiscovery(
+        clamped === 0 ? null : customProducts[clamped] ?? null,
+      );
+    },
+    [customProducts],
+  );
 
   const featuredView = useMemo(
     () =>
@@ -43,6 +66,27 @@ export function HomePage({ discovery }: HomePageProps) {
 
   const accordionDiscovery =
     featuredView.mode === "discovery" ? featuredView.discovery : discovery;
+
+  const isCustomMode = activeEcosystem === "custom";
+
+  useEffect(() => {
+    if (!isCustomMode || pinnedDiscovery) return;
+    if (!searchQuery.trim()) {
+      setCustomIndex(0);
+      return;
+    }
+    if (featuredView.mode !== "discovery") return;
+    const { discovery: d } = featuredView;
+    if (d.room === "custom") {
+      setCustomIndex(getCustomProductIndex(d.slug, customProducts));
+    }
+  }, [
+    isCustomMode,
+    searchQuery,
+    pinnedDiscovery,
+    featuredView,
+    customProducts,
+  ]);
 
   const scrollToContext = useCallback(() => {
     contextRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -55,19 +99,31 @@ export function HomePage({ discovery }: HomePageProps) {
     window.setTimeout(() => commandRef.current?.focusEmail(), 400);
   }, []);
 
-  const handleEcosystemSelect = useCallback((room: Room) => {
-    setActiveEcosystem(room);
-    setPinnedDiscovery(null);
-    setSearchQuery("");
-    stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, []);
+  const handleEcosystemSelect = useCallback(
+    (room: Room) => {
+      setActiveEcosystem(room);
+      setPinnedDiscovery(null);
+      setSearchQuery("");
+      if (room === "custom") {
+        setCustomIndex(0);
+      }
+      stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    },
+    [],
+  );
 
-  const handleSearchSelect = useCallback((d: Discovery) => {
-    setPinnedDiscovery(d);
-    setActiveEcosystem(d.room);
-    setSearchQuery(d.title);
-    stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, []);
+  const handleSearchSelect = useCallback(
+    (d: Discovery) => {
+      setPinnedDiscovery(d);
+      setActiveEcosystem(d.room);
+      setSearchQuery(d.title);
+      if (d.room === "custom") {
+        setCustomIndex(getCustomProductIndex(d.slug, customProducts));
+      }
+      stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    },
+    [customProducts],
+  );
 
   const handleContinueExplore = useCallback((room: Room) => {
     setActiveEcosystem(room);
@@ -76,43 +132,73 @@ export function HomePage({ discovery }: HomePageProps) {
     stageRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, []);
 
+  const featuredDiscoveryNode =
+    featuredView.mode === "discovery" ? (
+      <FeaturedDiscovery
+        mode="discovery"
+        discovery={featuredView.discovery}
+        onLearnMore={scrollToContext}
+        onJoin={scrollToJoin}
+      />
+    ) : (
+      <FeaturedDiscovery
+        mode="coming-into-view"
+        ecosystem={featuredView.ecosystem}
+        onJoin={scrollToJoin}
+      />
+    );
+
   return (
     <div className="home-page">
+      <div className="room-backdrop" aria-hidden>
+        <div
+          className="room-backdrop__image"
+          style={{
+            backgroundImage: `url("${getRoomBackground(activeEcosystem)}")`,
+          }}
+        />
+        <div className="room-backdrop__scrim" />
+        <div className="room-backdrop__bookend room-backdrop__bookend--top" />
+        <div className="room-backdrop__bookend room-backdrop__bookend--bottom" />
+      </div>
       <header className="home-header">
-        <div className="home-header__toolbar">
-          <GreenroadWallet onJoinClick={scrollToJoin} />
+        <div className="home-header__topbar">
+          <div className="home-header__toolbar">
+            <GreenroadWallet onJoinClick={scrollToJoin} />
+          </div>
+          <StoryBanner />
         </div>
-        <StoryBanner />
       </header>
 
       <div className="home-main">
         <section
           ref={stageRef}
-          className="discovery-stage"
+          className={`discovery-stage${isCustomMode ? " discovery-stage--custom" : ""}`}
           aria-label="Featured discovery and ecosystems"
         >
-          <div ref={stageCenterRef} className="discovery-stage__frame">
+          <div
+            ref={stageCenterRef}
+            className={`discovery-stage__frame${isCustomMode ? " discovery-stage__frame--custom" : ""}`}
+          >
             <OvalGlowBackdrop
               containerRef={stageCenterRef}
               intensity={0.88}
               zIndex={0}
             />
-            <div className="discovery-stage__center">
-              {featuredView.mode === "discovery" ? (
-                <FeaturedDiscovery
-                  mode="discovery"
-                  discovery={featuredView.discovery}
-                  onLearnMore={scrollToContext}
-                  onJoin={scrollToJoin}
-                />
-              ) : (
-                <FeaturedDiscovery
-                  mode="coming-into-view"
-                  ecosystem={featuredView.ecosystem}
-                  onJoin={scrollToJoin}
-                />
-              )}
-            </div>
+            {isCustomMode && featuredView.mode === "discovery" ? (
+              <CustomGoodsStation
+                frameRef={stageCenterRef}
+                items={customProducts}
+                index={customIndex}
+                onIndexChange={handleCustomIndexChange}
+                onLearnMore={scrollToContext}
+                onJoin={scrollToJoin}
+              />
+            ) : (
+              <div className="discovery-stage__center">
+                {featuredDiscoveryNode}
+              </div>
+            )}
           </div>
           <EcosystemOrbitRenderer
             activeEcosystem={activeEcosystem}
@@ -120,9 +206,11 @@ export function HomePage({ discovery }: HomePageProps) {
             stageCenterRef={stageCenterRef}
             isOrbitAnimationPaused={isOrbitAnimationPaused}
           />
-          <p className="discovery-stage__hint">
-            Ecosystems orbit this discovery — tap a room to explore
-          </p>
+          {!isCustomMode && (
+            <p className="discovery-stage__hint">
+              Ecosystems orbit this discovery — tap a room to explore
+            </p>
+          )}
         </section>
 
         {featuredView.mode === "discovery" && (
@@ -149,6 +237,9 @@ export function HomePage({ discovery }: HomePageProps) {
         onSearchChange={(value) => {
           setSearchQuery(value);
           setPinnedDiscovery(null);
+          if (activeEcosystem === "custom" && !value.trim()) {
+            setCustomIndex(0);
+          }
         }}
         onSelectDiscovery={handleSearchSelect}
       />

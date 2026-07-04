@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 interface GreenroadWalletProps {
@@ -19,7 +20,13 @@ export function GreenroadWallet({ onJoinClick }: GreenroadWalletProps) {
         aria-label="Your Green Road wallet"
       >
         <span className="greenroad-wallet__icon" aria-hidden>
-          ◈
+          <Image
+            src="/greenroadgrouplogo6226.png"
+            alt=""
+            width={18}
+            height={18}
+            className="greenroad-wallet__logo"
+          />
         </span>
         <span>Your Green Road</span>
       </button>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
 import { getEcosystem } from "@/data/ecosystems";
+import { buildCustomQuoteMailto } from "@/data/discoverySearch";
 
 export type FeaturedViewProps =
   | {
@@ -48,7 +49,7 @@ function HeroImage({ discovery }: { discovery: Discovery }) {
         src={discovery.hero_image}
         alt={discovery.title}
         fill
-        sizes="(max-width: 640px) 320px, 320px"
+        sizes="(max-width: 640px) 300px, 360px"
         className="featured-discovery__hero-img"
         priority
         onError={() => setImgError(true)}
@@ -93,6 +94,16 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
   const ecosystem = getEcosystem(discovery.room);
   const whyLine = discovery.why_we_like_it[0] ?? "";
   const hookLine = discovery.featured_hook ?? "";
+  const isCustomInquiry =
+    discovery.room === "custom" &&
+    discovery.commerce.sale_type === "inquiry";
+  const quoteHref = isCustomInquiry
+    ? buildCustomQuoteMailto(discovery)
+    : null;
+  const priceLine =
+    isCustomInquiry && discovery.commerce.list_price != null
+      ? `From $${discovery.commerce.list_price.toFixed(2)} + order fee + shipping estimate`
+      : whyLine;
 
   return (
     <article className="featured-discovery">
@@ -109,26 +120,37 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
             {hookLine} — consider this.
           </p>
         )}
-        {whyLine && (
+        {priceLine && (
           <>
-            <p className="featured-discovery__why-label">Why it&apos;s here</p>
-            <p className="featured-discovery__why-copy">{whyLine}</p>
+            <p className="featured-discovery__why-label">
+              {isCustomInquiry ? "Starting at" : "Why it's here"}
+            </p>
+            <p className="featured-discovery__why-copy">{priceLine}</p>
           </>
         )}
         <div className="featured-discovery__actions">
-          <button
-            type="button"
-            className="featured-discovery__cta-primary"
-            onClick={onLearnMore}
-          >
-            Learn More
-          </button>
+          {quoteHref ? (
+            <a
+              href={quoteHref}
+              className="featured-discovery__cta-primary featured-discovery__cta-link"
+            >
+              Start a Custom Quote
+            </a>
+          ) : (
+            <button
+              type="button"
+              className="featured-discovery__cta-primary"
+              onClick={onLearnMore}
+            >
+              Learn More
+            </button>
+          )}
           <button
             type="button"
             className="featured-discovery__cta-secondary"
-            onClick={onJoin}
+            onClick={isCustomInquiry ? onLearnMore : onJoin}
           >
-            Join The Green Road
+            {isCustomInquiry ? "Learn More" : "Join The Green Road"}
           </button>
         </div>
       </div>

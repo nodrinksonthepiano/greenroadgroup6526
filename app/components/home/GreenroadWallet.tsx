@@ -19,16 +19,13 @@ export function GreenroadWallet({ onJoinClick }: GreenroadWalletProps) {
         aria-expanded={open}
         aria-label="Your Green Road wallet"
       >
-        <span className="greenroad-wallet__icon" aria-hidden>
-          <Image
-            src="/greenroadgrouplogo6226.png"
-            alt=""
-            width={18}
-            height={18}
-            className="greenroad-logo-mark"
-          />
-        </span>
-        <span>Your Green Road</span>
+        <Image
+          src="/greenroadgrouplogo6326.png"
+          alt=""
+          width={52}
+          height={52}
+          className="greenroad-wallet__logo"
+        />
       </button>
 
       {open && (

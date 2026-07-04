@@ -554,7 +554,7 @@ export function CustomDiscoveryCarousel({
       const now = performance.now();
       const dt = Math.max(0.008, Math.min(0.08, (now - lastTsRef.current) * 0.001));
       if (Math.abs(e.deltaY) >= 2) {
-        applyWheelDelta(e.deltaY, dt);
+        applyWheelDelta(-e.deltaY, dt);
       }
       if (wheelIdleTimerRef.current) window.clearTimeout(wheelIdleTimerRef.current);
       wheelIdleTimerRef.current = window.setTimeout(() => {

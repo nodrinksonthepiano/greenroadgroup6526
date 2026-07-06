@@ -1,0 +1,95 @@
+{
+  "id": "pod-3-piece-whiskey-gift-set",
+  "slug": "pod-3-piece-whiskey-gift-set",
+  "type": "product",
+  "title": "POD 3 Piece Whiskey Gift Set",
+  "room": "custom",
+  "system": "drinkware-gift-set",
+  "alternative_to": [
+    "Generic gift baskets with no personalization",
+    "Bulk-only engraved gifts with high minimums",
+    "Disposable event favors nobody keeps"
+  ],
+  "featured_hook": "Engraved whiskey set, min qty 1",
+  "problem_solved": [
+    "Need a premium client or executive gift with a personal touch",
+    "Want engraved drinkware without ordering cases",
+    "Looking for a boxed gift set ready to give"
+  ],
+  "why_we_like_it": [
+    "3-piece set — two 10.5 oz whiskey glasses and one 6 oz stainless steel flask",
+    "From $35.42 + $25 order fee + shipping estimate",
+    "Laser-etched glasses and laser-engraved flask — gift box included",
+    "Expands custom goods beyond tumblers and hoodies into premium gifting"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "One imprint color only — not full-color print",
+    "Hand wash recommended for the glasses",
+    "Flask color and glass color options on ADG — specify in your inquiry",
+    "Ready to ship in about 5 business days — one day longer than most POD apparel",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item WM402100PD at $35.42 each with minimum order of one",
+    "Laser etched whiskey glasses (2\" x 2\" imprint) and laser engraved flask (2.5\" x 3\" imprint)",
+    "Gift box included — glass and stainless steel, Made in the USA"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Feels like a real gift, not throwaway swag",
+      "Engraving looks clean and permanent on glass and metal",
+      "Boxed and ready to hand to a client or retiree",
+      "Order one to preview quality before a larger run"
+    ],
+    "criticized_for": [
+      "Single-color engraving only — no full-color logo",
+      "Heavier to ship than a tumbler — factor shipping into the estimate",
+      "Proof preview is not instant yet — manual ADG mockup for final approval"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD 3 Piece Whiskey Gift Set — WM402100PD — laser etched/engraved, gift box, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "Premium gift-set lane — engraved drinkware for executives, milestones, and client appreciation"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-3-piece-whiskey-gift-set-hero.jpg",
+  "seo_title": "Custom Engraved Whiskey Gift Set — Minimum Order of One",
+  "seo_description": "POD 3 Piece Whiskey Gift Set with laser-etched glasses and engraved flask. From $35.42 + order fee + shipping estimate. Search Greenroad custom goods or inquire to start.",
+  "faqs": [
+    {
+      "q": "Can I order just one set?",
+      "a": "Yes. Through ADG Promo on Demand, the minimum order for this whiskey gift set is one unit."
+    },
+    {
+      "q": "Is this full-color print?",
+      "a": "No. This set uses laser etching on the glasses and laser engraving on the flask — one imprint color. Full-color DTF items like tumblers and hoodies are separate products on Greenroad."
+    },
+    {
+      "q": "What is in the box?",
+      "a": "Two 10.5 oz whiskey glasses, one 6 oz stainless steel flask, and gift packaging. ADG offers flask and glass color options — include your preference in your inquiry."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $35.42 per set, plus a $25 order fee and shipping based on your ZIP and quantity."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 35.42,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-3-piece-whiskey-gift-set?id=WM402100PD"
+  },
+  "featured": true,
+  "published": false
+}

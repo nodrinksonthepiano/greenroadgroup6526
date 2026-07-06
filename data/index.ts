@@ -9,6 +9,9 @@ import egoZ6ZeroTurnMower from "./discoveries/ego-z6-zero-turn-mower.json";
 import podCruiseBriteTumbler12oz from "./discoveries/pod-cruise-brite-tumbler-12oz.json";
 import podAccentMugFullColor11oz from "./discoveries/pod-accent-mug-full-color-11oz.json";
 import podAdultFleeceHoodieFullColor from "./discoveries/pod-adult-fleece-hoodie-full-color.json";
+import podAdultFleeceFullZipHoodieFullColor from "./discoveries/pod-adult-fleece-full-zip-hoodie-full-color.json";
+import podAdultVintageHeatherHoodieFullColor from "./discoveries/pod-adult-vintage-heather-hoodie-full-color.json";
+import pod3PieceWhiskeyGiftSet from "./discoveries/pod-3-piece-whiskey-gift-set.json";
 import deskPlantsSupplier from "./suppliers/desk-plants.json";
 import adgPromoSupplier from "./suppliers/adg-promo.json";
 import carilohaSupplier from "./suppliers/cariloha.json";
@@ -27,6 +30,9 @@ export const DISCOVERY_SLUGS = [
   "pod-cruise-brite-tumbler-12oz",
   "pod-accent-mug-full-color-11oz",
   "pod-adult-fleece-hoodie-full-color",
+  "pod-adult-fleece-full-zip-hoodie-full-color",
+  "pod-adult-vintage-heather-hoodie-full-color",
+  "pod-3-piece-whiskey-gift-set",
 ] as const;
 
 export type DiscoverySlug = (typeof DISCOVERY_SLUGS)[number];
@@ -42,6 +48,11 @@ const discoveriesBySlug: Record<DiscoverySlug, Discovery> = {
   "pod-accent-mug-full-color-11oz": podAccentMugFullColor11oz as Discovery,
   "pod-adult-fleece-hoodie-full-color":
     podAdultFleeceHoodieFullColor as Discovery,
+  "pod-adult-fleece-full-zip-hoodie-full-color":
+    podAdultFleeceFullZipHoodieFullColor as Discovery,
+  "pod-adult-vintage-heather-hoodie-full-color":
+    podAdultVintageHeatherHoodieFullColor as Discovery,
+  "pod-3-piece-whiskey-gift-set": pod3PieceWhiskeyGiftSet as Discovery,
 };
 
 const suppliersById: Record<string, Supplier> = {

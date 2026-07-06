@@ -1,0 +1,94 @@
+{
+  "id": "pod-adult-vintage-heather-hoodie-full-color",
+  "slug": "pod-adult-vintage-heather-hoodie-full-color",
+  "type": "product",
+  "title": "POD Adult Vintage Heather Hoodie Full Color",
+  "room": "custom",
+  "system": "apparel-hoodie-vintage-heather",
+  "alternative_to": [
+    "Flat, generic promo hoodies with no texture",
+    "Bulk-only custom apparel with high minimums",
+    "Cheap event hoodies that fade after a few washes"
+  ],
+  "featured_hook": "Vintage heather hoodie, min qty 1",
+  "problem_solved": [
+    "Want a softer, textured hoodie look for branded apparel",
+    "Need full-color graphics without ordering dozens",
+    "Prefer a lower unit cost than standard fleece hoodies"
+  ],
+  "why_we_like_it": [
+    "Vintage heather pullover with full-color heat transfer — minimum order of one",
+    "From $26.67 + $25 order fee + shipping estimate",
+    "Large imprint area — 12\" w x 10\" h for bold front graphics",
+    "Lowest ADG hoodie unit price on Greenroad at qty 1",
+    "Color options include Charcoal, Denim, Olive, and Burgundy on ADG"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "Heather colors vary by dye lot — confirm color on ADG before ordering",
+    "Color preview on Greenroad is not live yet — specify color in your inquiry",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item WM401642FCPD at $26.67 each with minimum order of one",
+    "Full-color heat transfer on 60% cotton / 40% polyester vintage heather fleece",
+    "Imprint area 12\" w x 10\" h — ready to ship in about 4 business days, Made in the USA"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Heather texture feels more premium than flat fleece",
+      "Large front print area for logos and event graphics",
+      "Lowest hoodie entry price in the ADG lineup at qty 1",
+      "Order one to sample before a team run"
+    ],
+    "criticized_for": [
+      "Pullover only — no zip option for this style",
+      "Heather color can look different screen-to-screen",
+      "Proof preview is not instant yet — manual ADG mockup for now"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD Adult Vintage Heather Hoodie Full Color — WM401642FCPD — heat transfer, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "Value hoodie with largest print area in the ADG hoodie lineup — heather colors on ADG"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-adult-vintage-heather-hoodie-full-color-hero.jpg",
+  "seo_title": "Custom Vintage Heather Hoodie — Minimum Order of One",
+  "seo_description": "POD Adult Vintage Heather Hoodie Full Color. From $26.67 + order fee + shipping estimate. Search Greenroad custom goods or inquire to start.",
+  "faqs": [
+    {
+      "q": "Can I order just one hoodie?",
+      "a": "Yes. Through ADG Promo on Demand, the minimum order for this vintage heather hoodie is one unit."
+    },
+    {
+      "q": "What colors are available?",
+      "a": "ADG offers Charcoal, Denim, Olive, and Burgundy for this style. Include your preferred color in your inquiry — live color preview on Greenroad is planned but not available yet."
+    },
+    {
+      "q": "How does this compare to the other ADG hoodies?",
+      "a": "At $26.67 at qty 1, this is the lowest hoodie price on Greenroad. It has the largest imprint area (12\" x 10\"). The standard pullover is $37.00 with a 12\" x 6\" area. The full-zip is $35.00 with a 5\" x 5\" area."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $26.67 per hoodie, plus a $25 order fee and shipping based on your ZIP and quantity."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 26.67,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-adult-vintage-heather-hoodie-full-color?id=WM401642FCPD"
+  },
+  "featured": true,
+  "published": false
+}

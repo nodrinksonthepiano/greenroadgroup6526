@@ -1,0 +1,89 @@
+{
+  "id": "pod-adult-fleece-full-zip-hoodie-full-color",
+  "slug": "pod-adult-fleece-full-zip-hoodie-full-color",
+  "type": "product",
+  "title": "POD Adult Fleece Full Zip Hoodie Full Color",
+  "room": "custom",
+  "system": "apparel-hoodie-full-zip",
+  "alternative_to": [
+    "Bulk-only custom hoodies with high minimums",
+    "Pullover-only options when layering matters",
+    "Generic swag nobody wears after the conference"
+  ],
+  "featured_hook": "Full-zip hoodie, min qty 1",
+  "problem_solved": [
+    "Teams want branded apparel they can layer on and off",
+    "Corporate gifts that feel practical for daily wear",
+    "Need full-color logo presentation without ordering dozens"
+  ],
+  "why_we_like_it": [
+    "Adult fleece full-zip hoodie with full-color print — minimum order of one",
+    "From $35.00 + $25 order fee + shipping estimate",
+    "Easier layering for offices, events, and employee gifts than a pullover",
+    "From $2.00 less per unit than the ADG pullover hoodie at qty 1"
+  ],
+  "considerations": [
+    "$25 ADG Service Advantage Fee applies per order",
+    "Shipping depends on ZIP, weight, and quantity — estimate before ordering",
+    "Smaller imprint area than the pullover — 5\" w x 5\" h vs 12\" w x 6\" h",
+    "Zipper limits large front graphics — left chest, back, or sleeves work best",
+    "Inquiry only — checkout is not available on Greenroad yet"
+  ],
+  "evidence": [
+    "ADG lists item WM401640FCPD at $35.00 each with minimum order of one",
+    "Full-color DTF heat transfer on 60% cotton / 40% polyester fleece",
+    "Imprint area 5\" w x 5\" h — ready to ship in about 4 business days"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [
+      "Easy on and off for layering over shirts or polos",
+      "Order one to sample quality before a team run",
+      "More office-friendly than a classic pullover",
+      "Full-color logos work well on chest or back placement"
+    ],
+    "criticized_for": [
+      "Smaller print area than the pullover hoodie",
+      "Zipper can interrupt a large centered front design",
+      "Proof preview is not instant yet — manual ADG mockup for now"
+    ]
+  },
+  "signals_from_web": [
+    {
+      "source": "ADG Promo",
+      "signal": "POD Adult Fleece Full Zip Hoodie Full Color — WM401640FCPD — full-color print, min qty 1"
+    },
+    {
+      "source": "Greenroad Notes",
+      "signal": "Corporate-friendly zip hoodie — complements pullover for layering and staff wear"
+    }
+  ],
+  "supplier_id": "adg-promo",
+  "hero_image": "/discoveries/pod-adult-fleece-full-zip-hoodie-full-color-hero.jpg",
+  "seo_title": "Custom Full-Zip Hoodie — Minimum Order of One",
+  "seo_description": "POD Adult Fleece Full Zip Hoodie Full Color. From $35.00 + order fee + shipping estimate. Search Greenroad custom goods or inquire to start.",
+  "faqs": [
+    {
+      "q": "Can I order just one zip hoodie?",
+      "a": "Yes. Through ADG Promo on Demand, the minimum order for this full-zip hoodie is one unit."
+    },
+    {
+      "q": "How is this different from the pullover hoodie?",
+      "a": "This is a full-zip style — better for layering and office wear. The pullover has a larger front print area (12\" x 6\") and costs $37.00 at qty 1. This zip hoodie is $35.00 at qty 1 with a 5\" x 5\" imprint area."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "From $35.00 per hoodie, plus a $25 order fee and shipping based on your ZIP and quantity."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "inquiry",
+    "list_price": 35.0,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://www.adgpromo.com/p/pod-adult-fleece-full-zip-hoodie-full-color?id=WM401640FCPD"
+  },
+  "featured": true,
+  "published": false
+}

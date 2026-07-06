@@ -22,25 +22,26 @@ Begin every build session with:
 
 ## Git
 
-**Jai handles all git.** Agent does not commit, push, or configure remotes unless explicitly asked.
+**Jai handles all git manually.** Agent does not run git status, checkout, branch, switch, pull, merge, rebase, reset, add, commit, or push unless Jai explicitly asks. Do not touch `.env`.
 
-## Current state (June 15, 2026)
+## Current state (July 6, 2026)
 
 ```text
-Active branch:  main
-Commit:         af1060d — Revert "Add Custom as 7th Room/orbit coin and Custom Patches & Stickers discovery"
-origin/main:    af1060d (up to date after revert)
-Build:          passed before 2A commit; not rerun during memory cleanup
-Working tree:   clean
+Branch:            main (Jai manages commits)
+Custom Goods:      LIVE — Custom orbit + Custom Goods Station + swipe carousel
+Backdrop:          LIVE — forest/sky room-backdrop per ecosystem
+Quote CTA:         hello@greenroad.group
+Logo:              Wired in GreenroadWallet / header area
+ADG starter items: 7 in Custom carousel (not full ADG catalog)
+Checkout/proof:    NOT live — inquiry mailto only
+published field:   Does NOT gate UI
 ```
 
 **Do not use** `experiment/pearl-print-surface` as the active branch. Pearl/olive is merged to main. That experiment branch is historical.
 
-The reverted custom-goods work exists in commit `fdb2169`, but it is not an approved active branch/work path. Do not reuse it blindly.
-
 **Read first:** `GREENROAD_MEMORY_MAP.md`, then `GREENROAD_MEMORY.md`
 
-**Next work:** memory/PRD cleanup only — `GREENROAD_MEMORY.md`, `VOICE_AND_VISION.md`, `PRD.json`, `LAUNCH_ROADMAP.md`, then `SESSION_REPORT.md`. No homepage/code changes from this task.
+**Next UX priority:** print legibility over room-backdrop — accordion triggers and Continue Exploring headings wash out on light/misty photo areas. Fix with pearl reading surfaces or local scrims per material system. No gold body text on pearl.
 
 ---
 
@@ -98,6 +99,29 @@ Memory docs synced: `GREENROAD_MEMORY.md`, knowledge base, PRD, roadmap, session
 - Mobile section spacing polished
 - Command search softened
 - No new colors, features, or pages
+
+## Custom Goods Station complete (July 2026)
+
+- Custom ecosystem live as 7th orbit room
+- CustomGoodsStation + CustomDiscoveryCarousel — swipe carousel for custom goods
+- Custom carousel gesture model fixed
+- Forest/sky room-backdrop per ecosystem (`room-backdrop` in home.css)
+- Quote CTA via `hello@greenroad.group` (`buildCustomQuoteMailto`)
+- Greenroad logo wired in wallet/header (`GreenroadWallet`)
+- 7 ADG Promo on Demand starter discoveries in Custom carousel (see `GREENROAD_MEMORY.md`)
+- Homepage default discovery: POD Adventure Brite Tumbler 20 oz
+- Inquiry-only — checkout, proof editor, and shipping estimate UI NOT live
+- `published: false` on discoveries does NOT gate UI
+
+---
+
+## Active backlog
+
+| ID | Priority | Item |
+|----|----------|------|
+| UX-001 | High | Print legibility over forest backdrop — accordion triggers + section headings need pearl scrims; test all room backgrounds |
+| UX-002 | Later | Live ADG color swatches + logo quick-render preview |
+| UX-003 | Later | ADG proof approval gate — quick render is draft; ADG mockup required before production |
 
 ---
 

@@ -1,29 +1,34 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** June 15, 2026 (post–memory map + custom-goods strategy correction)
+**Last synced:** July 6, 2026 (post–Custom Goods Station + 7 ADG starter offers)
 
 Read `GREENROAD_MEMORY_MAP.md` first, then this file. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
+**Git:** Jai handles all git manually. Agents do not run git commands unless Jai explicitly asks.
+
 ---
 
-## Current Git Truth
+## Site State (July 6, 2026)
 
 ```text
-Active branch:     main
-Current commit:    af1060d — Revert "Add Custom as 7th Room/orbit coin and Custom Patches & Stickers discovery"
-origin/main:       af1060d (up to date after revert)
-Working tree:      clean
-Build:             npm run build passed before 2A commit; not rerun during memory cleanup
+Branch:            main (Jai manages commits and pushes)
+Custom Goods:      LIVE — Custom ecosystem + Custom Goods Station + swipe carousel
+Backdrop:          LIVE — forest/sky room-backdrop per ecosystem (data/roomBackgrounds.ts)
+Quote CTA:         hello@greenroad.group (buildCustomQuoteMailto in data/discoverySearch.ts)
+Logo:              Wired in wallet/header area (GreenroadWallet)
+Homepage default:  POD Adventure Brite Tumbler 20 oz (app/page.tsx)
+Checkout/proof:    NOT live — inquiry mailto only; manual ADG proof before production
+Full ADG catalog:  NOT live — 7 starter ADG items only
+published field:   Does NOT gate UI — all discoveries render regardless of published:false
 ```
 
-`experiment/pearl-print-surface` is **historical/backed up**. It is not the active working branch. Do not tell agents pearl/olive is uncommitted or only on the experiment branch.
+`experiment/pearl-print-surface` is **historical/backed up**. Pearl/olive material system is live on main.
 
-**Recent commits:**
-- `af1060d` — Revert "Add Custom as 7th Room/orbit coin and Custom Patches & Stickers discovery" (main restored)
-- `fdb2169` — Custom as 7th Room/orbit coin and Custom Patches & Stickers discovery. The reverted custom-goods work exists in commit `fdb2169`, but it is not an approved active branch/work path. Do not reuse it blindly.
-- `1fa3cb4` — Priority 2A: mobile calm + orbit readability (pushed)
-- `fbca51d` — Sync Greenroad memory and product docs
-- `4cf6e9e` — Pearl/olive material system
+**Recent shipped work (homepage):**
+- Custom Goods Station + CustomDiscoveryCarousel on Custom orbit
+- Custom carousel gesture model fixed (swipe/wheel progress convention aligned)
+- Forest/sky room-backdrop with scrim and top/bottom bookends
+- 7 ADG Promo on Demand starter discoveries in Custom carousel
 
 ---
 
@@ -139,6 +144,9 @@ Print tokens are in CSS variables only — **not yet** in Tailwind `@theme` (`gl
 | Command search | Forest chrome | `.command-search` |
 | Section titles | Gold on forest | `.home-section-title` |
 | Accordion closed triggers | Silver on forest | `.discovery-accordion__trigger` |
+| Room backdrop | Forest/sky photo + scrim | `.room-backdrop` |
+
+**Known legibility gap:** Accordion closed triggers and section headings (`.discovery-accordion__trigger`, `.home-section-title`, `.home-section-subtitle`) sit directly on the room-backdrop photo. They can wash out on light/misty photo areas. Open accordion panels on pearl are fine. Fix is backlog — see Active Backlog below.
 
 ### Rejected experiments (do not retry without explicit ask)
 
@@ -154,21 +162,28 @@ Print tokens are in CSS variables only — **not yet** in Tailwind `@theme` (`gl
 ## Key Files
 
 ```text
-app/page.tsx                          → single route
-app/components/home/HomePage.tsx      → page shell
+app/page.tsx                          → single route; default discovery = 20 oz tumbler
+app/components/home/HomePage.tsx      → page shell; custom mode when Custom orbit selected
 app/components/home/FeaturedDiscovery.tsx
+app/components/home/CustomGoodsStation.tsx      → Custom orbit frame
+app/components/home/CustomDiscoveryCarousel.tsx → swipe carousel for custom goods
 app/components/home/DiscoveryAccordions.tsx
 app/components/home/ContinueExploring.tsx
 app/components/home/CommandSearch.tsx
+app/components/home/GreenroadWallet.tsx         → logo in header/wallet area
 app/components/home/EcosystemOrbitRenderer.tsx  → ORBIT_SPEED = 0.09
 app/components/home/OvalGlowBackdrop.tsx
 
 app/styles/tokens.css                 → ALL color tokens (edit here first)
-app/styles/home.css                   → homepage UI including print surfaces + 2A spacing/search
+app/styles/home.css                   → homepage UI, room-backdrop, print surfaces + 2A spacing/search
 app/styles/ecosystem-orbit.css        → orbit coins; pulse 5s; mobile labels 0.625rem / 0.58rem
 app/globals.css                       → body silver-on-forest; no print tokens in @theme
 
-data/discoveries/desk-plants-mini-harlow.json  → first discovery fixture
+data/index.ts                         → discovery registry (DISCOVERY_SLUGS load order)
+data/discoverySearch.ts               → search, featured view, hello@greenroad.group mailto
+data/roomBackgrounds.ts               → per-ecosystem backdrop images
+data/discoveries/*.json               → one file per discovery
+data/suppliers/adg-promo.json         → ADG Promo supplier record
 ```
 
 ---
@@ -185,6 +200,7 @@ data/discoveries/desk-plants-mini-harlow.json  → first discovery fixture
 | Pearl/olive | `4cf6e9e` | Print material system merged to main |
 | Doc sync | `fbca51d` | Memory/PRD/roadmap synced |
 | Priority 2A | `1fa3cb4` | Mobile calm + orbit readability polish |
+| Custom Goods | July 2026 | Custom orbit, Custom Goods Station, carousel, 7 ADG starter items, room-backdrop |
 
 ### Priority 1 — Reading surface ✅ DONE
 
@@ -205,18 +221,61 @@ Delivered (no new colors, features, or pages):
 
 ---
 
-## Next Work — Priority 2B: Memory + Operating System
+## Custom Goods on Site (July 6, 2026)
 
-**No homepage/code changes until docs and sheet direction are coherent.** Strategic phase:
+**7 ADG Promo on Demand starter items** in the Custom carousel (`room: "custom"`, `supplier_id: "adg-promo"`, `sale_type: "inquiry"`). All carry +$25 ADG Service Advantage Fee per order. This is **not** the full ADG catalog.
 
-1. Sync docs to the corrected strategic truth: `GREENROAD_MEMORY.md`, `VOICE_AND_VISION.md`, `PRD.json`, `LAUNCH_ROADMAP.md`, `SESSION_REPORT.md`
-2. Use the existing Greenroad Google Sheet as the operating control board
-3. Add custom-goods tabs inside that sheet, not in a separate new sheet unless the data outgrows the current control board
-4. Sort ADG / promo-on-demand products by category, proof availability, cost, fee, shipping, margin, buyer type, sustainability angle, and priority
-5. Choose 5–8 starter custom offers before adding anything large to the site
-6. Continue ecosystem-guide planning after the operating system is clean
+| # | Product | Item | Qty-1 price |
+|---|---------|------|-------------|
+| 1 | POD Adventure Brite Tumbler 20 oz | A401191PD | $15.83 |
+| 2 | POD Cruise Brite Tumbler 12 oz | A401190PD | $14.58 |
+| 3 | POD Accent Mug Full Color 11 oz | AHDACNTPD | $7.92 |
+| 4 | POD Adult Fleece Hoodie Full Color | WM401639FCPD | $37.00 |
+| 5 | POD Adult Fleece Full Zip Hoodie Full Color | WM401640FCPD | $35.00 |
+| 6 | POD Adult Vintage Heather Hoodie Full Color | WM401642FCPD | $26.67 |
+| 7 | POD 3 Piece Whiskey Gift Set | WM402100PD | $35.42 |
 
-Homepage UX polish (2A) is complete. Phone-test before major distribution push.
+Carousel order follows `DISCOVERY_SLUGS` filter for `room: "custom"`. Homepage SEO/default discovery remains the 20 oz tumbler.
+
+**Add new ADG SKU surgically:** one JSON in `data/discoveries/`, one hero in `public/discoveries/`, three touch points in `data/index.ts`. No component changes required unless new UX is requested.
+
+---
+
+## Active Backlog
+
+### UX — High priority
+
+**Print legibility over forest backdrop**
+- Accordion closed triggers (`.discovery-accordion__trigger`) and Continue Exploring headings (`.home-section-title`, `.home-section-subtitle`) can wash out on light/misty areas of room-backdrop photos
+- Fix should use **pearl reading surfaces or local scrims** per material system
+- Do not rely only on random text shadows
+- No gold body text on pearl
+- Test across all ecosystem backdrops in `data/roomBackgrounds.ts`
+- Files: `home.css`, `DiscoveryAccordions.tsx`, `ContinueExploring.tsx`, `HomePage.tsx`
+
+### Custom goods UX — Later
+
+- Live ADG color swatches with real-time hero preview (products with color options)
+- Logo upload + quick render preview on product image
+- ADG proof approval gate — quick render is draft only; final production requires ADG official proof/mockup approval
+
+### Ops — Unchanged
+
+- Google Sheet tabs: Custom Goods, ADG Items, First Offers, Questions (not yet added)
+- Sort remaining ADG catalog in sheet — do not import full catalog to site
+- Manual inquiry/proof flow before Stripe/checkout
+
+---
+
+## Next Work
+
+1. **UX-001:** Print legibility fix (high priority)
+2. Sync remaining docs: `VOICE_AND_VISION.md`, `LAUNCH_ROADMAP.md`, `SESSION_REPORT.md`
+3. Use existing Greenroad Google Sheet as operating control board; add custom-goods tabs
+4. Sort remaining ADG items in sheet; hold at 7 starter offers unless Jai approves more
+5. Continue ecosystem-guide planning
+
+Phone-test legibility and Custom carousel before major distribution push.
 
 ---
 
@@ -349,11 +408,14 @@ Content should be human-edited and released gradually.
 
 ## Featured Discovery Fixture
 
-- **ID:** `desk-plants-mini-harlow`
-- **Title:** Desk Plants — Mini Harlow
-- **Hook:** Fresh air in the office
-- **Why:** Real living plants, not plastic
-- **Ecosystem badge:** Office Ecosystem (olive)
+**Homepage default (July 6):**
+- **ID:** `pod-adventure-brite-tumbler-20oz`
+- **Title:** POD Adventure Brite Stainless Tumbler 20 oz
+- **Hook:** Upload it. Preview it. Gribbit.
+- **Ecosystem:** Custom Goods
+
+**First better-goods fixture (still on site):**
+- **ID:** `desk-plants-mini-harlow` — Office Ecosystem
 
 ---
 
@@ -362,24 +424,23 @@ Content should be human-edited and released gradually.
 ### Continue from main (current)
 
 ```text
-Read GREENROAD_MEMORY_MAP.md first, then GREENROAD_MEMORY.md. I'm on main at af1060d after the custom-coin revert.
-Pearl/olive material system is live (4cf6e9e). Priority 2A mobile polish is done (1fa3cb4). The reverted custom-goods work exists in commit fdb2169, but it is not an approved active branch/work path. Do not reuse it blindly.
-Material system: forest=world, pearl=reading, olive=labels/secondary, gold=accent only.
-Orbit: ORBIT_SPEED 0.09, pulse 5s. Do not change page background, orbit fills, or glow unless I ask.
-Next work is Priority 2B: memory + operating system cleanup. No homepage/code changes from this task.
+Read GREENROAD_MEMORY_MAP.md first, then GREENROAD_MEMORY.md.
+Custom Goods Station is live on main — 7 ADG starter items in Custom carousel. Forest/sky room-backdrop live. Quote CTA: hello@greenroad.group. Logo wired in wallet/header.
+Material system: forest=world, pearl=reading, olive=labels/secondary, gold=accent only. No gold body text on pearl.
+Checkout/proof/shipping NOT live — inquiry mailto only. published:false does NOT gate UI. Full ADG catalog NOT live.
+Next UX priority: print legibility over room-backdrop (accordion triggers + section headings). Jai handles all git.
 ```
 
-### Priority 2B memory / operating-system pass
+### Surgical ADG product add
 
 ```text
-Priority 2B only — docs/memory/PRD/roadmap cleanup and existing Google Sheet control-board planning.
-Greenroad = better goods + greener systems + custom goods. Sustainability is the north star. Custom goods are the money-now lane, not the whole identity. Existing Greenroad Google Sheet is the control board.
-ZEYODA is internal-only; do not place ZEYODA in public Greenroad copy unless Jai explicitly approves.
-No homepage UI changes unless Jai asks. No scores, ratings, certified, or approved badge language.
+Add one ADG discovery only: JSON in data/discoveries/, hero in public/discoveries/, register in data/index.ts.
+room: custom, supplier_id: adg-promo, sale_type: inquiry. No component changes unless I ask.
+Do not import full ADG catalog. No scores, ratings, certified, or approved badge language.
 ```
 
 ---
 
 ## One-Line Status
 
-**Main/origin main are at `af1060d` after reverting the custom-coin commit; pearl/olive remains live (`4cf6e9e`), Priority 2A mobile calm polish remains part of history (`1fa3cb4`), and next work is Priority 2B memory + operating-system cleanup before sheet/MCP/site work.**
+**Custom Goods Station is live on main with 7 ADG starter offers, forest/sky backdrop, hello@greenroad.group inquiry CTA, and fixed custom carousel gestures; next priority is print legibility over the room-backdrop photo — pearl scrims, not text-shadow hacks.**

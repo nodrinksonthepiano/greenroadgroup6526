@@ -355,23 +355,66 @@ Becca should:
 
 Content should be human-edited and released gradually.
 
+## Live on Site (July 6, 2026)
+
+Custom Goods lane is **live on main** — not the full ADG catalog.
+
+* Custom ecosystem (7th orbit room) + Custom Goods Station + swipe carousel
+* Forest/sky room-backdrop per ecosystem
+* Quote CTA: `hello@greenroad.group` (inquiry mailto — checkout/proof/shipping NOT live)
+* Greenroad logo in wallet/header area
+* **7 ADG Promo on Demand starter items** in Custom carousel:
+
+| Product | Item | Qty-1 |
+|---------|------|-------|
+| POD Adventure Brite Tumbler 20 oz | A401191PD | $15.83 |
+| POD Cruise Brite Tumbler 12 oz | A401190PD | $14.58 |
+| POD Accent Mug Full Color 11 oz | AHDACNTPD | $7.92 |
+| POD Adult Fleece Hoodie Full Color | WM401639FCPD | $37.00 |
+| POD Adult Fleece Full Zip Hoodie Full Color | WM401640FCPD | $35.00 |
+| POD Adult Vintage Heather Hoodie Full Color | WM401642FCPD | $26.67 |
+| POD 3 Piece Whiskey Gift Set | WM402100PD | $35.42 |
+
+All carry +$25 ADG Service Advantage Fee per order. `published: false` does **not** gate UI.
+
+Homepage default discovery: 20 oz tumbler. Add new ADG SKU surgically via JSON + hero + `data/index.ts` only.
+
+## Active UX Backlog
+
+### High — Print legibility over forest backdrop
+
+Accordion closed triggers and Continue Exploring section headings sit on the room-backdrop photo. They can wash out on light/misty areas.
+
+Fix rules:
+
+* Use pearl reading surfaces or local scrims per material system
+* Do not rely only on random text shadows
+* No gold body text on pearl
+* Test all ecosystem backgrounds in `data/roomBackgrounds.ts`
+
+### Later — Custom goods preview UX
+
+* Live ADG color swatches with real-time hero preview
+* Logo upload + quick render on product image
+* ADG proof approval gate — quick render is draft only; ADG mockup required before production
+
 ## Current Operating Priorities
 
-### Priority 1 -- Memory / PRD Cleanup
+### Priority 1 -- Print Legibility (UX-001)
 
-Before more site changes, update the project docs so Greenroad's current truth is clear.
+Fix accordion triggers and section headings readability over room-backdrop photos.
 
-Docs to update:
+### Priority 2 -- Memory / PRD Cleanup
 
-1. GREENROAD_MEMORY_MAP.md
-2. AGENT_NOTES.md
-3. GREENROAD_MEMORY.md
-4. VOICE_AND_VISION.md
-5. PRD.json
-6. LAUNCH_ROADMAP.md
-7. SESSION_REPORT.md
+Docs synced July 6: `GREENROAD_MEMORY_MAP.md`, `GREENROAD_MEMORY.md`, `AGENT_NOTES.md`, `PRD.json`.
 
-### Priority 2 -- Existing Sheet Control Board
+Remaining:
+
+1. VOICE_AND_VISION.md
+2. LAUNCH_ROADMAP.md
+3. SESSION_REPORT.md
+
+### Priority 3 -- Existing Sheet Control Board
 
 Use the existing Greenroad Google Sheet as the operating control board.
 
@@ -379,9 +422,9 @@ Add the custom-goods tabs inside that sheet.
 
 Do not create a separate custom goods sheet yet.
 
-### Priority 3 -- Custom Goods / ADG Sorting
+### Priority 4 -- Custom Goods / ADG Sorting (remaining catalog)
 
-Sort available promo-on-demand products by:
+Sort remaining promo-on-demand products in sheet by:
 
 * product type
 * category
@@ -406,28 +449,36 @@ Pricing note:
 
 Greenroad may advertise custom promo-on-demand goods around 5% below the supplier's suggested site price, but only after checking actual margin item by item.
 
-### Priority 4 -- Starter Offer Selection
+**7 starter offers are live on site** — at the 5–8 cap. Do not add full catalog without Jai approval.
 
-Choose 5-8 starter custom offers before adding anything large to the site.
+### Priority 5 -- Starter Offer Selection
 
-The ADG tumbler is a strong candidate and proof-preview example, but tumblers should not become the whole custom strategy.
+**Done (July 6):** 7 ADG starter offers live in Custom carousel. Hold here unless Jai approves more.
 
-### Priority 5 -- Google Sheets MCP
+### Priority 6 -- Google Sheets MCP
 
 Resume MCP after the docs and sheet structure are coherent.
 
 Do not automate writing to sheets before the control board is stable.
 
-### Priority 6 -- Site Work Later
+### Priority 7 -- Site Work (ongoing)
 
-Only after docs and sheet are coherent:
+**Done (July 6):**
 
-* add Custom as a main category if approved
-* lightly update homepage copy
-* add starter custom offers
-* add manual proof/inquiry CTA
-* keep Desk Plants under Better Everyday Goods / Office
-* do not add the full 78-item catalog
+* Custom as 7th orbit room + Custom Goods Station
+* 7 ADG starter custom offers
+* Manual inquiry CTA (`hello@greenroad.group`)
+* Forest/sky room-backdrop
+
+**Still not live:**
+
+* checkout / Stripe
+* proof editor
+* shipping estimate UI
+* full ADG catalog
+* live color swatches / logo quick render
+
+**Next site fix:** print legibility over room-backdrop (UX-001).
 
 ## Do Not Build Yet
 
@@ -470,7 +521,8 @@ GOSHBOT should warn when:
 * Becca's editorial role is bypassed for publishable content
 * mass AI content is being proposed without human editing
 * the project starts building checkout, proof editor, or full catalog too early
+* accordion or section headings are left on forest backdrop without pearl reading surfaces where legibility fails
 
 ## One-Sentence Current Truth
 
-Greenroad Group is an upscale better-goods and custom-goods commerce project: sustainability is the north star, custom goods are the money-now lane, better everyday goods are the trust engine, and GOSHBOT should keep the memory lanes clean.
+Greenroad Group is an upscale better-goods and custom-goods commerce project: sustainability is the north star, Custom Goods Station is live with 7 ADG starter offers, better everyday goods are the trust engine, and the next UX fix is print legibility over the forest backdrop.

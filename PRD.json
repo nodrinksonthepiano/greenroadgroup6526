@@ -4,16 +4,39 @@
   "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
   "domain": "greenroad.group",
   "memoryMap": "GREENROAD_MEMORY_MAP.md",
-  "updatedAt": "2026-06-15T20:27:00.000Z",
-  "currentCommit": "af1060d",
+  "updatedAt": "2026-07-06T15:00:00.000Z",
   "activeBranch": "main",
   "vision": {
     "tagline": "We're discovering the Green Road together.",
     "subhead": "Explore practical alternatives for everyday life.",
     "primaryEntity": "discovery",
     "positioning": "Trusted curator of everyday goods, greener systems, and custom goods — curated commerce with purpose",
-    "trustMilestone": "Session 3 — Desk Plants discovery page"
+    "trustMilestone": "Session 3 — Desk Plants discovery page; July 2026 — Custom Goods Station with 7 ADG starter offers"
   },
+  "siteState": {
+    "asOf": "2026-07-06",
+    "customGoodsStation": "live",
+    "customCarouselGestures": "fixed",
+    "roomBackdrop": "live",
+    "quoteEmail": "hello@greenroad.group",
+    "logoInWallet": true,
+    "checkoutLive": false,
+    "proofEditorLive": false,
+    "shippingEstimateLive": false,
+    "publishedFieldGatesUI": false,
+    "fullAdgCatalogLive": false,
+    "homepageDefaultDiscovery": "pod-adventure-brite-tumbler-20oz",
+    "customAdgStarterCount": 7
+  },
+  "customGoodsOnSite": [
+    { "title": "POD Adventure Brite Tumbler 20 oz", "item": "A401191PD", "price": 15.83 },
+    { "title": "POD Cruise Brite Tumbler 12 oz", "item": "A401190PD", "price": 14.58 },
+    { "title": "POD Accent Mug Full Color 11 oz", "item": "AHDACNTPD", "price": 7.92 },
+    { "title": "POD Adult Fleece Hoodie Full Color", "item": "WM401639FCPD", "price": 37.0 },
+    { "title": "POD Adult Fleece Full Zip Hoodie Full Color", "item": "WM401640FCPD", "price": 35.0 },
+    { "title": "POD Adult Vintage Heather Hoodie Full Color", "item": "WM401642FCPD", "price": 26.67 },
+    { "title": "POD 3 Piece Whiskey Gift Set", "item": "WM402100PD", "price": 35.42 }
+  ],
   "strategicEvolution": {
     "date": "2026-06-15",
     "shift": "From ecosystem-guide-only planning to everyday goods + greener systems + custom goods, with sustainability as the north star",
@@ -57,22 +80,19 @@
     ]
   },
   "nextPriority": {
-    "id": "2B",
-    "name": "Memory + operating system",
+    "id": "ux-001",
+    "name": "Print legibility over forest backdrop",
     "scope": [
-      "sync docs to corrected strategy",
-      "use existing Greenroad Google Sheet as the control board",
-      "add Custom Goods / ADG tabs inside the existing sheet",
-      "sort ADG Promo On Demand products before site work",
-      "choose 5–8 starter custom offers before adding anything large to the site"
+      "accordion closed triggers and Continue Exploring headings must stay readable on all ecosystem backdrop photos",
+      "use pearl reading surfaces or local scrims per material system",
+      "do not rely only on text shadows",
+      "no gold body text on pearl",
+      "test all backgrounds in data/roomBackgrounds.ts"
     ],
     "constraints": [
-      "no homepage UI changes unless explicitly asked",
       "no scores ratings or badge language",
-      "no Stripe or new commerce rails yet",
-      "do not create a separate custom goods sheet yet",
-      "do not treat Cursor as able to write Sheets until Google Sheets MCP is configured and tested",
-      "do not place ZEYODA in public Greenroad copy unless Jai explicitly approves"
+      "no ZEYODA in public copy",
+      "Jai handles all git"
     ]
   },
   "ecosystemGuides": {
@@ -143,7 +163,7 @@
       "title": "Sync docs to corrected strategy",
       "status": "in_progress",
       "priority": "critical",
-      "scope": "Update AGENT_NOTES.md, GREENROAD_MEMORY.md, VOICE_AND_VISION.md, PRD.json, LAUNCH_ROADMAP.md, and SESSION_REPORT.md to everyday goods + greener systems + custom goods."
+      "scope": "GREENROAD_MEMORY.md, AGENT_NOTES.md, PRD.json, GREENROAD_MEMORY_MAP.md synced July 6. Remaining: VOICE_AND_VISION.md, LAUNCH_ROADMAP.md, SESSION_REPORT.md."
     },
     {
       "id": "ops-001",
@@ -171,10 +191,10 @@
     {
       "id": "custom-002",
       "title": "Pick 5–8 starter offers",
-      "status": "todo",
+      "status": "done",
       "priority": "high",
       "dependsOn": ["custom-001"],
-      "scope": "Choose first custom offers before adding anything large to the site. ADG tumbler is a strong candidate/proof-preview example, not the whole strategy."
+      "scope": "7 ADG starter offers live in Custom carousel on site. Do not add full ADG catalog without Jai approval."
     },
     {
       "id": "custom-003",
@@ -194,11 +214,26 @@
     },
     {
       "id": "site-001",
-      "title": "Later add Custom as a main category if approved",
-      "status": "todo",
+      "title": "Custom Goods Station on homepage",
+      "status": "done",
       "priority": "medium",
       "dependsOn": ["memory-002", "custom-002"],
-      "scope": "Only after docs and sheet are coherent, consider adding Custom to site structure. Do not add full 78-item catalog."
+      "scope": "Custom orbit, Custom Goods Station, carousel, room-backdrop, 7 ADG starter items, hello@greenroad.group inquiry CTA. Do not add full ADG catalog."
+    },
+    {
+      "id": "ux-001",
+      "title": "Print legibility over forest backdrop",
+      "status": "todo",
+      "priority": "high",
+      "scope": "Accordion triggers and Continue Exploring headings wash out on light/misty room-backdrop photos. Fix with pearl reading surfaces or local scrims per material system. No gold body text on pearl. Do not rely only on text shadows."
+    },
+    {
+      "id": "ux-002",
+      "title": "Live ADG color swatches + logo quick render",
+      "status": "todo",
+      "priority": "medium",
+      "dependsOn": ["custom-003"],
+      "scope": "Real-time color buttons for multi-color ADG SKUs; logo upload preview on product image. Final draft requires ADG proof approval before production."
     },
     {
       "id": "commerce-001",
@@ -263,11 +298,10 @@
       "scope": "Slow orbit (0.09), 5s pulse, mobile coin text, section spacing, quieter command search — CSS only"
     },
     {
-      "id": "session-custom-revert",
-      "name": "Custom coin revert",
+      "id": "session-custom-goods",
+      "name": "Custom Goods Station + 7 ADG starters",
       "status": "done",
-      "commit": "af1060d",
-      "scope": "Reverted custom as 7th Room/orbit coin from main. The reverted custom-goods work exists in commit fdb2169, but it is not an approved active branch/work path. Do not reuse it blindly."
+      "scope": "Custom orbit, CustomGoodsStation, CustomDiscoveryCarousel gesture fixes, forest/sky room-backdrop, 7 ADG inquiry-only discoveries, hello@greenroad.group quote CTA, logo in wallet"
     },
     {
       "id": "session-memory-map",
@@ -285,7 +319,11 @@
   "lockedDecisions": [
     "Discovery is primary entity",
     "Six context blocks, no scores",
-    "Rooms: Sleep, Kitchen, Office, Bathroom, Land, Community",
+    "Rooms: Sleep, Kitchen, Office, Bathroom, Land, Community, Custom",
+    "Custom Goods Station live with 7 ADG starter offers",
+    "Quote CTA email hello@greenroad.group",
+    "published field does not gate UI",
+    "Full ADG catalog not live on site",
     "Desk Plants first discovery",
     "Mom = occasional introductions only",
     "Fonts: Cormorant Garamond + Inter",

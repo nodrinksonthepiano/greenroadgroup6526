@@ -4,7 +4,7 @@
   "repo": "https://github.com/nodrinksonthepiano/greenroadgroup6526",
   "domain": "greenroad.group",
   "memoryMap": "GREENROAD_MEMORY_MAP.md",
-  "updatedAt": "2026-07-06T15:00:00.000Z",
+  "updatedAt": "2026-09-21T06:57:00.000Z",
   "activeBranch": "main",
   "vision": {
     "tagline": "We're discovering the Green Road together.",
@@ -26,7 +26,88 @@
     "publishedFieldGatesUI": false,
     "fullAdgCatalogLive": false,
     "homepageDefaultDiscovery": "pod-adventure-brite-tumbler-20oz",
-    "customAdgStarterCount": 7
+    "customAdgStarterCount": 7,
+    "reunionRoute": "/events/scotia-2006",
+    "reunionUiLive": false,
+    "reunionCheckoutLive": false,
+    "reunionDatabaseApplied": false
+  },
+  "reunion": {
+    "status": "phase_1_review",
+    "scope": [
+      "sync four read-first memory documents",
+      "restore or park previous broad Stripe scope",
+      "create reviewable Supabase migration SQL without applying it"
+    ],
+    "phase1Excludes": [
+      "Checkout",
+      "webhook fulfillment",
+      "event UI",
+      "Resend email",
+      "Supabase migration application",
+      "live Stripe"
+    ],
+    "event": {
+      "name": "SGHS Class of 2006 Reunion",
+      "date": "2026-10-31",
+      "timeZone": "America/New_York",
+      "permanentRoute": "/events/scotia-2006",
+      "temporaryArtwork": "Current reunion flyer until transaction URL, sponsors, and final design are approved",
+      "publicCopyRule": "Do not invent missing public copy",
+      "freeGathering": {
+        "location": "Collins Park, Scotia, NY",
+        "startsAt": "12:00",
+        "endsAt": "sunset",
+        "audience": "Tartans",
+        "allAges": true
+      },
+      "dinner": {
+        "location": "Beukendaal Temple",
+        "address": "22 Schonowee Ave, Schenectady, NY 12302",
+        "startsAt": "17:00",
+        "endsAt": "20:00",
+        "musicEndsAt": "22:00"
+      }
+    },
+    "ticketing": {
+      "unitTotalCents": 2006,
+      "taxIncluded": true,
+      "initialBatchCapacity": 80,
+      "initialBatchMaxPerOrder": 8,
+      "reservationMinutes": 30,
+      "provisionalHoldMinutes": 35,
+      "attachmentShortensToStripeExpiration": true,
+      "attachmentMayExtendProvisionalHold": false,
+      "unattachedExpiredCleanupRequired": true,
+      "attachedReleaseSource": "verified Stripe lifecycle processing",
+      "autoCreateBatches": false,
+      "attendeeNamesRequired": false,
+      "individualTicketRows": true,
+      "qrRequiredV1": false,
+      "capacitySqlTestIsSequential": true,
+      "twoSessionConcurrencyTestRequiredBeforeLaunch": true
+    },
+    "commerce": {
+      "merchantOfRecord": "Greenroad Group Holdings LLC",
+      "checkoutSurface": "Stripe-hosted Checkout",
+      "paymentTruth": "Stripe webhook plus Greenroad Supabase",
+      "returnSurface": "/events/scotia-2006",
+      "returnQueryIsPaymentProof": false
+    },
+    "tax": {
+      "newYorkRegistrationExists": true,
+      "stripeTaxEnabled": true,
+      "classificationVerified": false,
+      "liveRegistrationMustBeVerifiedBeforeLivePayments": true,
+      "neverAddTaxAboveUnitTotal": true
+    },
+    "email": {
+      "provider": "Resend",
+      "from": "Greenroad Group <tickets@updates.greenroad.group>",
+      "replyTo": "hello@greenroad.group",
+      "sendingDomainVerified": false,
+      "reuseArtisTalksAssets": false
+    }
   },
   "customGoodsOnSite": [
     { "title": "POD Adventure Brite Tumbler 20 oz", "item": "A401191PD", "price": 15.83 },
@@ -236,6 +317,13 @@
       "scope": "Real-time color buttons for multi-color ADG SKUs; logo upload preview on product image. Final draft requires ADG proof approval before production."
     },
     {
+      "id": "event-001",
+      "title": "SGHS Class of 2006 reunion Phase 1",
+      "status": "review",
+      "priority": "critical",
+      "scope": "Sync memory, restore or park broad Stripe scope, and create reviewable unapplied Supabase schema and inventory SQL. Stop before Checkout, webhook fulfillment, event UI, or email."
+    },
+    {
       "id": "commerce-001",
       "title": "Later inquiry/proof/order flow",
       "status": "todo",
@@ -310,10 +398,16 @@
       "scope": "Created GREENROAD_MEMORY_MAP.md and began syncing docs to corrected everyday goods + greener systems + custom goods strategy."
     },
     {
+      "id": "session-reunion-phase-1",
+      "name": "Reunion Phase 1",
+      "status": "review",
+      "scope": "Memory sync, restoration of narrow Stripe foundations, and reviewable unapplied Supabase schema and inventory SQL only."
+    },
+    {
       "id": "session-7",
-      "name": "Stripe",
+      "name": "Historical Desk Plants Stripe plan",
       "status": "deferred",
-      "scope": "One Desk Plants SKU, webhook, first sale"
+      "scope": "One Desk Plants SKU, webhook, and first sale remain deferred. This does not conflict with the narrow reunion ticketing exception."
     }
   ],
   "lockedDecisions": [
@@ -339,7 +433,19 @@
     "Existing Greenroad Google Sheet is the control board",
     "Do not create a separate custom goods sheet yet",
     "ZEYODA is internal-only and should not appear in public Greenroad frontend copy unless Jai explicitly approves",
-    "GOSHBOT routes memory and warns about drift"
+    "GOSHBOT routes memory and warns about drift",
+    "SGHS Class of 2006 reunion is the first real Community discovery and the only approved Stripe exception",
+    "Permanent reunion route is /events/scotia-2006",
+    "Reunion date is Saturday October 31 2026 in America/New_York",
+    "Dinner ticket customer total is exactly $20.06 tax included",
+    "Batch 1 capacity is 80 with max_per_order 8 stored as batch configuration",
+    "Reservation duration is 30 minutes",
+    "Never auto-create or auto-open a later reunion ticket batch",
+    "Greenroad Group Holdings LLC is merchant of record",
+    "Purchaser name and email are required; attendee names and QR tickets are not required in V1",
+    "One event_tickets row is created per paid ticket",
+    "Checkout success and cancellation return to /events/scotia-2006 and query state is never payment proof",
+    "Supabase migrations require review and explicit authorization before application"
   ],
   "doNotBuildV1": [
     "sustainability scoring",
@@ -355,7 +461,9 @@
     "account system",
     "TinaCMS",
     "sub-orbits",
-    "payment or Stripe before offer/margin validation",
+    "Custom Goods payment or Stripe before offer/margin validation",
+    "generic checkout, invoicing, Terminal/POS, or subscriptions",
+    "reunion Checkout, webhook fulfillment, event UI, or email before Phase 1 SQL review and explicit approval",
     "ratings",
     "certified or approved language",
     "Amazon-style commodity marketplace",

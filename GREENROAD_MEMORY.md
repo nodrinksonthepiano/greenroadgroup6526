@@ -1,6 +1,6 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** July 6, 2026 (post–Custom Goods Station + 7 ADG starter offers)
+**Last synced:** September 21, 2026 (reunion Phase 1 approval)
 
 Read `GREENROAD_MEMORY_MAP.md` first, then this file. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
@@ -20,6 +20,7 @@ Homepage default:  POD Adventure Brite Tumbler 20 oz (app/page.tsx)
 Checkout/proof:    NOT live — inquiry mailto only; manual ADG proof before production
 Full ADG catalog:  NOT live — 7 starter ADG items only
 published field:   Does NOT gate UI — all discoveries render regardless of published:false
+Reunion route:     PLANNED — /events/scotia-2006; no event UI or payment flow live
 ```
 
 `experiment/pearl-print-surface` is **historical/backed up**. Pearl/olive material system is live on main.
@@ -29,6 +30,75 @@ published field:   Does NOT gate UI — all discoveries render regardless of pub
 - Custom carousel gesture model fixed (swipe/wheel progress convention aligned)
 - Forest/sky room-backdrop with scrim and top/bottom bookends
 - 7 ADG Promo on Demand starter discoveries in Custom carousel
+
+---
+
+## SGHS Class of 2006 Reunion (locked September 21, 2026)
+
+This is the first real Greenroad Community discovery and the only approved
+Stripe exception. Custom Goods remains inquiry-only.
+
+```text
+Permanent route:       /events/scotia-2006
+Date / time zone:      Saturday, October 31, 2026 / America/New_York
+Free gathering:        Collins Park, Scotia, NY / noon–sunset / all ages
+Dinner:                Beukendaal Temple / 5 PM–8 PM / music or DJ until 10 PM
+Dinner address:        22 Schonowee Ave, Schenectady, NY 12302
+Ticket total:          $20.06 each, tax included; never add tax on top
+Batch 1:               80 tickets
+Batch 1 max/order:     8 tickets, stored as batch data
+Checkout duration:     30 minutes customer-facing
+Provisional DB hold:   35 minutes before Stripe Session attachment
+Merchant of record:    Greenroad Group Holdings LLC
+Checkout:              Stripe-hosted
+Payment truth:         Stripe webhook + Greenroad Supabase
+Transactional email:  Resend
+```
+
+Inventory and identity rules:
+
+- Batch 1 is not a lifetime cap; Jai may manually create and open later batches.
+- Never auto-create or auto-open another batch.
+- Later batches may use a different `max_per_order`.
+- The initial 35-minute database hold is internal safety time for Stripe Session
+  creation and crash recovery; it is not the buyer's Checkout duration.
+- Attaching a Session must shorten `reservation_expires_at` to Stripe's actual
+  30-minute expiration and must never extend the provisional hold.
+- Expired unattached provisional orders may be released by service-role cleanup.
+- Attached reservations are released only by later verified Stripe lifecycle
+  handling, never by the return URL or browser cancellation.
+- Purchaser name and email are required. Graduation year, connection note, and
+  marketing opt-in are optional; marketing is off by default.
+- A purchaser may buy multiple tickets without naming every attendee.
+- Create one individual ticket row/number per paid ticket. No QR system in V1.
+- Initial check-in may use purchaser name, email, order confirmation, and count.
+- Future magic-link / OTP identity attaches to the same profile/email.
+- Success and cancellation return to `/events/scotia-2006`; query parameters
+  transform that surface but never prove payment.
+- The current reunion flyer may be used as temporary artwork until the
+  transaction URL, sponsors, and final design are approved.
+- Do not invent missing public copy.
+
+Tax and email boundaries:
+
+- Greenroad is registered for New York sales tax and Stripe Tax is enabled.
+- Do not invent the reunion ticket tax classification.
+- Verify the tax classification and live Stripe Tax registration before live
+  payments. This does not block schema or sandbox implementation.
+- Planned sender: `Greenroad Group <tickets@updates.greenroad.group>`.
+- Planned reply-to: `hello@greenroad.group`.
+- Do not assume the sending subdomain is verified and do not reuse ArtisTalks
+  sender, domain, or templates.
+
+Phase 1 artifacts were completed September 21, 2026:
+
+1. sync the four read-first memory documents
+2. restore or park the previous broad Stripe scope
+3. create reviewable Supabase migration SQL
+
+The migration files remain unapplied. Work is stopped for Jai's SQL review.
+Do not apply migrations or build Checkout, webhook fulfillment, event UI, or
+email until Jai explicitly approves the next phase.
 
 ---
 
@@ -269,11 +339,12 @@ Carousel order follows `DISCOVERY_SLUGS` filter for `room: "custom"`. Homepage S
 
 ## Next Work
 
-1. **UX-001:** Print legibility fix (high priority)
-2. Sync remaining docs: `VOICE_AND_VISION.md`, `LAUNCH_ROADMAP.md`, `SESSION_REPORT.md`
-3. Use existing Greenroad Google Sheet as operating control board; add custom-goods tabs
-4. Sort remaining ADG items in sheet; hold at 7 starter offers unless Jai approves more
-5. Continue ecosystem-guide planning
+1. Review the reunion Phase 1 SQL. The migrations are not applied.
+2. Require Jai's explicit authorization before Phase 2.
+3. **UX-001:** Print legibility fix remains the next unrelated homepage task.
+4. Sync remaining docs: `VOICE_AND_VISION.md`, `LAUNCH_ROADMAP.md`, `SESSION_REPORT.md`.
+5. Continue existing sheet and ecosystem-guide work without expanding Custom
+   Goods commerce.
 
 Phone-test legibility and Custom carousel before major distribution push.
 
@@ -431,6 +502,19 @@ Checkout/proof/shipping NOT live — inquiry mailto only. published:false does N
 Next UX priority: print legibility over room-backdrop (accordion triggers + section headings). Jai handles all git.
 ```
 
+### Reunion Phase 1
+
+```text
+Read GREENROAD_MEMORY_MAP.md, GREENROAD_MEMORY.md, AGENT_NOTES.md, and PRD.json.
+The SGHS Class of 2006 reunion is the only approved Stripe exception. Permanent
+route: /events/scotia-2006. Batch 1: 80 tickets, max_per_order 8 in batch data,
+30-minute buyer Checkout, 35-minute pre-Stripe safety hold, $20.06 total per
+dinner ticket tax included.
+Phase 1 files are complete and stopped for SQL review. Do not apply migrations
+or build Checkout, webhook fulfillment, event UI, or email. No git, no .env,
+no live Stripe.
+```
+
 ### Surgical ADG product add
 
 ```text
@@ -443,4 +527,10 @@ Do not import full ADG catalog. No scores, ratings, certified, or approved badge
 
 ## One-Line Status
 
-**Custom Goods Station is live on main with 7 ADG starter offers, forest/sky backdrop, hello@greenroad.group inquiry CTA, and fixed custom carousel gestures; next priority is print legibility over the room-backdrop photo — pearl scrims, not text-shadow hacks.**
+**Custom Goods Station remains inquiry-only; the SGHS Class of 2006 reunion is
+the sole approved Stripe exception; Phase 1 is complete with reviewable
+unapplied Supabase SQL, and work is stopped for Jai's review.**
+
+**Pre-launch QA requirement:** The migration test fills Batch 1 sequentially.
+Before sales open, run a real two-session transaction test against the Greenroad
+sandbox database to verify row-lock behavior under simultaneous reservations.

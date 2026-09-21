@@ -159,6 +159,27 @@ ZEYODA is internal-only parent/foundation memory and should not appear in public
 
 **Do not build too early:** full ADG catalog, Stripe, proof editor, account system, TinaCMS, sub-orbits, mass publishing, or full marketplace/listings.
 
+### Reunion ticketing exception — pre-launch QA addendum (September 21, 2026)
+
+The SGHS Class of 2006 reunion is the sole approved Stripe exception. Custom
+Goods remains inquiry-only.
+
+Before reunion ticket sales open:
+
+- [ ] Review the Phase 1 Supabase SQL before applying it
+- [ ] Apply migrations only after Jai explicitly authorizes the target sandbox
+- [ ] Run a real two-session database concurrency test with simultaneous
+      reservations against the same nearly full Batch 1 row
+- [ ] Prove `FOR UPDATE` serialization prevents overselling and keeps
+      `reserved_count + sold_count <= capacity`
+- [ ] Verify the 35-minute unattached provisional hold, 30-minute attached
+      Stripe window, and expired-unattached cleanup in the sandbox
+- [ ] Verify attached reservations release only from signed Stripe lifecycle
+      handling, never from browser return/cancel state
+
+The repository SQL test fills capacity sequentially; it is not evidence of
+simultaneous-transaction behavior.
+
 ---
 
 ## Distribution & Supplier (later)

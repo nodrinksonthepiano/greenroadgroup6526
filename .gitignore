@@ -22,7 +22,12 @@
 
 # misc
 .DS_Store
+
+# Keys / credentials
 *.pem
+*.key
+credentials.json
+secrets.json
 
 # debug
 npm-debug.log*
@@ -30,9 +35,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
+# Environment files — keep .env.example committed
 .env
-.env*.local
+.env.*
+!.env.example
 
 # vercel
 .vercel

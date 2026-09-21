@@ -31,6 +31,49 @@ Custom goods are the first practical sales lane because they match Jai's current
 
 **Better everyday goods are the trust and content engine.**
 
+## Reunion Ticketing Exception (Locked September 21, 2026)
+
+The SGHS Class of 2006 reunion is the first real Greenroad Community discovery
+and the only currently authorized Stripe commerce build.
+
+Locked boundaries:
+
+* Permanent public route: `/events/scotia-2006`
+* Event date: Saturday, October 31, 2026
+* Time zone: `America/New_York`
+* Free kickball / costume gathering: Collins Park, Scotia, NY, noon to sunset,
+  open to Tartans, all ages
+* Paid dinner: Beukendaal Temple, 22 Schonowee Ave, Schenectady, NY 12302,
+  5 PM–8 PM, with live music / DJ until 10 PM
+* The current reunion flyer may be temporary artwork until the transaction URL,
+  sponsors, and final design are approved
+* Do not invent missing public copy
+* Dinner ticket total: $20.06 per ticket, tax included; never add tax on top
+* Initial Batch 1 capacity: 80 tickets
+* Batch 1 maximum per order: 8 tickets, stored as batch configuration
+* Buyer-facing Stripe Checkout duration: 30 minutes
+* Pre-Stripe database reservation: 35-minute internal safety hold
+* Attaching the Stripe Session shortens the database reservation to Stripe's
+  actual 30-minute `expires_at`; attachment must never extend the provisional hold
+* Expired unattached provisional reservations may be cleaned up safely
+* Attached reservations are released only through later verified Stripe
+  lifecycle processing, never from a browser cancel redirect
+* Batch 1 is not a lifetime event-sales cap; Jai may manually release later
+  batches with different limits
+* Never auto-create or auto-open a later batch
+* Purchaser name and email required; attendee names and QR tickets are not V1
+* One individual ticket record per purchased ticket
+* Greenroad Group Holdings LLC is merchant of record
+* Stripe-hosted Checkout, Greenroad Supabase payment truth, and Resend
+  transactional confirmation
+* Checkout returns to `/events/scotia-2006`; query state is UX only
+* Tax classification and live Stripe Tax registration must be verified before
+  live payments, but do not block schema or sandbox work
+
+This is a narrow Community ticketing exception. It does not authorize Custom
+Goods checkout, generic checkout, invoicing, Terminal/POS, subscriptions, or
+other Greenroad payment rails.
+
 ## Working Positioning
 
 Public-facing working phrase:
@@ -404,6 +447,19 @@ Fix rules:
 
 Fix accordion triggers and section headings readability over room-backdrop photos.
 
+### Priority 0 -- Reunion Phase 1 SQL review
+
+Phase 1 artifacts were created September 21, 2026:
+
+1. sync the four read-first memory documents
+2. restore or park the previous broad Stripe scope
+3. create reviewable Supabase migration SQL without applying it
+
+Phase 1 is stopped for Jai's SQL review. No Phase 2 work is authorized. Do not
+build Checkout, webhook fulfillment, reunion UI, or email.
+Do not use git, read `.env` / `.env.local`, touch live Stripe, or apply Supabase
+migrations.
+
 ### Priority 2 -- Memory / PRD Cleanup
 
 Docs synced July 6: `GREENROAD_MEMORY_MAP.md`, `GREENROAD_MEMORY.md`, `AGENT_NOTES.md`, `PRD.json`.
@@ -485,7 +541,10 @@ Do not automate writing to sheets before the control board is stable.
 Do not build yet:
 
 * full ADG catalog
-* payment / Stripe
+* Custom Goods payment / Stripe
+* generic checkout, invoicing, Terminal/POS, or subscriptions
+* reunion Checkout, webhook fulfillment, event UI, or email before Phase 1 SQL
+  is reviewed and Jai approves the next phase
 * proof editor
 * account system
 * TinaCMS
@@ -504,6 +563,10 @@ If an idea is about custom merch, promo goods, personalized products, or ADG, ro
 
 If an idea is about checkout, inquiries, affiliates, listings, or money flow, route to Commerce / Listings.
 
+If an idea is about SGHS Class of 2006 reunion ticketing, route it to the
+locked Community ticketing exception and preserve `/events/scotia-2006` as its
+permanent public home.
+
 If an idea borrows from ZEYODA, Artistocks, or ArtisTalks UX, route to Shared Ecosystem Patterns.
 
 If an idea uses ZEYODA language, check whether it is internal-only. Do not route ZEYODA into public Greenroad copy unless Jai explicitly approves.
@@ -521,8 +584,17 @@ GOSHBOT should warn when:
 * Becca's editorial role is bypassed for publishable content
 * mass AI content is being proposed without human editing
 * the project starts building checkout, proof editor, or full catalog too early
+* reunion ticketing expands into generic Greenroad or Custom Goods commerce
+* code auto-creates a later ticket batch or hardcodes the Batch 1
+  `max_per_order` application-wide
+* a sequential capacity test is represented as proof of concurrent safety;
+  pre-launch QA requires a real two-session database concurrency test
 * accordion or section headings are left on forest backdrop without pearl reading surfaces where legibility fails
 
 ## One-Sentence Current Truth
 
-Greenroad Group is an upscale better-goods and custom-goods commerce project: sustainability is the north star, Custom Goods Station is live with 7 ADG starter offers, better everyday goods are the trust engine, and the next UX fix is print legibility over the forest backdrop.
+Greenroad Group is an upscale better-goods and custom-goods commerce project:
+sustainability is the north star, Custom Goods Station remains inquiry-only,
+and the SGHS Class of 2006 reunion is the sole approved Stripe exception,
+currently limited to memory cleanup, scope restoration, and reviewable
+unapplied Supabase SQL.

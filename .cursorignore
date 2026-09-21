@@ -1,0 +1,9 @@
+# Secrets — block Agent / Tab / Inline Edit / @ mentions
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+credentials.json
+secrets.json

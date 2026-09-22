@@ -1,0 +1,59 @@
+{
+  "id": "scotia-2006-reunion",
+  "slug": "scotia-2006-reunion",
+  "type": "event",
+  "title": "SGHS Class of 2006 20-Year Reunion",
+  "room": "community",
+  "system": "local reunion",
+  "alternative_to": [],
+  "featured_hook": "Saturday, October 31, 2026",
+  "problem_solved": [
+    "One permanent place for reunion details and dinner tickets"
+  ],
+  "why_we_like_it": [
+    "Costume Kickball noon–4 PM at Collins Park and Tartan Dinner 4–8 PM at Beukendaal Temple"
+  ],
+  "considerations": [
+    "Dinner tickets are $20.06 each, tax included",
+    "Tartan Dinner is at Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302",
+    "Refunds and transfers are handled manually"
+  ],
+  "evidence": [
+    "Greenroad Group Holdings LLC is the merchant of record"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [],
+    "criticized_for": []
+  },
+  "signals_from_web": [
+    {
+      "source": "Greenroad Community",
+      "signal": "The first real Greenroad Community discovery"
+    }
+  ],
+  "supplier_id": null,
+  "hero_image": "/events/scotia-2006/reunion-poster.jpg",
+  "seo_title": "SGHS Class of 2006 20-Year Reunion",
+  "seo_description": "Reunion details and dinner tickets for the SGHS Class of 2006 on Saturday, October 31, 2026.",
+  "faqs": [
+    {
+      "q": "Is the daytime gathering open to families?",
+      "a": "Yes. The Collins Park kickball and costume gathering is all ages and open to Tartans."
+    },
+    {
+      "q": "How much is a dinner ticket?",
+      "a": "Dinner tickets are $20.06 each, tax included."
+    }
+  ],
+  "commerce": {
+    "bucket": "direct",
+    "sale_type": "direct_resale",
+    "list_price": 20.06,
+    "greenroad_price": 20.06,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "/events/scotia-2006"
+  },
+  "featured": true,
+  "published": true
+}

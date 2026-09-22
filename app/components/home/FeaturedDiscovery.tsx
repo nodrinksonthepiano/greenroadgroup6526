@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
 import { getEcosystem } from "@/data/ecosystems";
@@ -28,7 +29,7 @@ function HeroImage({ discovery }: { discovery: Discovery }) {
     setImgError(false);
   }, [discovery.id, discovery.hero_image]);
 
-  if (imgError) {
+  if (imgError || !discovery.hero_image) {
     return (
       <div className="featured-discovery__hero-media featured-discovery__hero-media--fallback">
         <div className="featured-discovery__hero-fallback" aria-hidden>
@@ -97,16 +98,24 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
   const isCustomInquiry =
     discovery.room === "custom" &&
     discovery.commerce.sale_type === "inquiry";
+  const eventHref =
+    discovery.type === "event" &&
+    discovery.commerce.product_url?.startsWith("/")
+      ? discovery.commerce.product_url
+      : null;
   const quoteHref = isCustomInquiry
     ? buildCustomQuoteMailto(discovery)
     : null;
+  const isEvent = Boolean(eventHref);
   const priceLine =
     isCustomInquiry && discovery.commerce.list_price != null
       ? `From $${discovery.commerce.list_price.toFixed(2)} + order fee + shipping estimate`
       : whyLine;
 
   return (
-    <article className="featured-discovery">
+    <article
+      className={`featured-discovery${isEvent ? " featured-discovery--event" : ""}`}
+    >
       <div className="featured-discovery__hero">
         <HeroImage key={discovery.id} discovery={discovery} />
         <span className="featured-discovery__ecosystem-badge">
@@ -117,19 +126,31 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
         <h1 className="featured-discovery__title">{discovery.title}</h1>
         {hookLine && (
           <p className="featured-discovery__alternative">
-            {hookLine} — consider this.
+            {hookLine}
+            {!isEvent && " — consider this."}
           </p>
         )}
         {priceLine && (
           <>
             <p className="featured-discovery__why-label">
-              {isCustomInquiry ? "Starting at" : "Why it's here"}
+              {isCustomInquiry
+                ? "Starting at"
+                : eventHref
+                  ? "Event details"
+                  : "Why it's here"}
             </p>
             <p className="featured-discovery__why-copy">{priceLine}</p>
           </>
         )}
         <div className="featured-discovery__actions">
-          {quoteHref ? (
+          {eventHref ? (
+            <Link
+              href={eventHref}
+              className="featured-discovery__cta-primary featured-discovery__cta-link"
+            >
+              Enter Reunion
+            </Link>
+          ) : quoteHref ? (
             <a
               href={quoteHref}
               className="featured-discovery__cta-primary featured-discovery__cta-link"
@@ -145,13 +166,15 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
               Learn More
             </button>
           )}
-          <button
-            type="button"
-            className="featured-discovery__cta-secondary"
-            onClick={isCustomInquiry ? onLearnMore : onJoin}
-          >
-            {isCustomInquiry ? "Learn More" : "Join The Green Road"}
-          </button>
+          {!eventHref && (
+            <button
+              type="button"
+              className="featured-discovery__cta-secondary"
+              onClick={isCustomInquiry ? onLearnMore : onJoin}
+            >
+              {isCustomInquiry ? "Learn More" : "Join The Green Road"}
+            </button>
+          )}
         </div>
       </div>
     </article>

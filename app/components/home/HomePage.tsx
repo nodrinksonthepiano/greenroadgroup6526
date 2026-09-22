@@ -68,6 +68,7 @@ export function HomePage({ discovery }: HomePageProps) {
     featuredView.mode === "discovery" ? featuredView.discovery : discovery;
 
   const isCustomMode = activeEcosystem === "custom";
+  const isCommunityMode = activeEcosystem === "community";
 
   useEffect(() => {
     if (!isCustomMode || pinnedDiscovery) return;
@@ -173,7 +174,7 @@ export function HomePage({ discovery }: HomePageProps) {
       <div className="home-main">
         <section
           ref={stageRef}
-          className={`discovery-stage${isCustomMode ? " discovery-stage--custom" : ""}`}
+          className={`discovery-stage${isCustomMode ? " discovery-stage--custom" : ""}${isCommunityMode ? " discovery-stage--community" : ""}`}
           aria-label="Featured discovery and ecosystems"
         >
           <div

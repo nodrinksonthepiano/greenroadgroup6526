@@ -620,6 +620,83 @@ html:has(body.carousel-scroll-lock) {
   overflow: hidden;
 }
 
+.discovery-stage--community .discovery-stage__frame {
+  width: min(16.5rem, 68%);
+}
+
+.featured-discovery--event {
+  padding: 3px;
+  border-color: var(--ruby);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(139, 26, 42, 0.98) 0 14px,
+      rgba(18, 18, 18, 0.96) 14px 19px,
+      rgba(245, 240, 230, 0.92) 19px 21px,
+      rgba(139, 26, 42, 0.98) 21px 35px
+    );
+  box-shadow:
+    0 0 0 1px rgba(245, 240, 230, 0.72),
+    0 0 28px rgba(139, 26, 42, 0.32),
+    0 16px 36px rgba(0, 0, 0, 0.36);
+}
+
+.featured-discovery--event .featured-discovery__hero {
+  aspect-ratio: 16 / 10;
+  padding: var(--space-3);
+  background: #171313;
+}
+
+.featured-discovery--event .featured-discovery__hero-img {
+  object-position: center 10%;
+}
+
+.featured-discovery--event .featured-discovery__ecosystem-badge {
+  color: var(--print-pearl);
+  border-color: var(--gold-lion);
+  background: rgba(139, 26, 42, 0.94);
+}
+
+.featured-discovery--event .featured-discovery__body {
+  padding: var(--space-3);
+  border-top: 1px solid var(--gold-lion);
+}
+
+.featured-discovery--event .featured-discovery__title {
+  margin-bottom: var(--space-1);
+  font-size: var(--text-xl);
+  line-height: 1.08;
+}
+
+.featured-discovery--event .featured-discovery__alternative {
+  margin-bottom: var(--space-2);
+}
+
+.featured-discovery--event .featured-discovery__why-label {
+  display: none;
+}
+
+.featured-discovery--event .featured-discovery__why-copy {
+  display: -webkit-box;
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+  font-size: var(--text-xs);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.featured-discovery--event .featured-discovery__cta-primary {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--gold-lion);
+  background: var(--ruby);
+  color: var(--print-pearl);
+}
+
+.featured-discovery--event .featured-discovery__cta-primary:hover {
+  background: #711523;
+  box-shadow: 0 4px 18px rgba(139, 26, 42, 0.42);
+}
+
 .featured-discovery__hero {
   position: relative;
   aspect-ratio: 4 / 3;

@@ -41,14 +41,19 @@ Locked boundaries:
 * Permanent public route: `/events/scotia-2006`
 * Event date: Saturday, October 31, 2026
 * Time zone: `America/New_York`
-* Free kickball / costume gathering: Collins Park, Scotia, NY, noon to sunset,
-  open to Tartans, all ages
-* Paid dinner: Beukendaal Temple, 22 Schonowee Ave, Schenectady, NY 12302,
-  5 PM–8 PM, with live music / DJ until 10 PM
-* The current reunion flyer may be temporary artwork until the transaction URL,
-  sponsors, and final design are approved
+* Costume Kickball: noon–4 PM, Collins Park, Little League Majors Field,
+  Scotia, NY. Free, all ages, open to Tartans. Large inflatable costumes
+  are encouraged
+* Tartan Dinner: 4–8 PM, Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302
+* Live music and DJ until 10 PM
+* Current public artwork: `public/events/scotia-2006/reunion-poster.jpg`.
+  Logos printed inside that poster may show with the artwork. Do not add
+  those logos to the Hometown Partners section unless Jai approves them
+  there. Replace the file when Jai supplies a newer poster
 * Do not invent missing public copy
 * Dinner ticket total: $20.06 per ticket, tax included; never add tax on top
+* Never show a public inventory count or “only 80 tickets.” Batch 1 capacity
+  stays backend-only
 * Initial Batch 1 capacity: 80 tickets
 * Batch 1 maximum per order: 8 tickets, stored as batch configuration
 * Buyer-facing Stripe Checkout duration: 30 minutes
@@ -455,8 +460,11 @@ Phase 1 artifacts were created September 21, 2026:
 2. restore or park the previous broad Stripe scope
 3. create reviewable Supabase migration SQL without applying it
 
-Phase 1 is stopped for Jai's SQL review. No Phase 2 work is authorized. Do not
-build Checkout, webhook fulfillment, reunion UI, or email.
+Public reunion facts were corrected later on September 21, 2026 to the current
+poster: noon–4 PM kickball, 4–8 PM dinner, Scotia, NY 12302. Reunion World
+presentation at `/events/scotia-2006` is authorized. Do not edit payment,
+webhook, Supabase, migration, or email code during presentation work. Do not
+treat this note as proof that live ticket sales are open.
 Do not use git, read `.env` / `.env.local`, touch live Stripe, or apply Supabase
 migrations.
 
@@ -543,8 +551,8 @@ Do not build yet:
 * full ADG catalog
 * Custom Goods payment / Stripe
 * generic checkout, invoicing, Terminal/POS, or subscriptions
-* reunion Checkout, webhook fulfillment, event UI, or email before Phase 1 SQL
-  is reviewed and Jai approves the next phase
+* edits to reunion payment, webhook, Supabase, migration, or email code during
+  presentation work
 * proof editor
 * account system
 * TinaCMS
@@ -590,11 +598,14 @@ GOSHBOT should warn when:
 * a sequential capacity test is represented as proof of concurrent safety;
   pre-launch QA requires a real two-session database concurrency test
 * accordion or section headings are left on forest backdrop without pearl reading surfaces where legibility fails
+* public reunion copy uses noon–sunset, a 5 PM dinner, or a Schenectady address
+* a public reunion surface shows a ticket inventory count or “only 80 tickets”
 
 ## One-Sentence Current Truth
 
 Greenroad Group is an upscale better-goods and custom-goods commerce project:
 sustainability is the north star, Custom Goods Station remains inquiry-only,
-and the SGHS Class of 2006 reunion is the sole approved Stripe exception,
-currently limited to memory cleanup, scope restoration, and reviewable
-unapplied Supabase SQL.
+and the SGHS Class of 2006 reunion is the sole approved Stripe exception.
+Canonical public facts match the current reunion poster, and Reunion World
+presentation is authorized at `/events/scotia-2006`. Payment, webhook,
+Supabase, migration, and email code stay frozen unless Jai opens that work.

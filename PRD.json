@@ -28,7 +28,7 @@
     "homepageDefaultDiscovery": "pod-adventure-brite-tumbler-20oz",
     "customAdgStarterCount": 7,
     "reunionRoute": "/events/scotia-2006",
-    "reunionUiLive": false,
+    "reunionUiLive": true,
     "reunionCheckoutLive": false,
     "reunionDatabaseApplied": false
   },
@@ -52,19 +52,25 @@
       "date": "2026-10-31",
       "timeZone": "America/New_York",
       "permanentRoute": "/events/scotia-2006",
-      "temporaryArtwork": "Current reunion flyer until transaction URL, sponsors, and final design are approved",
+      "currentArtwork": "public/events/scotia-2006/reunion-poster.jpg",
+      "artworkRule": "Logos printed into the current poster may show with the artwork. Hometown Partners stays logo-free until Jai approves those businesses as web sponsors. Replace the file when Jai supplies a newer poster.",
       "publicCopyRule": "Do not invent missing public copy",
+      "publicInventoryVisible": false,
       "freeGathering": {
-        "location": "Collins Park, Scotia, NY",
+        "name": "Costume Kickball",
+        "location": "Collins Park, Little League Majors Field, Scotia, NY",
         "startsAt": "12:00",
-        "endsAt": "sunset",
+        "endsAt": "16:00",
         "audience": "Tartans",
-        "allAges": true
+        "allAges": true,
+        "free": true,
+        "largeInflatableCostumesEncouraged": true
       },
       "dinner": {
+        "name": "Tartan Dinner",
         "location": "Beukendaal Temple",
-        "address": "22 Schonowee Ave, Schenectady, NY 12302",
-        "startsAt": "17:00",
+        "address": "22 Schonowee Ave, Scotia, NY 12302",
+        "startsAt": "16:00",
         "endsAt": "20:00",
         "musicEndsAt": "22:00"
       }
@@ -321,7 +327,7 @@
       "title": "SGHS Class of 2006 reunion Phase 1",
       "status": "review",
       "priority": "critical",
-      "scope": "Sync memory, restore or park broad Stripe scope, and create reviewable unapplied Supabase schema and inventory SQL. Stop before Checkout, webhook fulfillment, event UI, or email."
+      "scope": "Public facts match the current poster. Reunion World presentation is authorized. Do not edit payment, webhook, Supabase, migration, or email code, and do not assume live sales are open."
     },
     {
       "id": "commerce-001",
@@ -438,6 +444,10 @@
     "Permanent reunion route is /events/scotia-2006",
     "Reunion date is Saturday October 31 2026 in America/New_York",
     "Dinner ticket customer total is exactly $20.06 tax included",
+    "Costume Kickball is noon-4 PM at Collins Park, Little League Majors Field",
+    "Tartan Dinner is 4-8 PM at Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302",
+    "Live music and DJ continue until 10 PM",
+    "Never show a public reunion inventory count or only 80 tickets",
     "Batch 1 capacity is 80 with max_per_order 8 stored as batch configuration",
     "Reservation duration is 30 minutes",
     "Never auto-create or auto-open a later reunion ticket batch",
@@ -463,7 +473,7 @@
     "sub-orbits",
     "Custom Goods payment or Stripe before offer/margin validation",
     "generic checkout, invoicing, Terminal/POS, or subscriptions",
-    "reunion Checkout, webhook fulfillment, event UI, or email before Phase 1 SQL review and explicit approval",
+    "edits to reunion payment, webhook, Supabase, migration, or email code during presentation work",
     "ratings",
     "certified or approved language",
     "Amazon-style commodity marketplace",

@@ -20,21 +20,20 @@ Begin every build session with:
 
 **One session = one scope.** Stop when done. Do not start the next session unless Jai says so.
 
-### Current state — Reunion Phase 1 awaiting review
+### Current state — Reunion World presentation
 
 The SGHS Class of 2006 reunion is the only approved Stripe exception.
 
-Phase 1 artifacts were completed September 21, 2026:
+Canonical public facts match the current poster: Costume Kickball noon–4 PM
+at Collins Park, Little League Majors Field; Tartan Dinner 4–8 PM at
+Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302; live music and DJ
+until 10 PM; dinner tickets $20.06, tax included. Never show a public
+inventory count or “only 80 tickets.”
 
-1. sync `GREENROAD_MEMORY_MAP.md`, `GREENROAD_MEMORY.md`, `AGENT_NOTES.md`, and
-   `PRD.json`
-2. restore or park the previous broad Stripe scope
-3. create reviewable Supabase migration SQL without applying it
-
-The migration files remain unapplied. Stop for Jai's review. Do not build
-Checkout, webhook fulfillment, reunion UI, or email without explicit Phase 2
-approval. Custom Goods remains inquiry-only. Do not touch Custom Goods
-carousel physics.
+Reunion World presentation at `/events/scotia-2006` is authorized. Do not
+edit payment, webhook, Supabase, migration, or email code. Do not assume
+live sales are open. Custom Goods remains inquiry-only. Do not touch Custom
+Goods carousel physics.
 
 ## Git
 
@@ -51,7 +50,7 @@ Logo:              Wired in GreenroadWallet / header area
 ADG starter items: 7 in Custom carousel (not full ADG catalog)
 Checkout/proof:    NOT live — inquiry mailto only
 published field:   Does NOT gate UI
-Reunion route:     PLANNED — /events/scotia-2006; no event UI or payment flow live
+Reunion route:     /events/scotia-2006 presentation exists. Payment machinery is frozen. This is not proof that live sales are open.
 ```
 
 **Do not use** `experiment/pearl-print-surface` as the active branch. Pearl/olive is merged to main. That experiment branch is historical.
@@ -67,11 +66,15 @@ Reunion route:     PLANNED — /events/scotia-2006; no event UI or payment flow 
 - First real Community discovery: SGHS Class of 2006 reunion
 - Permanent route: `/events/scotia-2006`
 - Saturday, October 31, 2026; `America/New_York`
-- Collins Park kickball / costume gathering: noon–sunset, free, all ages
-- Dinner: Beukendaal Temple, 22 Schonowee Ave, Schenectady, NY 12302,
-  5 PM–8 PM; live music / DJ until 10 PM
-- Current reunion flyer may be temporary artwork until the transaction URL,
-  sponsors, and final design are approved
+- Costume Kickball: Collins Park, Little League Majors Field, noon–4 PM,
+  free, all ages, open to Tartans; large inflatable costumes encouraged
+- Tartan Dinner: Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302,
+  4–8 PM; live music and DJ until 10 PM
+- Current public artwork is `public/events/scotia-2006/reunion-poster.jpg`.
+  Logos printed into the poster may show with the artwork. Hometown Partners
+  stays logo-free until Jai approves those businesses as web sponsors.
+  Replace the file when Jai supplies a newer poster
+- Never show a public inventory count or “only 80 tickets”
 - Do not invent missing public copy
 - $20.06 total per dinner ticket, tax included; never add tax on top
 - Batch 1 capacity 80; `max_per_order = 8` stored as batch configuration
@@ -179,7 +182,7 @@ Memory docs synced: `GREENROAD_MEMORY.md`, knowledge base, PRD, roadmap, session
 | UX-001 | High | Print legibility over forest backdrop — accordion triggers + section headings need pearl scrims; test all room backgrounds |
 | UX-002 | Later | Live ADG color swatches + logo quick-render preview |
 | UX-003 | Later | ADG proof approval gate — quick render is draft; ADG mockup required before production |
-| EVT-001 | Review | Reunion Phase 1 complete — memory synced, broad Stripe scope parked, and Supabase SQL created but not applied |
+| EVT-001 | Presentation | Reunion public facts match the current poster. Reunion World presentation is authorized. Payment, webhook, Supabase, migration, and email code stay frozen |
 
 ---
 

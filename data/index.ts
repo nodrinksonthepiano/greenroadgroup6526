@@ -1,6 +1,7 @@
 import type { Discovery, Supplier } from "./types/discovery";
 
 import deskPlantsDiscovery from "./discoveries/desk-plants-mini-harlow.json";
+import scotia2006Reunion from "./discoveries/scotia-2006-reunion.json";
 import podAdventureBriteTumbler from "./discoveries/pod-adventure-brite-tumbler-20oz.json";
 import carilohaResortBambooSheets from "./discoveries/cariloha-resort-bamboo-sheets.json";
 import purityCoffeeEaseDarkRoast from "./discoveries/purity-coffee-ease-dark-roast.json";
@@ -22,6 +23,7 @@ import egoPowerPlusSupplier from "./suppliers/ego-power-plus.json";
 /** All discovery slugs in load order. Add new slugs here when Rebecca adds JSON files. */
 export const DISCOVERY_SLUGS = [
   "pod-adventure-brite-tumbler-20oz",
+  "scotia-2006-reunion",
   "desk-plants-mini-harlow",
   "cariloha-resort-bamboo-sheets",
   "purity-coffee-ease-dark-roast",
@@ -39,6 +41,7 @@ export type DiscoverySlug = (typeof DISCOVERY_SLUGS)[number];
 
 const discoveriesBySlug: Record<DiscoverySlug, Discovery> = {
   "pod-adventure-brite-tumbler-20oz": podAdventureBriteTumbler as Discovery,
+  "scotia-2006-reunion": scotia2006Reunion as Discovery,
   "desk-plants-mini-harlow": deskPlantsDiscovery as Discovery,
   "cariloha-resort-bamboo-sheets": carilohaResortBambooSheets as Discovery,
   "purity-coffee-ease-dark-roast": purityCoffeeEaseDarkRoast as Discovery,

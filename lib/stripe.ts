@@ -1,8 +1,10 @@
+import "server-only";
+
 import Stripe from "stripe";
 
 /**
- * Server-only Stripe client. Instantiated per process from a restricted
- * secret key (`rk_test_` / `rk_live_`), never from a publishable key.
+ * Phase 2 is sandbox-only. Live keys are rejected until Jai explicitly
+ * authorizes the live launch switch.
  */
 let stripe: Stripe | null = null;
 
@@ -13,6 +15,9 @@ export function getStripe(): Stripe {
   }
   if (key.startsWith("pk_")) {
     throw new Error("STRIPE_SECRET_KEY must be a secret or restricted key, not a publishable key");
+  }
+  if (key.includes("_live_")) {
+    throw new Error("Live Stripe keys are disabled for reunion Phase 2");
   }
   if (!stripe) {
     stripe = new Stripe(key);

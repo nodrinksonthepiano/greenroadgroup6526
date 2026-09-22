@@ -1,0 +1,831 @@
+/* Reunion World — Greenroad shell with a crimson tartan event layer */
+.page {
+  --reunion-crimson: var(--ruby);
+  --reunion-crimson-dark: #67111e;
+  --reunion-black: #171313;
+  position: relative;
+  min-height: 100dvh;
+  background: var(--green-deep);
+  color: var(--silver);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.backdropImage {
+  position: absolute;
+  inset: 0;
+  background-image: url("/backgrounds/greenroad-forest-sky.webp");
+  background-position: center 38%;
+  background-size: cover;
+}
+
+.backdropScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 70% 52% at 76% 26%,
+      rgba(139, 26, 42, 0.24),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 120% 110% at 50% 50%,
+      transparent 44%,
+      rgba(8, 24, 16, 0.52) 100%
+    ),
+    linear-gradient(180deg, rgba(26, 74, 46, 0.18), rgba(11, 38, 24, 0.4));
+}
+
+.backdropTop,
+.backdropBottom {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+.backdropTop {
+  top: 0;
+  height: clamp(8rem, 22vh, 13rem);
+  background: linear-gradient(
+    180deg,
+    var(--green-deep) 0%,
+    rgba(26, 74, 46, 0.9) 28%,
+    transparent 100%
+  );
+}
+
+.backdropBottom {
+  bottom: 0;
+  height: clamp(12rem, 32vh, 18rem);
+  background: linear-gradient(
+    0deg,
+    var(--green-deep) 0%,
+    rgba(26, 74, 46, 0.92) 32%,
+    transparent 100%
+  );
+}
+
+.header {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  width: min(100% - 2rem, 42rem);
+  min-height: 4.75rem;
+  margin: 0 auto;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.brand {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.brandLogo {
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: contain;
+}
+
+.story {
+  margin: 0;
+  color: var(--print-pearl);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(0.78rem, 2.4vw, 1rem);
+  text-align: center;
+}
+
+.community {
+  padding: 0.38rem 0.6rem;
+  border: 1px solid var(--gold-lion);
+  border-radius: 999px;
+  background: rgba(139, 26, 42, 0.84);
+  color: var(--print-pearl);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 16px rgba(139, 26, 42, 0.42);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2rem, 42rem);
+  margin: 0 auto;
+  padding: clamp(1rem, 4vw, 2.5rem) 0 3rem;
+}
+
+.eventStage {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 var(--space-6);
+}
+
+.eventCard {
+  width: min(100%, 28rem);
+  padding: 4px;
+  overflow: hidden;
+  border: 1px solid var(--gold-lion);
+  border-radius: 1.25rem;
+  background: var(--reunion-crimson);
+  box-shadow:
+    0 0 0 1px rgba(245, 240, 230, 0.44),
+    0 0 42px rgba(139, 26, 42, 0.26),
+    0 1.5rem 4rem rgba(4, 20, 12, 0.38);
+}
+
+.tartanRibbon {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.7rem 0.8rem;
+  background-color: var(--reunion-crimson);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 15px,
+      rgba(18, 15, 15, 0.82) 15px 19px,
+      rgba(245, 240, 230, 0.7) 19px 20px,
+      transparent 20px 34px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 22px,
+      rgba(18, 15, 15, 0.78) 22px 27px,
+      rgba(245, 240, 230, 0.68) 27px 29px,
+      transparent 29px 48px
+    );
+  color: var(--print-pearl);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.tartanRibbon span:last-child {
+  text-align: right;
+}
+
+.heroMedia {
+  border-top: 1px solid var(--gold-lion);
+  border-bottom: 1px solid var(--gold-lion);
+  background: var(--reunion-black);
+  line-height: 0;
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.eventBody {
+  padding: clamp(1.15rem, 4vw, 1.6rem);
+  background: var(--print-pearl);
+  color: var(--ink);
+}
+
+.eventBody .eyebrow {
+  margin: 0 0 0.35rem;
+  color: var(--reunion-crimson);
+}
+
+.eventBody h1 {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 7.5vw, 3rem);
+  font-weight: 600;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.eventIntro {
+  margin: 0.8rem 0 1rem;
+  color: var(--ink-muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.eventFacts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.eventFacts div {
+  min-width: 0;
+  padding: 0.58rem 0.55rem;
+  border-left: 3px solid var(--reunion-crimson);
+  background: rgba(184, 186, 132, 0.3);
+}
+
+.eventFacts span,
+.eventFacts strong {
+  display: block;
+}
+
+.eventFacts span {
+  margin-bottom: 0.18rem;
+  color: var(--reunion-crimson);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.eventFacts strong {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 0.92rem;
+  line-height: 1.1;
+}
+
+.ticketCallout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin: 1rem 0 0.8rem;
+}
+
+.ticketCallout p {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.ticketCallout p span {
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ticketCallout strong {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.65rem;
+}
+
+.ticketCallout > span {
+  padding: 0.28rem 0.5rem;
+  border: 1px solid var(--gold-lion);
+  border-radius: 999px;
+  background: var(--print-olive);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.primaryAction,
+.secondaryAction {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--gold-lion);
+  border-radius: 0.75rem;
+  font: inherit;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primaryAction {
+  padding: 0.92rem 1rem;
+  background: var(--reunion-crimson);
+  color: var(--print-pearl);
+  box-shadow: 0 6px 18px rgba(139, 26, 42, 0.24);
+}
+
+.primaryAction:hover {
+  background: var(--reunion-crimson-dark);
+}
+
+.purchase {
+  scroll-margin-top: var(--space-6);
+  color: var(--ink);
+}
+
+.quantityStep,
+.form {
+  animation: reunion-reveal 220ms ease;
+}
+
+@keyframes reunion-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ticketHeading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ticketHeading h2 {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(1.75rem, 6vw, 2.25rem);
+  line-height: 1;
+}
+
+.ticketHeading > span {
+  flex: none;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--gold-lion);
+  border-radius: 999px;
+  background: var(--print-olive);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--reunion-crimson);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.form label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.form label span {
+  font-weight: 400;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border: 1px solid rgba(26, 74, 46, 0.4);
+  border-radius: 0.7rem;
+  background: #fffdf7;
+  color: var(--ink);
+  font: inherit;
+}
+
+.form input {
+  min-height: 2.85rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.form textarea {
+  min-height: 5.6rem;
+  padding: 0.7rem 0.75rem;
+  resize: vertical;
+}
+
+.form input:focus-visible,
+.form textarea:focus-visible,
+.form button:focus-visible,
+.brand:focus-visible {
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+.form input:disabled,
+.form textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.checkbox {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  align-items: start;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.checkbox input {
+  min-height: 0;
+  margin-top: 0.18rem;
+}
+
+.error {
+  margin: 0;
+  color: var(--ruby);
+  font-weight: 700;
+}
+
+.embeddedCheckout {
+  margin-top: 0.85rem;
+  overflow: hidden;
+  border: 1px solid rgba(26, 74, 46, 0.18);
+  border-radius: 0.75rem;
+  background: #fffdf7;
+}
+
+.checkoutNote {
+  margin: 1rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.statusPanel {
+  min-height: 0;
+  margin: 1rem 0;
+  border-left: 4px solid var(--reunion-crimson);
+  background: rgba(184, 186, 132, 0.34);
+}
+
+.verifiedTickets {
+  margin-top: 0.5rem;
+}
+
+.availability {
+  min-height: 0;
+  margin: 1.2rem 0 0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: rgba(184, 186, 132, 0.3);
+  text-align: center;
+}
+
+.stepLabel {
+  margin: 0 0 1rem;
+  color: var(--reunion-crimson);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.quantityStep {
+  padding-top: 1.4rem;
+}
+
+.quantityControl {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr 3.25rem;
+  align-items: stretch;
+  gap: 0.7rem;
+}
+
+.quantityControl button {
+  min-height: 3.5rem;
+  border: 1px solid var(--gold-lion);
+  border-radius: 0.75rem;
+  background: var(--reunion-crimson);
+  color: var(--print-pearl);
+  font: inherit;
+  font-size: 1.55rem;
+  cursor: pointer;
+}
+
+.quantityControl button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.quantityControl output {
+  display: grid;
+  min-height: 3.5rem;
+  place-content: center;
+  border: 1px solid rgba(26, 74, 46, 0.28);
+  border-radius: 0.75rem;
+  background: #fffdf7;
+  text-align: center;
+}
+
+.quantityControl output strong,
+.quantityControl output span {
+  display: block;
+}
+
+.quantityControl output strong {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.85rem;
+  line-height: 0.9;
+}
+
+.quantityControl output span {
+  margin-top: 0.22rem;
+  color: var(--ink-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.orderTotal {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0 0.2rem;
+}
+
+.orderTotal span {
+  color: var(--ink-muted);
+}
+
+.orderTotal strong {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.7rem;
+}
+
+.continueButton {
+  width: 100%;
+  min-height: 3.2rem;
+  border: 1px solid var(--gold-lion);
+  border-radius: 0.78rem;
+  background: var(--reunion-crimson);
+  color: var(--print-pearl);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.continueButton:hover:not(:disabled) {
+  background: var(--reunion-crimson-dark);
+}
+
+.continueButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+  padding-top: 1.15rem;
+}
+
+.orderSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.7rem 0.8rem;
+  border-left: 4px solid var(--reunion-crimson);
+  background: rgba(184, 186, 132, 0.3);
+}
+
+.orderSummary p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.6rem;
+  margin: 0;
+}
+
+.orderSummary p span {
+  color: var(--ink-muted);
+}
+
+.orderSummary button {
+  grid-column: auto;
+  min-height: auto;
+  padding: 0.35rem 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--reunion-crimson);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.optionalFields {
+  border: 1px solid rgba(26, 74, 46, 0.24);
+  border-radius: 0.75rem;
+  background: rgba(255, 253, 247, 0.68);
+}
+
+.optionalFields summary {
+  padding: 0.8rem;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.optionalFields > div {
+  display: grid;
+  gap: 0.9rem;
+  padding: 0 0.8rem 0.8rem;
+}
+
+.checkbox {
+  grid-column: 1;
+}
+
+.form > .continueButton {
+  border: 1px solid var(--gold-lion);
+  background: var(--reunion-crimson);
+  color: var(--print-pearl);
+}
+
+.form > .continueButton,
+.error {
+  grid-column: 1;
+}
+
+.checkoutNote {
+  line-height: 1.45;
+}
+
+.details,
+.partners {
+  width: min(100%, 36rem);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  margin: 0 0 0.3rem;
+  color: var(--gold-bright);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.details > h2,
+.partners h2 {
+  margin: 0 0 1rem;
+  color: var(--print-pearl);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  font-weight: 600;
+}
+
+.details details {
+  margin-bottom: 0.65rem;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.78);
+  border-radius: 0.8rem;
+  background: var(--print-pearl);
+  color: var(--ink);
+}
+
+.details summary {
+  padding: 0.9rem 1rem;
+  color: var(--ink);
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.details details > div {
+  padding: 0 1rem 1rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.details details p {
+  margin: 0.3rem 0;
+}
+
+.details details a {
+  color: var(--reunion-crimson);
+  font-weight: 700;
+}
+
+.posterPanel {
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+}
+
+.poster {
+  width: min(100%, 24rem);
+  height: auto;
+  border: 1px solid var(--reunion-crimson);
+}
+
+.partners {
+  margin-top: var(--space-12);
+  padding: 1.25rem;
+  border: 1px solid var(--gold-lion);
+  border-top: 5px solid var(--reunion-crimson);
+  border-radius: 0.9rem;
+  background: rgba(17, 54, 34, 0.92);
+  box-shadow: 0 1rem 2.5rem rgba(4, 20, 12, 0.26);
+}
+
+.partners h2 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+}
+
+.partners > p:not(.sectionLabel) {
+  margin: 0 0 1rem;
+  color: rgba(245, 240, 230, 0.82);
+}
+
+.secondaryAction {
+  padding: 0.75rem 1rem;
+  background: var(--print-pearl);
+  color: var(--reunion-crimson);
+}
+
+.footer {
+  width: min(100%, 36rem);
+  margin: 0 auto;
+  padding-top: var(--space-12);
+}
+
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible,
+.quantityControl button:focus-visible,
+.continueButton:focus-visible,
+.orderSummary button:focus-visible,
+.details summary:focus-visible {
+  outline: 3px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .header,
+  .shell {
+    width: min(100% - 1.25rem, 42rem);
+  }
+
+  .header {
+    grid-template-columns: 2.9rem minmax(0, 1fr) auto;
+    min-height: 4.25rem;
+  }
+
+  .brand,
+  .brandLogo {
+    width: 2.9rem;
+    height: 2.9rem;
+  }
+
+  .story {
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  .community {
+    padding: 0.32rem 0.45rem;
+    font-size: 0.58rem;
+  }
+
+  .shell {
+    padding-top: 0.8rem;
+  }
+
+  .tartanRibbon {
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.55rem;
+  }
+
+  .tartanRibbon span:last-child {
+    text-align: right;
+  }
+
+  .eventBody h1 {
+    max-width: none;
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .secondaryAction,
+  .quantityControl button,
+  .continueButton {
+    scroll-behavior: auto;
+    transition: none;
+  }
+
+  .quantityStep,
+  .form {
+    animation: none;
+  }
+}

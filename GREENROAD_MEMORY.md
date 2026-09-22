@@ -1,6 +1,6 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** September 21, 2026 (reunion Phase 1 approval)
+**Last synced:** September 21, 2026 (reunion public facts + Reunion World presentation)
 
 Read `GREENROAD_MEMORY_MAP.md` first, then this file. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
@@ -20,7 +20,7 @@ Homepage default:  POD Adventure Brite Tumbler 20 oz (app/page.tsx)
 Checkout/proof:    NOT live — inquiry mailto only; manual ADG proof before production
 Full ADG catalog:  NOT live — 7 starter ADG items only
 published field:   Does NOT gate UI — all discoveries render regardless of published:false
-Reunion route:     PLANNED — /events/scotia-2006; no event UI or payment flow live
+Reunion route:     /events/scotia-2006 presentation exists. Payment, webhook, Supabase, migration, and email code are frozen during presentation work. This is not proof that live sales are open.
 ```
 
 `experiment/pearl-print-surface` is **historical/backed up**. Pearl/olive material system is live on main.
@@ -41,9 +41,10 @@ Stripe exception. Custom Goods remains inquiry-only.
 ```text
 Permanent route:       /events/scotia-2006
 Date / time zone:      Saturday, October 31, 2026 / America/New_York
-Free gathering:        Collins Park, Scotia, NY / noon–sunset / all ages
-Dinner:                Beukendaal Temple / 5 PM–8 PM / music or DJ until 10 PM
-Dinner address:        22 Schonowee Ave, Schenectady, NY 12302
+Costume Kickball:      Collins Park, Little League Majors Field / noon–4 PM / free / all ages / open to Tartans / large inflatable costumes encouraged
+Tartan Dinner:         Beukendaal Temple / 4–8 PM
+Live music and DJ:     until 10 PM
+Dinner address:        22 Schonowee Ave, Scotia, NY 12302
 Ticket total:          $20.06 each, tax included; never add tax on top
 Batch 1:               80 tickets
 Batch 1 max/order:     8 tickets, stored as batch data
@@ -75,8 +76,11 @@ Inventory and identity rules:
 - Future magic-link / OTP identity attaches to the same profile/email.
 - Success and cancellation return to `/events/scotia-2006`; query parameters
   transform that surface but never prove payment.
-- The current reunion flyer may be used as temporary artwork until the
-  transaction URL, sponsors, and final design are approved.
+- Current public artwork is `public/events/scotia-2006/reunion-poster.jpg`.
+  Logos printed into that poster may remain as part of the artwork.
+  Hometown Partners stays logo-free until Jai approves those businesses
+  as web sponsors. Replace the file when Jai supplies a newer poster.
+- Never show a public inventory count or “only 80 tickets.”
 - Do not invent missing public copy.
 
 Tax and email boundaries:
@@ -96,9 +100,9 @@ Phase 1 artifacts were completed September 21, 2026:
 2. restore or park the previous broad Stripe scope
 3. create reviewable Supabase migration SQL
 
-The migration files remain unapplied. Work is stopped for Jai's SQL review.
-Do not apply migrations or build Checkout, webhook fulfillment, event UI, or
-email until Jai explicitly approves the next phase.
+Reunion World presentation at `/events/scotia-2006` is authorized. Do not edit
+payment, webhook, Supabase, migration, or email code during presentation work.
+This note does not verify that migrations are applied or that live sales are open.
 
 ---
 
@@ -339,11 +343,10 @@ Carousel order follows `DISCOVERY_SLUGS` filter for `room: "custom"`. Homepage S
 
 ## Next Work
 
-1. Review the reunion Phase 1 SQL. The migrations are not applied.
-2. Require Jai's explicit authorization before Phase 2.
-3. **UX-001:** Print legibility fix remains the next unrelated homepage task.
-4. Sync remaining docs: `VOICE_AND_VISION.md`, `LAUNCH_ROADMAP.md`, `SESSION_REPORT.md`.
-5. Continue existing sheet and ecosystem-guide work without expanding Custom
+1. Reunion public facts match the current poster. Reunion World presentation is authorized. Do not edit frozen payment machinery, and do not assume live sales are open.
+2. **UX-001:** Print legibility fix remains the next unrelated homepage task.
+3. Sync remaining docs: `VOICE_AND_VISION.md`, `LAUNCH_ROADMAP.md`, `SESSION_REPORT.md`.
+4. Continue existing sheet and ecosystem-guide work without expanding Custom
    Goods commerce.
 
 Phone-test legibility and Custom carousel before major distribution push.
@@ -510,9 +513,12 @@ The SGHS Class of 2006 reunion is the only approved Stripe exception. Permanent
 route: /events/scotia-2006. Batch 1: 80 tickets, max_per_order 8 in batch data,
 30-minute buyer Checkout, 35-minute pre-Stripe safety hold, $20.06 total per
 dinner ticket tax included.
-Phase 1 files are complete and stopped for SQL review. Do not apply migrations
-or build Checkout, webhook fulfillment, event UI, or email. No git, no .env,
-no live Stripe.
+Canonical public facts: Costume Kickball noon–4 PM at Collins Park, Little
+League Majors Field; Tartan Dinner 4–8 PM at Beukendaal Temple, 22 Schonowee
+Ave, Scotia, NY 12302; live music and DJ until 10 PM; $20.06 tax included.
+Never show a public inventory count. Reunion World presentation is authorized.
+Do not edit payment, webhook, Supabase, migration, or email code. No git, no
+.env. Do not assume live sales are open.
 ```
 
 ### Surgical ADG product add
@@ -528,8 +534,8 @@ Do not import full ADG catalog. No scores, ratings, certified, or approved badge
 ## One-Line Status
 
 **Custom Goods Station remains inquiry-only; the SGHS Class of 2006 reunion is
-the sole approved Stripe exception; Phase 1 is complete with reviewable
-unapplied Supabase SQL, and work is stopped for Jai's review.**
+the sole approved Stripe exception; public facts match the current poster;
+Reunion World presentation is authorized; payment machinery stays frozen.**
 
 **Pre-launch QA requirement:** The migration test fills Batch 1 sequentially.
 Before sales open, run a real two-session transaction test against the Greenroad

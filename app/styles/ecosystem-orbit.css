@@ -92,6 +92,18 @@
     inset 0 0 14px rgba(240, 192, 64, 0.18);
 }
 
+.discovery-stage--community
+  .orbit-theme
+  .orbit-token[data-ecosystem-id="community"].orbit-token--active {
+  color: var(--print-pearl);
+  border-color: var(--gold-bright);
+  background-color: rgba(139, 26, 42, 0.94);
+  box-shadow:
+    0 0 24px rgba(139, 26, 42, 0.72),
+    0 0 13px rgba(240, 192, 64, 0.42),
+    inset 0 0 14px rgba(245, 240, 230, 0.14);
+}
+
 @keyframes ecosystem-orbit-pulse {
   0% {
     box-shadow: 0 0 12px rgba(201, 168, 76, 0.3),

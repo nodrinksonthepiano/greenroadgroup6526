@@ -33,6 +33,21 @@ interface OrderStatus {
   tickets: VerifiedTicket[];
 }
 
+interface GuestList {
+  optedIn: boolean;
+  names: string[];
+}
+
+function readGuestList(value: unknown): GuestList | null {
+  if (!value || typeof value !== "object") return null;
+  if (!("optedIn" in value) || !("names" in value)) return null;
+  const optedIn = value.optedIn;
+  const names = value.names;
+  if (typeof optedIn !== "boolean" || !Array.isArray(names)) return null;
+  if (!names.every((name) => typeof name === "string")) return null;
+  return { optedIn, names };
+}
+
 export function ReunionTicketForm() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
@@ -63,6 +78,9 @@ export function ReunionTicketForm() {
   >(sessionId);
   const [formError, setFormError] = useState("");
   const [orderStatus, setOrderStatus] = useState<OrderStatus | null>(null);
+  const [guestList, setGuestList] = useState<GuestList | null>(null);
+  const [guestListError, setGuestListError] = useState("");
+  const [guestListSaving, setGuestListSaving] = useState(false);
   const [statusMessage, setStatusMessage] = useState(
     sessionId
       ? "Verifying your payment…"
@@ -172,6 +190,54 @@ export function ReunionTicketForm() {
     };
   }, [confirmationSessionId, loadAvailability]);
 
+  useEffect(() => {
+    if (orderStatus?.state !== "paid") return;
+
+    let stopped = false;
+
+    const loadGuestList = async () => {
+      try {
+        const response = await fetch("/api/events/scotia-2006/guest-list", {
+          cache: "no-store",
+        });
+        const result = readGuestList(await response.json());
+        if (!response.ok || !result) throw new Error();
+        if (stopped) return;
+        setGuestList(result);
+        setGuestListError("");
+      } catch {
+        if (!stopped) {
+          setGuestListError("Guest list is temporarily unavailable.");
+        }
+      }
+    };
+
+    void loadGuestList();
+    return () => {
+      stopped = true;
+    };
+  }, [orderStatus?.state]);
+
+  async function saveGuestOptIn(optedIn: boolean) {
+    setGuestListSaving(true);
+    setGuestListError("");
+    try {
+      const response = await fetch("/api/events/scotia-2006/guest-list", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        cache: "no-store",
+        body: JSON.stringify({ optedIn }),
+      });
+      const result = readGuestList(await response.json());
+      if (!response.ok || !result) throw new Error();
+      setGuestList(result);
+    } catch {
+      setGuestListError("Your guest list choice could not be saved.");
+    } finally {
+      setGuestListSaving(false);
+    }
+  }
+
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!stripePromise) {
@@ -265,6 +331,31 @@ export function ReunionTicketForm() {
                 Ticket number{orderStatus.tickets.length === 1 ? "" : "s"}:{" "}
                 {orderStatus.tickets.map((ticket) => ticket.number).join(", ")}
               </p>
+              <div className={styles.guestList}>
+                <label className={styles.checkbox}>
+                  <input
+                    type="checkbox"
+                    checked={guestList?.optedIn ?? false}
+                    disabled={guestListSaving || !guestList}
+                    onChange={(event) => {
+                      void saveGuestOptIn(event.target.checked);
+                    }}
+                  />
+                  Show my name on the guest list
+                </label>
+                <h3>Guest List</h3>
+                {guestListError && <p className={styles.error}>{guestListError}</p>}
+                {guestList && guestList.names.length === 0 && (
+                  <p>No names shared yet.</p>
+                )}
+                {guestList && guestList.names.length > 0 && (
+                  <ul>
+                    {guestList.names.map((name, index) => (
+                      <li key={`${name}-${index}`}>{name}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
           )}
         </div>

@@ -460,6 +460,32 @@
   margin-top: 0.5rem;
 }
 
+.guestList {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--gold-lion);
+}
+
+.guestList h3 {
+  margin: 0.85rem 0 0.4rem;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.guestList ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.guestList li + li {
+  margin-top: 0.2rem;
+}
+
+.guestList p {
+  margin: 0.35rem 0 0;
+}
+
 .availability {
   min-height: 0;
   margin: 1.2rem 0 0;

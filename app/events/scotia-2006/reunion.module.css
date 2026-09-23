@@ -486,6 +486,28 @@
   margin: 0.35rem 0 0;
 }
 
+.guestName {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 700;
+}
+
+.guestName input {
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(26, 74, 46, 0.28);
+  border-radius: 0.75rem;
+  background: #fffdf7;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 400;
+}
+
+.guestNameHint {
+  margin: 0.35rem 0 0.85rem;
+  font-size: 0.92rem;
+}
+
 .availability {
   min-height: 0;
   margin: 1.2rem 0 0;

@@ -51,7 +51,12 @@ export async function GET() {
   }
 
   return NextResponse.json(
-    { optedIn: buyer.guestListOptIn, names: names.names },
+    {
+      optedIn: buyer.guestListOptIn,
+      guestListName: buyer.guestListName ?? "",
+      suggestedName: buyer.purchaserName,
+      names: names.names,
+    },
     { headers: noStore },
   );
 }
@@ -77,9 +82,22 @@ export async function PATCH(request: Request) {
     typeof body.optedIn === "boolean"
       ? body.optedIn
       : null;
-  if (optedIn === null) {
+  const guestListName =
+    body &&
+    typeof body === "object" &&
+    "guestListName" in body &&
+    typeof body.guestListName === "string"
+      ? body.guestListName.trim()
+      : null;
+  if (optedIn === null || guestListName === null || guestListName.length > 120) {
     return NextResponse.json(
       { error: "A guest list choice is required" },
+      { status: 400, headers: noStore },
+    );
+  }
+  if (optedIn && guestListName.length === 0) {
+    return NextResponse.json(
+      { error: "A guest list name is required" },
       { status: 400, headers: noStore },
     );
   }
@@ -87,7 +105,10 @@ export async function PATCH(request: Request) {
   const supabase = getSupabaseAdmin();
   const { data: updated, error } = await supabase
     .from("event_orders")
-    .update({ guest_list_opt_in: optedIn })
+    .update({
+      guest_list_opt_in: optedIn,
+      guest_list_name: guestListName.length === 0 ? null : guestListName,
+    })
     .eq("id", buyer.id)
     .eq("status", "paid")
     .select("id")
@@ -109,7 +130,12 @@ export async function PATCH(request: Request) {
   }
 
   return NextResponse.json(
-    { optedIn, names: names.names },
+    {
+      optedIn,
+      guestListName,
+      suggestedName: buyer.purchaserName,
+      names: names.names,
+    },
     { headers: noStore },
   );
 }

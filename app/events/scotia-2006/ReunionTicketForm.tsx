@@ -35,17 +35,40 @@ interface OrderStatus {
 
 interface GuestList {
   optedIn: boolean;
+  guestListName: string;
+  suggestedName: string;
   names: string[];
 }
 
+const emptyGuestList: GuestList = {
+  optedIn: false,
+  guestListName: "",
+  suggestedName: "",
+  names: [],
+};
+
 function readGuestList(value: unknown): GuestList | null {
   if (!value || typeof value !== "object") return null;
-  if (!("optedIn" in value) || !("names" in value)) return null;
+  if (
+    !("optedIn" in value) ||
+    !("guestListName" in value) ||
+    !("suggestedName" in value) ||
+    !("names" in value)
+  ) {
+    return null;
+  }
   const optedIn = value.optedIn;
+  const guestListName = value.guestListName;
+  const suggestedName = value.suggestedName;
   const names = value.names;
-  if (typeof optedIn !== "boolean" || !Array.isArray(names)) return null;
-  if (!names.every((name) => typeof name === "string")) return null;
-  return { optedIn, names };
+  if (typeof optedIn !== "boolean") return null;
+  if (typeof guestListName !== "string" || typeof suggestedName !== "string") {
+    return null;
+  }
+  if (!Array.isArray(names) || !names.every((name) => typeof name === "string")) {
+    return null;
+  }
+  return { optedIn, guestListName, suggestedName, names };
 }
 
 export function ReunionTicketForm() {
@@ -81,10 +104,14 @@ export function ReunionTicketForm() {
   const [guestList, setGuestList] = useState<GuestList | null>(null);
   const [guestListError, setGuestListError] = useState("");
   const [guestListSaving, setGuestListSaving] = useState(false);
+  const [nameDraft, setNameDraft] = useState("");
+  const [nameDirty, setNameDirty] = useState(false);
+  const nameDirtyRef = useRef(false);
   const [buyerState, setBuyerState] = useState<"checking" | "buyer" | "public">(
     "checking",
   );
   const guestRequestRef = useRef(0);
+  const paidThisVisitRef = useRef(false);
   const [statusMessage, setStatusMessage] = useState(
     sessionId
       ? "Verifying your payment…"
@@ -154,6 +181,7 @@ export function ReunionTicketForm() {
 
         setOrderStatus(result);
         if (result.state === "paid") {
+          paidThisVisitRef.current = true;
           setStatusMessage("Payment confirmed. Your tickets are ready.");
           void loadAvailability();
           return;
@@ -205,6 +233,7 @@ export function ReunionTicketForm() {
       if (requestId !== guestRequestRef.current) return;
 
       if (response.status === 401 || response.status === 403) {
+        if (paidThisVisitRef.current) return;
         setGuestList(null);
         setGuestListError("");
         setBuyerState("public");
@@ -224,6 +253,9 @@ export function ReunionTicketForm() {
       setGuestList(result);
       setGuestListError("");
       setBuyerState("buyer");
+      if (!nameDirtyRef.current) {
+        setNameDraft(result.guestListName || result.suggestedName);
+      }
     } catch {
       if (requestId !== guestRequestRef.current) return;
       if (reportFailure) {
@@ -242,7 +274,15 @@ export function ReunionTicketForm() {
     void loadGuestList(true);
   }, [loadGuestList, orderStatus?.state]);
 
-  async function saveGuestOptIn(optedIn: boolean) {
+  async function saveGuestList(next: { optedIn: boolean; guestListName: string }) {
+    const guestListName = next.guestListName.trim();
+    if (next.optedIn && !guestListName) {
+      setGuestListError(
+        "Add the name you want classmates to see before showing it.",
+      );
+      return;
+    }
+
     setGuestListSaving(true);
     setGuestListError("");
     try {
@@ -250,11 +290,15 @@ export function ReunionTicketForm() {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         cache: "no-store",
-        body: JSON.stringify({ optedIn }),
+        body: JSON.stringify({ optedIn: next.optedIn, guestListName }),
       });
       const result = readGuestList(await response.json());
       if (!response.ok || !result) throw new Error();
       setGuestList(result);
+      setNameDraft(result.guestListName || result.suggestedName);
+      nameDirtyRef.current = false;
+      setNameDirty(false);
+      setBuyerState("buyer");
     } catch {
       setGuestListError("Your guest list choice could not be saved.");
     } finally {
@@ -343,7 +387,9 @@ export function ReunionTicketForm() {
     !sessionId &&
     !clientSecret &&
     !confirmationSessionId;
-  const showBuyerGuestList = buyerState === "buyer" && guestList !== null;
+  const showBuyerGuestList =
+    orderStatus?.state === "paid" || buyerState === "buyer";
+  const visibleGuestList = guestList ?? emptyGuestList;
 
   return (
     <div id="tickets" ref={ticketCardRef} className={styles.purchase}>
@@ -362,26 +408,53 @@ export function ReunionTicketForm() {
               </p>
             </div>
           )}
-          {showBuyerGuestList && guestList && (
+          {showBuyerGuestList && (
             <div className={styles.guestList}>
+              <label className={styles.guestName}>
+                Name shown on guest list
+                <input
+                  value={nameDraft}
+                  maxLength={120}
+                  disabled={guestListSaving || !guestList}
+                  onChange={(event) => {
+                    setNameDraft(event.target.value);
+                    nameDirtyRef.current = true;
+                    setNameDirty(true);
+                  }}
+                  onBlur={() => {
+                    if (!guestList || !nameDirty) return;
+                    void saveGuestList({
+                      optedIn: guestList.optedIn,
+                      guestListName: nameDraft,
+                    });
+                  }}
+                />
+              </label>
+              <p className={styles.guestNameHint}>
+                Add a graduation name or maiden name if you want classmates to
+                know who you were and who you are now.
+              </p>
               <label className={styles.checkbox}>
                 <input
                   type="checkbox"
-                  checked={guestList.optedIn}
-                  disabled={guestListSaving}
+                  checked={visibleGuestList.optedIn}
+                  disabled={guestListSaving || !guestList}
                   onChange={(event) => {
-                    void saveGuestOptIn(event.target.checked);
+                    void saveGuestList({
+                      optedIn: event.target.checked,
+                      guestListName: nameDraft,
+                    });
                   }}
                 />
                 Show my name on the guest list
               </label>
               <h3>Guest List</h3>
               {guestListError && <p className={styles.error}>{guestListError}</p>}
-              {guestList.names.length === 0 ? (
+              {visibleGuestList.names.length === 0 ? (
                 <p>No names shared yet.</p>
               ) : (
                 <ul>
-                  {guestList.names.map((name, index) => (
+                  {visibleGuestList.names.map((name, index) => (
                     <li key={`${name}-${index}`}>{name}</li>
                   ))}
                 </ul>

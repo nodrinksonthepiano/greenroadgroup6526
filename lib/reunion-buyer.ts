@@ -28,6 +28,7 @@ export function readEventSlug(value: unknown): string | null {
 export interface PaidScotiaBuyer {
   id: string;
   purchaserName: string;
+  guestListName: string | null;
   guestListOptIn: boolean;
 }
 
@@ -41,7 +42,7 @@ export async function findPaidScotiaBuyer(
   const { data, error } = await supabase
     .from("event_orders")
     .select(
-      "id,status,purchaser_name,guest_list_opt_in,events!event_orders_event_id_fkey!inner(slug)",
+      "id,status,purchaser_name,guest_list_name,guest_list_opt_in,events!event_orders_event_id_fkey!inner(slug)",
     )
     .eq("stripe_checkout_session_id", sessionId)
     .eq("events.slug", "scotia-2006")
@@ -54,6 +55,7 @@ export async function findPaidScotiaBuyer(
     buyer: {
       id: data.id,
       purchaserName: data.purchaser_name,
+      guestListName: data.guest_list_name,
       guestListOptIn: data.guest_list_opt_in,
     },
   };
@@ -66,16 +68,19 @@ export async function listOptedInGuestNames(): Promise<
   const { data, error } = await supabase
     .from("event_orders")
     .select(
-      "purchaser_name,events!event_orders_event_id_fkey!inner(slug)",
+      "guest_list_name,events!event_orders_event_id_fkey!inner(slug)",
     )
     .eq("status", "paid")
     .eq("guest_list_opt_in", true)
     .eq("events.slug", "scotia-2006")
-    .order("purchaser_name");
+    .not("guest_list_name", "is", null)
+    .order("guest_list_name");
 
   if (error) return { error: "unavailable" };
 
   return {
-    names: (data ?? []).map((order) => order.purchaser_name),
+    names: (data ?? [])
+      .map((order) => order.guest_list_name)
+      .filter((name): name is string => typeof name === "string" && name.length > 0),
   };
 }

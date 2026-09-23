@@ -59,40 +59,144 @@ export async function sendReunionConfirmationEmail(
     String(ticket.ticket_number),
   );
   const safeName = escapeHtml(order.purchaser_name);
-  const safeReplyTo = escapeHtml(replyTo);
   const safeTicketNumbers = ticketNumbers.map(escapeHtml);
+  const ticketLabel =
+    order.quantity === 1 ? "reunion dinner ticket" : "reunion dinner tickets";
+  const numberLabel = ticketNumbers.length === 1 ? "Ticket number" : "Ticket numbers";
+  const reunionUrl = "https://www.greenroad.group/events/scotia-2006";
+  const helpEmail = "hello@greenroad.group";
   const subject = "Your SGHS Class of 2006 reunion tickets";
   const text = [
     `Hi ${order.purchaser_name},`,
     "",
-    `Your payment is confirmed for ${order.quantity} reunion dinner ticket${order.quantity === 1 ? "" : "s"}.`,
-    `Ticket number${ticketNumbers.length === 1 ? "" : "s"}: ${ticketNumbers.join(", ")}`,
+    "Greenroad Group",
+    "SGHS Class of 2006 — 20-Year Reunion",
+    "",
+    "Payment confirmed",
+    `${order.quantity} ${ticketLabel}`,
+    `${numberLabel}: ${ticketNumbers.join(", ")}`,
     "",
     "Saturday, October 31, 2026",
-    "Costume Kickball: Noon–4 PM at Collins Park",
-    "Tartan Dinner: 4–8 PM at Beukendaal Temple",
+    "Costume Kickball: Noon–4 PM, Collins Park",
+    "Tartan Dinner: 4–8 PM, Beukendaal Temple",
     "22 Schonowee Ave, Scotia, NY 12302",
-    "Live music/DJ until 10 PM",
+    "Live Music & DJ until 10 PM",
     "",
-    `For refund or transfer help, contact ${replyTo}.`,
+    "View Reunion Page",
+    reunionUrl,
     "",
-    "Greenroad Group Holdings LLC",
+    `For refund or transfer help, contact ${helpEmail}.`,
+    "",
+    "Greenroad Group",
   ].join("\n");
   const html = `
-    <div style="font-family:Arial,sans-serif;color:#1a4a2e;line-height:1.5">
-      <p>Hi ${safeName},</p>
-      <p>Your payment is confirmed for <strong>${order.quantity} reunion dinner ticket${order.quantity === 1 ? "" : "s"}</strong>.</p>
-      <p><strong>Ticket number${safeTicketNumbers.length === 1 ? "" : "s"}:</strong> ${safeTicketNumbers.join(", ")}</p>
-      <p>
-        <strong>Saturday, October 31, 2026</strong><br>
-        Costume Kickball: Noon–4 PM at Collins Park<br>
-        Tartan Dinner: 4–8 PM at Beukendaal Temple<br>
-        22 Schonowee Ave, Scotia, NY 12302<br>
-        Live music/DJ until 10 PM
-      </p>
-      <p>For refund or transfer help, contact ${safeReplyTo}.</p>
-      <p>Greenroad Group Holdings LLC</p>
-    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SGHS Class of 2006 — 20-Year Reunion</title>
+      </head>
+      <body style="margin:0;padding:0;background-color:#1a4a2e;">
+        <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+          Payment confirmed for your SGHS Class of 2006 reunion tickets.
+        </div>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#1a4a2e;">
+          <tr>
+            <td align="center" style="padding:24px 12px;background-color:#1a4a2e;">
+              <!--[if mso]>
+              <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td>
+              <![endif]-->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#f5f0e6;border:2px solid #c9a84c;">
+                <tr>
+                  <td style="height:10px;background-color:#8b1a2a;font-size:0;line-height:0;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td style="padding:28px 28px 0;font-family:Georgia,'Times New Roman',serif;color:#1a4a2e;">
+                    <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#2d6a4f;">Greenroad Group</p>
+                    <h1 style="margin:10px 0 0;font-size:28px;line-height:1.25;font-weight:normal;color:#1a4a2e;">SGHS Class of 2006 — 20-Year Reunion</h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:18px 28px 0;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.5;color:#1a4a2e;">
+                    Hi ${safeName},
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:18px 28px 0;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background-color:#fffdf8;border:1px solid #c9a84c;border-left:6px solid #8b1a2a;">
+                      <tr>
+                        <td style="padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          <p style="margin:0 0 10px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#8b1a2a;">Payment confirmed</p>
+                          <p style="margin:0 0 6px;"><strong>${order.quantity}</strong> ${ticketLabel}</p>
+                          <p style="margin:0;"><strong>${numberLabel}:</strong> ${safeTicketNumbers.join(", ")}</p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:22px 28px 0;">
+                    <p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#2d6a4f;">Event details</p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-top:1px solid #c9a84c;">
+                      <tr>
+                        <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          <strong>Saturday, October 31, 2026</strong>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          Costume Kickball: Noon–4 PM, Collins Park
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          Tartan Dinner: 4–8 PM, Beukendaal Temple
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          22 Schonowee Ave, Scotia, NY 12302
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:12px 0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          Live Music &amp; DJ until 10 PM
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding:28px 28px 8px;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td align="center" bgcolor="#c9a84c" style="background-color:#c9a84c;border:2px solid #c9a84c;">
+                          <a href="${reunionUrl}" style="display:inline-block;padding:14px 28px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;line-height:1.2;color:#1a4a2e;text-decoration:none;">View Reunion Page</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 28px 28px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.5;color:#1a4a2e;">
+                    For refund or transfer help, contact <a href="mailto:${helpEmail}" style="color:#8b1a2a;text-decoration:underline;">${helpEmail}</a>.
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:16px 28px;background-color:#1a4a2e;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.5;letter-spacing:0.08em;text-transform:uppercase;color:#f5f0e6;">
+                    Greenroad Group
+                  </td>
+                </tr>
+              </table>
+              <!--[if mso]>
+              </td></tr></table>
+              <![endif]-->
+            </td>
+          </tr>
+        </table>
+      </body>
+    </html>
   `.trim();
 
   const { data, error } = await getResend().emails.send(

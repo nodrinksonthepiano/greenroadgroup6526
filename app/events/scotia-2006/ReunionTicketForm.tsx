@@ -81,6 +81,10 @@ export function ReunionTicketForm() {
   const [guestList, setGuestList] = useState<GuestList | null>(null);
   const [guestListError, setGuestListError] = useState("");
   const [guestListSaving, setGuestListSaving] = useState(false);
+  const [buyerState, setBuyerState] = useState<"checking" | "buyer" | "public">(
+    "checking",
+  );
+  const guestRequestRef = useRef(0);
   const [statusMessage, setStatusMessage] = useState(
     sessionId
       ? "Verifying your payment…"
@@ -190,33 +194,53 @@ export function ReunionTicketForm() {
     };
   }, [confirmationSessionId, loadAvailability]);
 
-  useEffect(() => {
-    if (orderStatus?.state !== "paid") return;
+  const loadGuestList = useCallback(async (reportFailure: boolean) => {
+    const requestId = guestRequestRef.current + 1;
+    guestRequestRef.current = requestId;
 
-    let stopped = false;
+    try {
+      const response = await fetch("/api/events/scotia-2006/guest-list", {
+        cache: "no-store",
+      });
+      if (requestId !== guestRequestRef.current) return;
 
-    const loadGuestList = async () => {
-      try {
-        const response = await fetch("/api/events/scotia-2006/guest-list", {
-          cache: "no-store",
-        });
-        const result = readGuestList(await response.json());
-        if (!response.ok || !result) throw new Error();
-        if (stopped) return;
-        setGuestList(result);
+      if (response.status === 401 || response.status === 403) {
+        setGuestList(null);
         setGuestListError("");
-      } catch {
-        if (!stopped) {
+        setBuyerState("public");
+        return;
+      }
+
+      const result = readGuestList(await response.json());
+      if (requestId !== guestRequestRef.current) return;
+      if (!response.ok || !result) {
+        if (reportFailure) {
           setGuestListError("Guest list is temporarily unavailable.");
         }
+        setBuyerState((current) => (current === "buyer" ? current : "public"));
+        return;
       }
-    };
 
-    void loadGuestList();
-    return () => {
-      stopped = true;
-    };
-  }, [orderStatus?.state]);
+      setGuestList(result);
+      setGuestListError("");
+      setBuyerState("buyer");
+    } catch {
+      if (requestId !== guestRequestRef.current) return;
+      if (reportFailure) {
+        setGuestListError("Guest list is temporarily unavailable.");
+      }
+      setBuyerState((current) => (current === "buyer" ? current : "public"));
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadGuestList(false);
+  }, [loadGuestList]);
+
+  useEffect(() => {
+    if (orderStatus?.state !== "paid") return;
+    void loadGuestList(true);
+  }, [loadGuestList, orderStatus?.state]);
 
   async function saveGuestOptIn(optedIn: boolean) {
     setGuestListSaving(true);
@@ -314,11 +338,16 @@ export function ReunionTicketForm() {
   const unitAmountCents = availability?.unitAmountCents ?? 2006;
   const total = (quantity * unitAmountCents) / 100;
   const showPurchaseFlow =
-    canBuy && !sessionId && !clientSecret && !confirmationSessionId;
+    canBuy &&
+    buyerState === "public" &&
+    !sessionId &&
+    !clientSecret &&
+    !confirmationSessionId;
+  const showBuyerGuestList = buyerState === "buyer" && guestList !== null;
 
   return (
     <div id="tickets" ref={ticketCardRef} className={styles.purchase}>
-      {(statusMessage || orderStatus?.state === "paid") && (
+      {(statusMessage || orderStatus?.state === "paid" || showBuyerGuestList) && (
         <div className={styles.statusPanel} aria-live="polite">
           {statusMessage && <p>{statusMessage}</p>}
           {orderStatus?.state === "paid" && (
@@ -331,31 +360,32 @@ export function ReunionTicketForm() {
                 Ticket number{orderStatus.tickets.length === 1 ? "" : "s"}:{" "}
                 {orderStatus.tickets.map((ticket) => ticket.number).join(", ")}
               </p>
-              <div className={styles.guestList}>
-                <label className={styles.checkbox}>
-                  <input
-                    type="checkbox"
-                    checked={guestList?.optedIn ?? false}
-                    disabled={guestListSaving || !guestList}
-                    onChange={(event) => {
-                      void saveGuestOptIn(event.target.checked);
-                    }}
-                  />
-                  Show my name on the guest list
-                </label>
-                <h3>Guest List</h3>
-                {guestListError && <p className={styles.error}>{guestListError}</p>}
-                {guestList && guestList.names.length === 0 && (
-                  <p>No names shared yet.</p>
-                )}
-                {guestList && guestList.names.length > 0 && (
-                  <ul>
-                    {guestList.names.map((name, index) => (
-                      <li key={`${name}-${index}`}>{name}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+            </div>
+          )}
+          {showBuyerGuestList && guestList && (
+            <div className={styles.guestList}>
+              <label className={styles.checkbox}>
+                <input
+                  type="checkbox"
+                  checked={guestList.optedIn}
+                  disabled={guestListSaving}
+                  onChange={(event) => {
+                    void saveGuestOptIn(event.target.checked);
+                  }}
+                />
+                Show my name on the guest list
+              </label>
+              <h3>Guest List</h3>
+              {guestListError && <p className={styles.error}>{guestListError}</p>}
+              {guestList.names.length === 0 ? (
+                <p>No names shared yet.</p>
+              ) : (
+                <ul>
+                  {guestList.names.map((name, index) => (
+                    <li key={`${name}-${index}`}>{name}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -112,6 +113,8 @@ export function ReunionTicketForm() {
   );
   const guestRequestRef = useRef(0);
   const paidThisVisitRef = useRef(false);
+  const dismissedReturnRef = useRef(false);
+  const [guestListRoot, setGuestListRoot] = useState<HTMLElement | null>(null);
   const [statusMessage, setStatusMessage] = useState(
     sessionId
       ? "Verifying your payment…"
@@ -159,6 +162,11 @@ export function ReunionTicketForm() {
   }, [purchaseStep]);
 
   useEffect(() => {
+    setGuestListRoot(document.getElementById("scotia-2006-guest-list"));
+  }, []);
+
+  useEffect(() => {
+    if (dismissedReturnRef.current) return;
     if (sessionId) setConfirmationSessionId(sessionId);
   }, [sessionId]);
 
@@ -358,6 +366,19 @@ export function ReunionTicketForm() {
     }
   }
 
+  function buyMoreTickets() {
+    dismissedReturnRef.current = true;
+    setConfirmationSessionId(null);
+    setClientSecret(null);
+    setEmbeddedSessionId(null);
+    setOrderStatus(null);
+    setStatusMessage("");
+    setPurchaseOpen(false);
+    setPurchaseStep("quantity");
+    setFormError("");
+    requestIdRef.current = null;
+  }
+
   function openPurchase() {
     setPurchaseOpen(true);
     window.requestAnimationFrame(() => {
@@ -381,19 +402,14 @@ export function ReunionTicketForm() {
   const canBuy = availabilityState === "available";
   const unitAmountCents = availability?.unitAmountCents ?? 2006;
   const total = (quantity * unitAmountCents) / 100;
-  const showPurchaseFlow =
-    canBuy &&
-    buyerState === "public" &&
-    !sessionId &&
-    !clientSecret &&
-    !confirmationSessionId;
-  const showBuyerGuestList =
-    orderStatus?.state === "paid" || buyerState === "buyer";
+  const showPurchaseFlow = canBuy && !clientSecret && !confirmationSessionId;
+  const showBuyerGuestList = buyerState === "buyer";
   const visibleGuestList = guestList ?? emptyGuestList;
 
   return (
+    <>
     <div id="tickets" ref={ticketCardRef} className={styles.purchase}>
-      {(statusMessage || orderStatus?.state === "paid" || showBuyerGuestList) && (
+      {(statusMessage || orderStatus?.state === "paid") && (
         <div className={styles.statusPanel} aria-live="polite">
           {statusMessage && <p>{statusMessage}</p>}
           {orderStatus?.state === "paid" && (
@@ -406,59 +422,13 @@ export function ReunionTicketForm() {
                 Ticket number{orderStatus.tickets.length === 1 ? "" : "s"}:{" "}
                 {orderStatus.tickets.map((ticket) => ticket.number).join(", ")}
               </p>
-            </div>
-          )}
-          {showBuyerGuestList && (
-            <div className={styles.guestList}>
-              <label className={styles.guestName}>
-                Name shown on guest list
-                <input
-                  value={nameDraft}
-                  maxLength={120}
-                  disabled={guestListSaving || !guestList}
-                  onChange={(event) => {
-                    setNameDraft(event.target.value);
-                    nameDirtyRef.current = true;
-                    setNameDirty(true);
-                  }}
-                  onBlur={() => {
-                    if (!guestList || !nameDirty) return;
-                    void saveGuestList({
-                      optedIn: guestList.optedIn,
-                      guestListName: nameDraft,
-                    });
-                  }}
-                />
-              </label>
-              <p className={styles.guestNameHint}>
-                Add a graduation name or maiden name if you want classmates to
-                know who you were and who you are now.
-              </p>
-              <label className={styles.checkbox}>
-                <input
-                  type="checkbox"
-                  checked={visibleGuestList.optedIn}
-                  disabled={guestListSaving || !guestList}
-                  onChange={(event) => {
-                    void saveGuestList({
-                      optedIn: event.target.checked,
-                      guestListName: nameDraft,
-                    });
-                  }}
-                />
-                Show my name on the guest list
-              </label>
-              <h3>Guest List</h3>
-              {guestListError && <p className={styles.error}>{guestListError}</p>}
-              {visibleGuestList.names.length === 0 ? (
-                <p>No names shared yet.</p>
-              ) : (
-                <ul>
-                  {visibleGuestList.names.map((name, index) => (
-                    <li key={`${name}-${index}`}>{name}</li>
-                  ))}
-                </ul>
-              )}
+              <button
+                type="button"
+                className={styles.continueButton}
+                onClick={buyMoreTickets}
+              >
+                Buy more tickets
+              </button>
             </div>
           )}
         </div>
@@ -671,5 +641,62 @@ export function ReunionTicketForm() {
         </p>
       )}
     </div>
+    {showBuyerGuestList && guestListRoot
+      ? createPortal(
+          <section className={styles.guestListSection} aria-labelledby="guest-list-heading">
+            <h2 id="guest-list-heading">Guest List</h2>
+            <label className={styles.guestName}>
+              Name shown on guest list
+              <input
+                value={nameDraft}
+                maxLength={120}
+                disabled={guestListSaving || !guestList}
+                onChange={(event) => {
+                  setNameDraft(event.target.value);
+                  nameDirtyRef.current = true;
+                  setNameDirty(true);
+                }}
+                onBlur={() => {
+                  if (!guestList || !nameDirty) return;
+                  void saveGuestList({
+                    optedIn: guestList.optedIn,
+                    guestListName: nameDraft,
+                  });
+                }}
+              />
+            </label>
+            <p className={styles.guestNameHint}>
+              Add a graduation name or maiden name if you want classmates to
+              know who you were and who you are now.
+            </p>
+            <label className={styles.checkbox}>
+              <input
+                type="checkbox"
+                checked={visibleGuestList.optedIn}
+                disabled={guestListSaving || !guestList}
+                onChange={(event) => {
+                  void saveGuestList({
+                    optedIn: event.target.checked,
+                    guestListName: nameDraft,
+                  });
+                }}
+              />
+              Show my name on the guest list
+            </label>
+            {guestListError && <p className={styles.error}>{guestListError}</p>}
+            {visibleGuestList.names.length === 0 ? (
+              <p>No names shared yet.</p>
+            ) : (
+              <ul>
+                {visibleGuestList.names.map((name, index) => (
+                  <li key={`${name}-${index}`}>{name}</li>
+                ))}
+              </ul>
+            )}
+          </section>,
+          guestListRoot,
+        )
+      : null}
+    </>
   );
 }

@@ -460,30 +460,35 @@
   margin-top: 0.5rem;
 }
 
-.guestList {
-  margin-top: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--gold-lion);
+.verifiedTickets .continueButton {
+  margin-top: 0.9rem;
 }
 
-.guestList h3 {
-  margin: 0.85rem 0 0.4rem;
+.guestListSection {
+  width: min(100%, 28rem);
+  margin: 0 auto var(--space-6);
+  padding: 1.15rem 1.2rem 1.25rem;
+  border: 2px solid var(--gold-lion);
+  border-radius: 1rem;
+  background: var(--print-pearl);
+  color: var(--ink);
+}
+
+.guestListSection h2 {
+  margin: 0 0 0.85rem;
+  color: var(--green-deep);
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: 1.45rem;
+  font-size: clamp(1.75rem, 6vw, 2.25rem);
   font-weight: 500;
 }
 
-.guestList ul {
-  margin: 0;
+.guestListSection ul {
+  margin: 0.85rem 0 0;
   padding-left: 1.15rem;
 }
 
-.guestList li + li {
+.guestListSection li + li {
   margin-top: 0.2rem;
-}
-
-.guestList p {
-  margin: 0.35rem 0 0;
 }
 
 .guestName {

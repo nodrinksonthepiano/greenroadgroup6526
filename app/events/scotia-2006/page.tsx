@@ -102,6 +102,8 @@ export default function Scotia2006EventPage() {
           </article>
         </section>
 
+        <div id="scotia-2006-guest-list" />
+
         <section className={styles.details} aria-labelledby="details-heading">
           <p className={styles.sectionLabel}>Reunion World</p>
           <h2 id="details-heading">Event details</h2>

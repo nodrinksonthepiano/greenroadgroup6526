@@ -9,6 +9,7 @@ export const reunionBuyerCookie = {
   secure: true,
   sameSite: "lax" as const,
   path: "/",
+  maxAge: 60 * 24 * 60 * 60,
 };
 
 export function isCheckoutSessionId(

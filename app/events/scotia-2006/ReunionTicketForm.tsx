@@ -637,7 +637,7 @@ export function ReunionTicketForm() {
 
       {(showPurchaseFlow || clientSecret) && !confirmationSessionId && (
         <p className={styles.checkoutNote}>
-          Payment stays on this page. No Greenroad account is required.
+          Secure payment processed by Stripe. Checkout stays on this page. No Greenroad account required.
         </p>
       )}
     </div>

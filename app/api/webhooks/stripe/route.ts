@@ -28,13 +28,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid webhook signature" }, { status: 400 });
   }
 
-  if (event.livemode) {
-    return NextResponse.json(
-      { error: "Live Stripe events are not enabled for this flow" },
-      { status: 400 },
-    );
-  }
-
   const handledTypes = new Set([
     "checkout.session.completed",
     "checkout.session.async_payment_succeeded",

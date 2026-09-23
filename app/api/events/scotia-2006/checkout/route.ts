@@ -101,7 +101,6 @@ export async function POST(request: Request) {
   try {
     const price = await stripe.prices.retrieve(priceId);
     if (
-      price.livemode ||
       !price.active ||
       price.currency !== "usd" ||
       price.unit_amount !== 2006 ||

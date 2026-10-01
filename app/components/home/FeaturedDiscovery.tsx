@@ -7,6 +7,7 @@ import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
 import { getEcosystem } from "@/data/ecosystems";
 import { buildCustomQuoteMailto } from "@/data/discoverySearch";
+import { track } from "@/lib/analytics";
 
 export type FeaturedViewProps =
   | {
@@ -103,6 +104,11 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
     discovery.commerce.product_url?.startsWith("/")
       ? discovery.commerce.product_url
       : null;
+  const visitHref =
+    discovery.commerce.sale_type === "showcase_only" &&
+    discovery.commerce.product_url?.startsWith("https://")
+      ? discovery.commerce.product_url
+      : null;
   const quoteHref = isCustomInquiry
     ? buildCustomQuoteMailto(discovery)
     : null;
@@ -143,7 +149,17 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
           </>
         )}
         <div className="featured-discovery__actions">
-          {eventHref ? (
+          {visitHref ? (
+            <a
+              href={visitHref}
+              className="featured-discovery__cta-primary featured-discovery__cta-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("outbound_click", { slug: discovery.slug })}
+            >
+              Visit Site
+            </a>
+          ) : eventHref ? (
             <Link
               href={eventHref}
               className="featured-discovery__cta-primary featured-discovery__cta-link"
@@ -170,9 +186,9 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
             <button
               type="button"
               className="featured-discovery__cta-secondary"
-              onClick={isCustomInquiry ? onLearnMore : onJoin}
+              onClick={visitHref || isCustomInquiry ? onLearnMore : onJoin}
             >
-              {isCustomInquiry ? "Learn More" : "Join The Green Road"}
+              {visitHref || isCustomInquiry ? "Learn More" : "Join The Green Road"}
             </button>
           )}
         </div>

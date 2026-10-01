@@ -1,0 +1,62 @@
+{
+  "id": "cozee-sleeve",
+  "slug": "cozee-sleeve",
+  "type": "product",
+  "title": "Cozee Sleeve",
+  "room": "kitchen",
+  "system": "coffee",
+  "alternative_to": [
+    "A separate cup sleeve plus a paper napkin",
+    "Double-cupping a hot drink for heat protection"
+  ],
+  "featured_hook": "A cup sleeve that unfolds into a napkin",
+  "problem_solved": [
+    "Hot and iced drinks need a sleeve, and people still reach for a napkin",
+    "Double-walled cups and extra napkins add single-use waste"
+  ],
+  "why_we_like_it": [
+    "One recycled kraft sleeve for hot and iced drinks, and it unfolds into a napkin",
+    "The published case is 750 sleeves for $40 and includes a countertop dispenser",
+    "The maker says it is assembled in America"
+  ],
+  "considerations": [
+    "The $40 price on cozeesleeve.com is the 750-count case, not a single sleeve",
+    "Greenroad does not sell this product or take payment for it",
+    "Order and custom printing stay on the maker's site"
+  ],
+  "evidence": [
+    "cozeesleeve.com lists the 100% recycled kraft sleeve as a 750-count case for $40, including a countertop dispenser",
+    "The same page describes 24 overlapping layers for heat and condensation, and says the sleeves are assembled in America"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [],
+    "criticized_for": []
+  },
+  "signals_from_web": [
+    {
+      "source": "Cozee Sleeve",
+      "signal": "Cup sleeve that unfolds into a napkin. 750-count recycled kraft case, $40, dispenser included."
+    }
+  ],
+  "supplier_id": "cozee-sleeve",
+  "hero_image": "/discoveries/cozee-sleeve-hero.jpg",
+  "seo_title": "Cozee Sleeve — Kitchen Discovery",
+  "seo_description": "A recycled kraft cup sleeve that unfolds into a napkin. Visit Cozee Sleeve for the 750-count case.",
+  "faqs": [
+    {
+      "q": "Does Greenroad sell the sleeve?",
+      "a": "No. Visit Site opens cozeesleeve.com, where the maker sells the 750-count case."
+    }
+  ],
+  "commerce": {
+    "bucket": "warm",
+    "sale_type": "showcase_only",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://cozeesleeve.com/"
+  },
+  "featured": true,
+  "published": false
+}

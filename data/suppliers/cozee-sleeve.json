@@ -1,0 +1,14 @@
+{
+  "id": "cozee-sleeve",
+  "name": "Cozee Sleeve",
+  "location": "USA",
+  "website": "https://cozeesleeve.com/",
+  "relationship": "warm",
+  "via": null,
+  "story": "Cozee Sleeve makes a recycled kraft cup sleeve that unfolds into a napkin. The maker publishes the product at cozeesleeve.com.",
+  "capabilities": [
+    "cup_sleeve",
+    "recycled_kraft",
+    "direct_to_consumer"
+  ]
+}

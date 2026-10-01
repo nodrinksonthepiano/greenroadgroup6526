@@ -19,13 +19,19 @@ import carilohaSupplier from "./suppliers/cariloha.json";
 import purityCoffeeSupplier from "./suppliers/purity-coffee.json";
 import betterwaySupplier from "./suppliers/betterway.json";
 import egoPowerPlusSupplier from "./suppliers/ego-power-plus.json";
+import cozeeSleeveDiscovery from "./discoveries/cozee-sleeve.json";
+import stressStrawsDiscovery from "./discoveries/stress-straws.json";
+import cozeeSleeveSupplier from "./suppliers/cozee-sleeve.json";
+import stressStrawsSupplier from "./suppliers/stress-straws.json";
 
 /** All discovery slugs in load order. Add new slugs here when Rebecca adds JSON files. */
 export const DISCOVERY_SLUGS = [
   "pod-adventure-brite-tumbler-20oz",
+  "stress-straws",
   "scotia-2006-reunion",
   "desk-plants-mini-harlow",
   "cariloha-resort-bamboo-sheets",
+  "cozee-sleeve",
   "purity-coffee-ease-dark-roast",
   "betterway-bamboo-toilet-paper",
   "ego-z6-zero-turn-mower",
@@ -41,9 +47,11 @@ export type DiscoverySlug = (typeof DISCOVERY_SLUGS)[number];
 
 const discoveriesBySlug: Record<DiscoverySlug, Discovery> = {
   "pod-adventure-brite-tumbler-20oz": podAdventureBriteTumbler as Discovery,
+  "stress-straws": stressStrawsDiscovery as Discovery,
   "scotia-2006-reunion": scotia2006Reunion as Discovery,
   "desk-plants-mini-harlow": deskPlantsDiscovery as Discovery,
   "cariloha-resort-bamboo-sheets": carilohaResortBambooSheets as Discovery,
+  "cozee-sleeve": cozeeSleeveDiscovery as Discovery,
   "purity-coffee-ease-dark-roast": purityCoffeeEaseDarkRoast as Discovery,
   "betterway-bamboo-toilet-paper": betterwayBambooToiletPaper as Discovery,
   "ego-z6-zero-turn-mower": egoZ6ZeroTurnMower as Discovery,
@@ -65,6 +73,8 @@ const suppliersById: Record<string, Supplier> = {
   "purity-coffee": purityCoffeeSupplier as Supplier,
   betterway: betterwaySupplier as Supplier,
   "ego-power-plus": egoPowerPlusSupplier as Supplier,
+  "cozee-sleeve": cozeeSleeveSupplier as Supplier,
+  "stress-straws": stressStrawsSupplier as Supplier,
 };
 
 export function getDiscovery(slug: DiscoverySlug): Discovery {

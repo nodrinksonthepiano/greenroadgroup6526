@@ -1,0 +1,14 @@
+{
+  "id": "stress-straws",
+  "name": "Stress Straws",
+  "location": "Schenectady, NY",
+  "website": "https://stressstraws.com/",
+  "relationship": "warm",
+  "via": null,
+  "story": "Stress Straws makes bamboo breathing necklaces in Schenectady, New York. The maker publishes the product at stressstraws.com.",
+  "capabilities": [
+    "bamboo_breathing_necklace",
+    "handmade",
+    "direct_to_consumer"
+  ]
+}

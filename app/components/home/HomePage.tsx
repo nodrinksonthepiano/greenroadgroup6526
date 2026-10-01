@@ -21,6 +21,7 @@ import {
   CommandSearch,
   type CommandSearchHandle,
 } from "./CommandSearch";
+import { track } from "@/lib/analytics";
 import "@/app/styles/home.css";
 import "@/app/styles/ecosystem-orbit.css";
 
@@ -63,6 +64,13 @@ export function HomePage({ discovery }: HomePageProps) {
       resolveFeaturedView(activeEcosystem, searchQuery, pinnedDiscovery),
     [activeEcosystem, searchQuery, pinnedDiscovery],
   );
+  const featuredSlug =
+    featuredView.mode === "discovery" ? featuredView.discovery.slug : null;
+
+  useEffect(() => {
+    if (!featuredSlug) return;
+    track("discovery_opened", { slug: featuredSlug });
+  }, [featuredSlug]);
 
   const accordionDiscovery =
     featuredView.mode === "discovery" ? featuredView.discovery : discovery;
@@ -102,6 +110,7 @@ export function HomePage({ discovery }: HomePageProps) {
 
   const handleEcosystemSelect = useCallback(
     (room: Room) => {
+      track("room_opened", { room });
       setActiveEcosystem(room);
       setPinnedDiscovery(null);
       setSearchQuery("");
@@ -127,6 +136,7 @@ export function HomePage({ discovery }: HomePageProps) {
   );
 
   const handleContinueExplore = useCallback((room: Room) => {
+    track("room_opened", { room });
     setActiveEcosystem(room);
     setPinnedDiscovery(null);
     setSearchQuery("");

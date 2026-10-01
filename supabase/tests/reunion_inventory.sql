@@ -16,6 +16,9 @@ declare
   v_iteration integer;
   v_rls_table_count integer;
   v_cleanup_count integer;
+  v_utm_source text;
+  v_utm_medium text;
+  v_utm_campaign text;
 begin
   select e.id
     into v_event_id
@@ -97,7 +100,10 @@ begin
     'purchaser@example.com',
     2006::smallint,
     'Test connection',
-    false
+    false,
+    'facebook',
+    'group',
+    'sghs_20_year_reunion'
   ) r;
 
   if v_order_id is null
@@ -106,6 +112,30 @@ begin
   then
     raise exception 'reservation did not create the expected 35-minute provisional hold';
   end if;
+
+  select utm_source, utm_medium, utm_campaign
+    into v_utm_source, v_utm_medium, v_utm_campaign
+  from public.event_orders
+  where id = v_order_id;
+
+  if v_utm_source <> 'facebook'
+    or v_utm_medium <> 'group'
+    or v_utm_campaign <> 'sghs_20_year_reunion'
+  then
+    raise exception 'reservation did not store the whitelisted campaign labels';
+  end if;
+
+  begin
+    update public.event_orders
+    set utm_campaign = 'not a campaign'
+    where id = v_order_id;
+    raise exception using
+      errcode = 'XX000',
+      message = 'utm junk was stored';
+  exception
+    when check_violation then
+      null;
+  end;
 
   select r.reserved_order_id
     into v_duplicate_order_id

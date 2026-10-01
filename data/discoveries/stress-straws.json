@@ -1,0 +1,62 @@
+{
+  "id": "stress-straws",
+  "slug": "stress-straws",
+  "type": "product",
+  "title": "Stress Straws",
+  "room": "community",
+  "system": "local maker",
+  "alternative_to": [
+    "Trying to slow an exhale with nothing in hand"
+  ],
+  "featured_hook": "Bamboo breathing necklaces from Schenectady",
+  "problem_solved": [
+    "A short exhale is a hard habit to practice in the moment",
+    "Local makers need a place on the Green Road beside gatherings"
+  ],
+  "why_we_like_it": [
+    "A bamboo breathing necklace from a Schenectady maker",
+    "Inhale through the nose, then a long exhale through the straw",
+    "The maker sells retail on Amazon and Etsy, and lists a $1.99 wholesale version for events"
+  ],
+  "considerations": [
+    "This is a breathing tool, not a drink straw",
+    "The $1.99 price on stressstraws.com is the wholesale version, not a Greenroad price",
+    "Greenroad does not sell this product or take payment for it",
+    "The maker's page states both 1,000+ reviews and 750+ five-star reviews"
+  ],
+  "evidence": [
+    "stressstraws.com describes bamboo mindful straw breathing necklaces and prints Schenectady, NY as its headquarters",
+    "The same page links retail to Amazon and Etsy and lists a $1.99 wholesale version for events and workshops"
+  ],
+  "what_people_are_saying": {
+    "loved_for": [],
+    "criticized_for": []
+  },
+  "signals_from_web": [
+    {
+      "source": "Stress Straws",
+      "signal": "Bamboo breathing necklaces. Headquarters listed as Schenectady, NY."
+    }
+  ],
+  "supplier_id": "stress-straws",
+  "hero_image": "/discoveries/stress-straws-hero.jpg",
+  "seo_title": "Stress Straws — Community Discovery",
+  "seo_description": "Bamboo breathing necklaces from Schenectady. Visit Stress Straws to buy from the maker.",
+  "faqs": [
+    {
+      "q": "Is this a drinking straw?",
+      "a": "No. Stress Straws are bamboo necklaces for a slow exhale. Visit Site opens stressstraws.com."
+    }
+  ],
+  "commerce": {
+    "bucket": "warm",
+    "sale_type": "showcase_only",
+    "list_price": null,
+    "greenroad_price": null,
+    "stripe_price_id": null,
+    "affiliate_url": null,
+    "product_url": "https://stressstraws.com/"
+  },
+  "featured": true,
+  "published": false
+}

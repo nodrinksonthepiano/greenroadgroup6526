@@ -9,6 +9,8 @@ import {
   EmbeddedCheckoutProvider,
 } from "@stripe/react-stripe-js";
 import styles from "./reunion.module.css";
+import { track } from "@/lib/analytics";
+import { rememberVisitUtm } from "@/lib/utm";
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? "";
 const stripePromise = publishableKey ? loadStripe(publishableKey) : null;
@@ -307,6 +309,9 @@ export function ReunionTicketForm() {
       nameDirtyRef.current = false;
       setNameDirty(false);
       setBuyerState("buyer");
+      if (next.optedIn && guestList?.optedIn !== true) {
+        track("guest_list_opt_in");
+      }
     } catch {
       setGuestListError("Your guest list choice could not be saved.");
     } finally {
@@ -339,6 +344,7 @@ export function ReunionTicketForm() {
           graduationYear: form.get("graduationYear"),
           connectionNote: form.get("connectionNote"),
           marketingOptIn: form.get("marketingOptIn") === "on",
+          ...rememberVisitUtm(),
         }),
       });
       const result = (await response.json()) as {
@@ -354,6 +360,10 @@ export function ReunionTicketForm() {
 
       setEmbeddedSessionId(result.sessionId);
       setClientSecret(result.clientSecret);
+      track("checkout_started", {
+        quantity,
+        value: (quantity * (availability?.unitAmountCents ?? 2006)) / 100,
+      });
       setSubmitting(false);
     } catch (error) {
       setFormError(
@@ -380,6 +390,7 @@ export function ReunionTicketForm() {
   }
 
   function openPurchase() {
+    track("get_tickets_click");
     setPurchaseOpen(true);
     window.requestAnimationFrame(() => {
       const reduceMotion = window.matchMedia(
@@ -498,7 +509,10 @@ export function ReunionTicketForm() {
           <button
             type="button"
             className={styles.continueButton}
-            onClick={() => setPurchaseStep("purchaser")}
+            onClick={() => {
+              track("ticket_quantity_selected", { quantity });
+              setPurchaseStep("purchaser");
+            }}
           >
             Continue
           </button>

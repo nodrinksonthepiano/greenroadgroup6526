@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSiteUrl, getStripe } from "@/lib/stripe";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { sanitizeVisitUtm } from "@/lib/utm";
 
 export const runtime = "nodejs";
 
@@ -12,6 +13,9 @@ interface CheckoutRequest {
   graduationYear?: unknown;
   connectionNote?: unknown;
   marketingOptIn?: unknown;
+  utm_source?: unknown;
+  utm_medium?: unknown;
+  utm_campaign?: unknown;
 }
 
 const UUID_PATTERN =
@@ -37,6 +41,7 @@ function parseRequest(body: CheckoutRequest) {
       ? body.connectionNote.trim() || null
       : null;
   const marketingOptIn = body.marketingOptIn === true;
+  const utm = sanitizeVisitUtm(body);
 
   if (!UUID_PATTERN.test(requestId)) {
     throw new Error("A valid checkout request id is required");
@@ -73,6 +78,7 @@ function parseRequest(body: CheckoutRequest) {
     graduationYear,
     connectionNote,
     marketingOptIn,
+    utm,
   };
 }
 
@@ -128,6 +134,9 @@ export async function POST(request: Request) {
       p_graduation_year: input.graduationYear,
       p_connection_note: input.connectionNote,
       p_marketing_opt_in: input.marketingOptIn,
+      p_utm_source: input.utm.utm_source,
+      p_utm_medium: input.utm.utm_medium,
+      p_utm_campaign: input.utm.utm_campaign,
     },
   );
 

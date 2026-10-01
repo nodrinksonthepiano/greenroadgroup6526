@@ -46,11 +46,10 @@
   appearance: none;
   -webkit-appearance: none;
   margin: 0;
-  padding: 5px;
-  word-break: break-word;
+  padding: 5px 0;
   line-height: 1.1;
   letter-spacing: -0.2px;
-  white-space: pre-line;
+  white-space: nowrap;
   text-align: center;
   cursor: grab;
   color: var(--silver);
@@ -131,7 +130,7 @@
   .discovery-stage .orbit-theme .orbit-token {
     width: 56px;
     height: 56px;
-    font-size: 0.58rem;
+    font-size: 0.56rem;
   }
 
   .discovery-stage .orbit-theme .orbital-tokens {

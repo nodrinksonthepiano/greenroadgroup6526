@@ -31,7 +31,7 @@ Custom goods are the first practical sales lane because they match Jai's current
 
 **Better everyday goods are the trust and content engine.**
 
-## Reunion Ticketing Exception (Locked September 21, 2026)
+## Reunion Ticketing Exception (public facts updated October 1, 2026)
 
 The SGHS Class of 2006 reunion is the first real Greenroad Community discovery
 and the only currently authorized Stripe commerce build.
@@ -39,13 +39,14 @@ and the only currently authorized Stripe commerce build.
 Locked boundaries:
 
 * Permanent public route: `/events/scotia-2006`
-* Event date: Saturday, October 31, 2026
+* Event date: Sunday, November 1, 2026
 * Time zone: `America/New_York`
-* Costume Kickball: noon–4 PM, Collins Park, Little League Majors Field,
+* Costume Kickball: noon to sunset, Collins Park, Little League Majors Field,
   Scotia, NY. Free, all ages, open to Tartans. Large inflatable costumes
   are encouraged
-* Tartan Dinner: 4–8 PM, Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302
-* Live music and DJ until 10 PM
+* Tartan Dinner: 4:00–10:00 PM, Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302
+* Live music and DJ during that Beukendaal block
+* Teen Town: 20 years later… (We have IDs now!)
 * Current public artwork: `public/events/scotia-2006/reunion-poster.jpg`.
   Logos printed inside that poster may show with the artwork. Do not add
   those logos to the Hometown Partners section unless Jai approves them
@@ -460,10 +461,12 @@ Phase 1 artifacts were created September 21, 2026:
 2. restore or park the previous broad Stripe scope
 3. create reviewable Supabase migration SQL without applying it
 
-Public reunion facts were corrected later on September 21, 2026 to the current
-poster: noon–4 PM kickball, 4–8 PM dinner, Scotia, NY 12302. Reunion World
+Public reunion facts were updated October 1, 2026 to the current poster:
+Sunday, November 1, 2026; noon-to-sunset kickball; 4:00–10:00 PM dinner with
+live music, DJ, and Teen Town; Scotia, NY 12302. Reunion World
 presentation at `/events/scotia-2006` is authorized. Do not edit payment,
-webhook, Supabase, migration, or email code during presentation work. Do not
+webhook, Supabase, or migration code during presentation work. Confirmation
+email fact lines match this poster. Do not
 treat this note as proof that live ticket sales are open.
 Do not use git, read `.env` / `.env.local`, touch live Stripe, or apply Supabase
 migrations.
@@ -551,7 +554,7 @@ Do not build yet:
 * full ADG catalog
 * Custom Goods payment / Stripe
 * generic checkout, invoicing, Terminal/POS, or subscriptions
-* edits to reunion payment, webhook, Supabase, migration, or email code during
+* edits to reunion payment, webhook, Supabase, or migration code during
   presentation work
 * proof editor
 * account system
@@ -598,7 +601,7 @@ GOSHBOT should warn when:
 * a sequential capacity test is represented as proof of concurrent safety;
   pre-launch QA requires a real two-session database concurrency test
 * accordion or section headings are left on forest backdrop without pearl reading surfaces where legibility fails
-* public reunion copy uses noon–sunset, a 5 PM dinner, or a Schenectady address
+* public reunion copy uses October 31, a noon–4 PM kickball, a 4–8 PM dinner, a 5 PM dinner, or a Schenectady address
 * a public reunion surface shows a ticket inventory count or “only 80 tickets”
 
 ## One-Sentence Current Truth
@@ -606,6 +609,7 @@ GOSHBOT should warn when:
 Greenroad Group is an upscale better-goods and custom-goods commerce project:
 sustainability is the north star, Custom Goods Station remains inquiry-only,
 and the SGHS Class of 2006 reunion is the sole approved Stripe exception.
-Canonical public facts match the current reunion poster, and Reunion World
+Canonical public facts match the November 1, 2026 reunion poster, and Reunion World
 presentation is authorized at `/events/scotia-2006`. Payment, webhook,
-Supabase, migration, and email code stay frozen unless Jai opens that work.
+Supabase, and migration code stay frozen unless Jai opens that work.
+Confirmation email fact lines match the poster.

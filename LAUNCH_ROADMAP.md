@@ -164,12 +164,13 @@ ZEYODA is internal-only parent/foundation memory and should not appear in public
 The SGHS Class of 2006 reunion is the sole approved Stripe exception. Custom
 Goods remains inquiry-only.
 
-Canonical public facts, corrected September 21, 2026 from the current poster:
+Canonical public facts, updated October 1, 2026 from the current poster:
 
-- Costume Kickball, noon–4 PM, Collins Park, Little League Majors Field
+- Sunday, November 1, 2026
+- Costume Kickball, noon to sunset, Collins Park, Little League Majors Field
 - Free, all ages, open to Tartans; large inflatable costumes encouraged
-- Tartan Dinner, 4–8 PM, Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302
-- Live music and DJ until 10 PM
+- Tartan Dinner, 4:00–10:00 PM, Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302
+- Live music and DJ, plus Teen Town: 20 years later… (We have IDs now!)
 - Dinner ticket $20.06, tax included
 - Never show a public inventory count or “only 80 tickets”
 - Reunion World presentation is authorized. Do not edit payment machinery

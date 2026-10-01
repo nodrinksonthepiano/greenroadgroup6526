@@ -76,11 +76,12 @@ export async function sendReunionConfirmationEmail(
     `${order.quantity} ${ticketLabel}`,
     `${numberLabel}: ${ticketNumbers.join(", ")}`,
     "",
-    "Saturday, October 31, 2026",
-    "Costume Kickball: Noon–4 PM, Collins Park",
-    "Tartan Dinner: 4–8 PM, Beukendaal Temple",
+    "Sunday, November 1, 2026",
+    "Costume Kickball: Noon to sunset, Collins Park",
+    "Tartan Dinner: 4:00–10:00 PM, Beukendaal Temple",
     "22 Schonowee Ave, Scotia, NY 12302",
-    "Live Music & DJ until 10 PM",
+    "Live Music & DJ",
+    "Teen Town: 20 years later… (We have IDs now!)",
     "",
     "View Reunion Page",
     reunionUrl,
@@ -141,17 +142,17 @@ export async function sendReunionConfirmationEmail(
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-top:1px solid #c9a84c;">
                       <tr>
                         <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
-                          <strong>Saturday, October 31, 2026</strong>
+                          <strong>Sunday, November 1, 2026</strong>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
-                          Costume Kickball: Noon–4 PM, Collins Park
+                          Costume Kickball: Noon to sunset, Collins Park
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
-                          Tartan Dinner: 4–8 PM, Beukendaal Temple
+                          Tartan Dinner: 4:00–10:00 PM, Beukendaal Temple
                         </td>
                       </tr>
                       <tr>
@@ -160,8 +161,13 @@ export async function sendReunionConfirmationEmail(
                         </td>
                       </tr>
                       <tr>
+                        <td style="padding:12px 0;border-bottom:1px solid #c9a84c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
+                          Live Music &amp; DJ
+                        </td>
+                      </tr>
+                      <tr>
                         <td style="padding:12px 0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a4a2e;">
-                          Live Music &amp; DJ until 10 PM
+                          Teen Town: 20 years later… (We have IDs now!)
                         </td>
                       </tr>
                     </table>

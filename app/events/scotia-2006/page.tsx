@@ -10,15 +10,15 @@ const POSTER_PATH = "/events/scotia-2006/reunion-poster.jpg";
 export const metadata: Metadata = {
   title: "SGHS Class of 2006 20-Year Reunion | Greenroad",
   description:
-    "Reunion details and dinner tickets for Saturday, October 31, 2026.",
+    "Reunion details and dinner tickets for Sunday, November 1, 2026.",
   openGraph: {
     title: "SGHS Class of 2006 20-Year Reunion",
     description:
-      "Costume Kickball, Tartan Dinner, and live music on Saturday, October 31, 2026.",
+      "Costume Kickball, Tartan Dinner, live music, and Teen Town on Sunday, November 1, 2026.",
     images: [
       {
         url: POSTER_PATH,
-        width: 819,
+        width: 818,
         height: 1024,
         alt: "SGHS Class of 2006 20-Year Reunion poster",
       },
@@ -58,14 +58,14 @@ export default function Scotia2006EventPage() {
           <article className={styles.eventCard}>
             <div className={styles.tartanRibbon}>
               <span>Community Discovery</span>
-              <span>Saturday · October 31 · 2026</span>
+              <span>Sunday · November 1 · 2026</span>
             </div>
 
             <div className={styles.heroMedia}>
               <Image
                 src={POSTER_PATH}
                 alt="SGHS Class of 2006 20-Year Reunion poster"
-                width={819}
+                width={818}
                 height={1024}
                 sizes="(max-width: 640px) calc(100vw - 1.25rem), 28rem"
                 className={styles.heroImage}
@@ -77,8 +77,8 @@ export default function Scotia2006EventPage() {
               <p className={styles.eyebrow}>Scotia-Glenville High School</p>
               <h1 id="event-title">Class of 2006 20-Year Reunion</h1>
               <p className={styles.eventIntro}>
-                Costume Kickball, Tartan Dinner, and live music—open to
-                Tartans.
+                Costume Kickball, Tartan Dinner, live music, and Teen
+                Town—open to Tartans.
               </p>
 
               <div className={styles.ticketCallout}>
@@ -112,7 +112,7 @@ export default function Scotia2006EventPage() {
             <summary>Costume Kickball</summary>
             <div>
               <p>
-                <strong>Noon–4 PM · Collins Park</strong>
+                <strong>Noon to sunset · Collins Park</strong>
               </p>
               <p>
                 Little League Majors Field. Free, all ages, and open to
@@ -125,11 +125,13 @@ export default function Scotia2006EventPage() {
             <summary>Tartan Dinner &amp; Music</summary>
             <div>
               <p>
-                <strong>4–8 PM · music and DJ until 10 PM</strong>
+                <strong>4:00–10:00 PM · Beukendaal Temple</strong>
               </p>
               <p>
-                Beukendaal Temple
-                <br />
+                Live music and DJ. Teen Town: 20 years later… (We have IDs
+                now!)
+              </p>
+              <p>
                 22 Schonowee Ave
                 <br />
                 Scotia, NY 12302

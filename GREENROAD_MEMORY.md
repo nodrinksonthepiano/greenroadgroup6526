@@ -1,6 +1,6 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** September 21, 2026 (reunion public facts + Reunion World presentation)
+**Last synced:** October 1, 2026 (reunion poster moved to November 1)
 
 Read `GREENROAD_MEMORY_MAP.md` first, then this file. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
@@ -20,7 +20,7 @@ Homepage default:  POD Adventure Brite Tumbler 20 oz (app/page.tsx)
 Checkout/proof:    NOT live — inquiry mailto only; manual ADG proof before production
 Full ADG catalog:  NOT live — 7 starter ADG items only
 published field:   Does NOT gate UI — all discoveries render regardless of published:false
-Reunion route:     /events/scotia-2006 presentation exists. Payment, webhook, Supabase, migration, and email code are frozen during presentation work. This is not proof that live sales are open.
+Reunion route:     /events/scotia-2006 presentation exists. Payment, webhook, Supabase, and migration code stay frozen. Confirmation email fact lines match the November 1 poster. This is not proof that live sales are open.
 ```
 
 `experiment/pearl-print-surface` is **historical/backed up**. Pearl/olive material system is live on main.
@@ -33,17 +33,18 @@ Reunion route:     /events/scotia-2006 presentation exists. Payment, webhook, Su
 
 ---
 
-## SGHS Class of 2006 Reunion (locked September 21, 2026)
+## SGHS Class of 2006 Reunion (public facts updated October 1, 2026)
 
 This is the first real Greenroad Community discovery and the only approved
 Stripe exception. Custom Goods remains inquiry-only.
 
 ```text
 Permanent route:       /events/scotia-2006
-Date / time zone:      Saturday, October 31, 2026 / America/New_York
-Costume Kickball:      Collins Park, Little League Majors Field / noon–4 PM / free / all ages / open to Tartans / large inflatable costumes encouraged
-Tartan Dinner:         Beukendaal Temple / 4–8 PM
-Live music and DJ:     until 10 PM
+Date / time zone:      Sunday, November 1, 2026 / America/New_York
+Costume Kickball:      Collins Park, Little League Majors Field / noon to sunset / free / all ages / open to Tartans / large inflatable costumes encouraged
+Tartan Dinner:         Beukendaal Temple / 4:00–10:00 PM
+Live music and DJ:     during the 4:00–10:00 PM Beukendaal block
+Teen Town:             20 years later… (We have IDs now!)
 Dinner address:        22 Schonowee Ave, Scotia, NY 12302
 Ticket total:          $20.06 each, tax included; never add tax on top
 Batch 1:               80 tickets
@@ -101,7 +102,9 @@ Phase 1 artifacts were completed September 21, 2026:
 3. create reviewable Supabase migration SQL
 
 Reunion World presentation at `/events/scotia-2006` is authorized. Do not edit
-payment, webhook, Supabase, migration, or email code during presentation work.
+payment, webhook, Supabase, or migration code during presentation work.
+Confirmation email fact lines were updated October 1, 2026 to match the
+November 1 poster; leave the rest of that email alone.
 This note does not verify that migrations are applied or that live sales are open.
 
 ---
@@ -513,12 +516,13 @@ The SGHS Class of 2006 reunion is the only approved Stripe exception. Permanent
 route: /events/scotia-2006. Batch 1: 80 tickets, max_per_order 8 in batch data,
 30-minute buyer Checkout, 35-minute pre-Stripe safety hold, $20.06 total per
 dinner ticket tax included.
-Canonical public facts: Costume Kickball noon–4 PM at Collins Park, Little
-League Majors Field; Tartan Dinner 4–8 PM at Beukendaal Temple, 22 Schonowee
-Ave, Scotia, NY 12302; live music and DJ until 10 PM; $20.06 tax included.
+Canonical public facts: Sunday, November 1, 2026. Costume Kickball noon to
+sunset at Collins Park, Little League Majors Field; Tartan Dinner 4:00–10:00 PM
+at Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302; live music and DJ;
+Teen Town: 20 years later… (We have IDs now!); $20.06 tax included.
 Never show a public inventory count. Reunion World presentation is authorized.
-Do not edit payment, webhook, Supabase, migration, or email code. No git, no
-.env. Do not assume live sales are open.
+Do not edit payment, webhook, Supabase, or migration code. Confirmation email
+fact lines match this poster. No git, no .env. Do not assume live sales are open.
 ```
 
 ### Surgical ADG product add

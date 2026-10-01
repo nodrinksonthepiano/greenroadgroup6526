@@ -24,14 +24,16 @@ Begin every build session with:
 
 The SGHS Class of 2006 reunion is the only approved Stripe exception.
 
-Canonical public facts match the current poster: Costume Kickball noon–4 PM
-at Collins Park, Little League Majors Field; Tartan Dinner 4–8 PM at
-Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302; live music and DJ
-until 10 PM; dinner tickets $20.06, tax included. Never show a public
+Canonical public facts match the November 1, 2026 poster: Costume Kickball
+noon to sunset at Collins Park, Little League Majors Field; Tartan Dinner
+4:00–10:00 PM at Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302;
+live music and DJ; Teen Town: 20 years later… (We have IDs now!); dinner
+tickets $20.06, tax included. Never show a public
 inventory count or “only 80 tickets.”
 
 Reunion World presentation at `/events/scotia-2006` is authorized. Do not
-edit payment, webhook, Supabase, migration, or email code. Do not assume
+edit payment, webhook, Supabase, or migration code. Confirmation email fact
+lines match this poster. Do not assume
 live sales are open. Custom Goods remains inquiry-only. Do not touch Custom
 Goods carousel physics.
 
@@ -65,11 +67,11 @@ Reunion route:     /events/scotia-2006 presentation exists. Payment machinery is
 
 - First real Community discovery: SGHS Class of 2006 reunion
 - Permanent route: `/events/scotia-2006`
-- Saturday, October 31, 2026; `America/New_York`
-- Costume Kickball: Collins Park, Little League Majors Field, noon–4 PM,
+- Sunday, November 1, 2026; `America/New_York`
+- Costume Kickball: Collins Park, Little League Majors Field, noon to sunset,
   free, all ages, open to Tartans; large inflatable costumes encouraged
 - Tartan Dinner: Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302,
-  4–8 PM; live music and DJ until 10 PM
+  4:00–10:00 PM; live music and DJ; Teen Town: 20 years later… (We have IDs now!)
 - Current public artwork is `public/events/scotia-2006/reunion-poster.jpg`.
   Logos printed into the poster may show with the artwork. Hometown Partners
   stays logo-free until Jai approves those businesses as web sponsors.
@@ -182,7 +184,7 @@ Memory docs synced: `GREENROAD_MEMORY.md`, knowledge base, PRD, roadmap, session
 | UX-001 | High | Print legibility over forest backdrop — accordion triggers + section headings need pearl scrims; test all room backgrounds |
 | UX-002 | Later | Live ADG color swatches + logo quick-render preview |
 | UX-003 | Later | ADG proof approval gate — quick render is draft; ADG mockup required before production |
-| EVT-001 | Presentation | Reunion public facts match the current poster. Reunion World presentation is authorized. Payment, webhook, Supabase, migration, and email code stay frozen |
+| EVT-001 | Presentation | Reunion public facts match the November 1, 2026 poster. Reunion World presentation is authorized. Payment, webhook, Supabase, and migration code stay frozen. Confirmation email fact lines match the poster |
 
 ---
 

@@ -49,7 +49,7 @@
     ],
     "event": {
       "name": "SGHS Class of 2006 Reunion",
-      "date": "2026-10-31",
+      "date": "2026-11-01",
       "timeZone": "America/New_York",
       "permanentRoute": "/events/scotia-2006",
       "currentArtwork": "public/events/scotia-2006/reunion-poster.jpg",
@@ -60,7 +60,7 @@
         "name": "Costume Kickball",
         "location": "Collins Park, Little League Majors Field, Scotia, NY",
         "startsAt": "12:00",
-        "endsAt": "16:00",
+        "endsAt": "sunset",
         "audience": "Tartans",
         "allAges": true,
         "free": true,
@@ -71,8 +71,9 @@
         "location": "Beukendaal Temple",
         "address": "22 Schonowee Ave, Scotia, NY 12302",
         "startsAt": "16:00",
-        "endsAt": "20:00",
-        "musicEndsAt": "22:00"
+        "endsAt": "22:00",
+        "musicEndsAt": "22:00",
+        "teenTown": "20 years later… (We have IDs now!)"
       }
     },
     "ticketing": {
@@ -327,7 +328,7 @@
       "title": "SGHS Class of 2006 reunion Phase 1",
       "status": "review",
       "priority": "critical",
-      "scope": "Public facts match the current poster. Reunion World presentation is authorized. Do not edit payment, webhook, Supabase, migration, or email code, and do not assume live sales are open."
+      "scope": "Public facts match the November 1, 2026 poster, including Teen Town. Reunion World presentation is authorized. Do not edit payment, webhook, Supabase, or migration code. Confirmation email fact lines match the poster. Do not assume live sales are open."
     },
     {
       "id": "commerce-001",
@@ -442,11 +443,11 @@
     "GOSHBOT routes memory and warns about drift",
     "SGHS Class of 2006 reunion is the first real Community discovery and the only approved Stripe exception",
     "Permanent reunion route is /events/scotia-2006",
-    "Reunion date is Saturday October 31 2026 in America/New_York",
+    "Reunion date is Sunday November 1 2026 in America/New_York",
     "Dinner ticket customer total is exactly $20.06 tax included",
-    "Costume Kickball is noon-4 PM at Collins Park, Little League Majors Field",
-    "Tartan Dinner is 4-8 PM at Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302",
-    "Live music and DJ continue until 10 PM",
+    "Costume Kickball is noon to sunset at Collins Park, Little League Majors Field",
+    "Tartan Dinner is 4:00-10:00 PM at Beukendaal Temple, 22 Schonowee Ave, Scotia, NY 12302",
+    "Live music, DJ, and Teen Town run during the 4:00-10:00 PM Beukendaal block",
     "Never show a public reunion inventory count or only 80 tickets",
     "Batch 1 capacity is 80 with max_per_order 8 stored as batch configuration",
     "Reservation duration is 30 minutes",
@@ -473,7 +474,7 @@
     "sub-orbits",
     "Custom Goods payment or Stripe before offer/margin validation",
     "generic checkout, invoicing, Terminal/POS, or subscriptions",
-    "edits to reunion payment, webhook, Supabase, migration, or email code during presentation work",
+    "edits to reunion payment, webhook, Supabase, or migration code during presentation work",
     "ratings",
     "certified or approved language",
     "Amazon-style commodity marketplace",

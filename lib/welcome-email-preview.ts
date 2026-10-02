@@ -40,10 +40,10 @@ export function renderWelcomeEmailPreview(input: {
   const subject = "Kind to your wallet and kind to the earth";
   const preheader = "Wouldn't it be nice to buy something once?";
   const ideal =
-    "Wouldn't it be nice to buy something once? A cast iron pan, handed down to the next generation. That's the ideal.";
+    "Wouldn't it be nice to buy something once? A cast iron pan, handed down to the next generation. That's ideal.";
   const together = "Nobody's perfect. We're on the Green Road together.";
   const mission =
-    "We share quality eco-friendly goods through fair trade, community, and kindness. You'll hear about discoveries, gatherings, and occasional updates.";
+    "We gather and guide, with honest context, toward a more sustainable home, lifestyle, and future, one replacement at a time. You'll also hear about gatherings and occasional updates worth sharing.";
   const contribute = "Have something to contribute? Let us know.";
   const sellPrompt = "What do you want to sell?";
   const sellUrl =
@@ -55,11 +55,11 @@ export function renderWelcomeEmailPreview(input: {
   const text = [
     greeting,
     "",
-    subject,
-    "",
     ideal,
     "",
     together,
+    "",
+    subject,
     "",
     mission,
     "",
@@ -104,13 +104,13 @@ export function renderWelcomeEmailPreview(input: {
               <td style="padding:16px 28px 0;font-family:Georgia,'Times New Roman',serif;color:#1a4a2e;">
                 <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#2d6a4f;">Greenroad Group</p>
                 <p style="margin:18px 0 0;font-size:18px;line-height:1.5;">${escapeHtml(greeting)}</p>
-                <h1 style="margin:8px 0 0;font-size:28px;line-height:1.25;font-weight:normal;color:#1a4a2e;">${escapeHtml(subject)}</h1>
               </td>
             </tr>
             <tr>
               <td style="padding:18px 28px 0;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.5;color:#1a4a2e;">
                 <p style="margin:0 0 14px;">${escapeHtml(ideal)}</p>
                 <p style="margin:0 0 14px;">${escapeHtml(together)}</p>
+                <h1 style="margin:0 0 14px;font-size:28px;line-height:1.25;font-weight:normal;color:#1a4a2e;">${escapeHtml(subject)}</h1>
                 <p style="margin:0 0 14px;">${escapeHtml(mission)}</p>
                 <p style="margin:0;">${escapeHtml(contribute)} <a href="${escapeHtml(sellUrl)}" style="color:#1a4a2e;text-decoration:underline;">${escapeHtml(sellPrompt)}</a></p>
               </td>

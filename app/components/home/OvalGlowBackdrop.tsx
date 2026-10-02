@@ -83,15 +83,15 @@ export function OvalGlowBackdrop({
     return {
       wrapperStyle: {
         position: "absolute",
-        top: "50%",
-        left: "50%",
+        top: h ? `calc(50% - ${h / 2}px)` : "50%",
+        left: w ? `calc(50% - ${w / 2}px)` : "50%",
         width: w ? `${w}px` : "0px",
         height: h ? `${h}px` : "0px",
-        transform: "translate(-50%, -50%)",
         pointerEvents: "none",
         zIndex,
         overflow: "visible",
-        transition: "width 0.35s ease, height 0.35s ease",
+        transition:
+          "left 0.35s ease, top 0.35s ease, width 0.35s ease, height 0.35s ease",
       } as React.CSSProperties,
       glowStyle: {
         position: "absolute",

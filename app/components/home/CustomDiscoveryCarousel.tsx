@@ -251,7 +251,7 @@ export function CustomDiscoveryCarousel({
       el.style.pointerEvents =
         dist < 0.5 && !snappingRef.current ? "auto" : "none";
       el.style.zIndex = String(20 - Math.round(dist * 6));
-      el.style.transform = `translate3d(-50%, calc(-50% + ${yPx.toFixed(1)}px), 0) scale(${scale.toFixed(3)})`;
+      el.style.transform = `translate3d(0, calc(-50% + ${yPx.toFixed(1)}px), 0) scale(${scale.toFixed(3)})`;
     }
   }, []);
 

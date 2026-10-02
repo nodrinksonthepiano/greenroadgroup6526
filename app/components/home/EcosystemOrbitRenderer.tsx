@@ -108,8 +108,8 @@ export function EcosystemOrbitRenderer({
         if (anchorRect) {
           const pinLeft = rect.left + rect.width / 2 - anchorRect.left;
           const pinTop = rect.top + rect.height / 2 - anchorRect.top;
-          orbitContainer.style.left = `${pinLeft}px`;
-          orbitContainer.style.top = `${pinTop}px`;
+          orbitContainer.style.left = `${pinLeft - contentWidth / 2}px`;
+          orbitContainer.style.top = `${pinTop - contentHeight / 2}px`;
           orbitContainer.style.width = `${contentWidth}px`;
           orbitContainer.style.height = `${contentHeight}px`;
         }

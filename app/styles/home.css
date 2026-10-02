@@ -3,6 +3,7 @@
   min-height: 100dvh;
   padding-bottom: calc(var(--command-bar-height) + var(--space-8));
   background: var(--green-deep);
+  overflow-x: clip;
 }
 
 /* Forest / sky depth layer — fixed behind all content */
@@ -299,12 +300,12 @@
 
 .custom-discovery-carousel__layer {
   position: absolute;
-  left: 50%;
+  left: 0;
   top: 50%;
   width: 100%;
   display: flex;
   justify-content: center;
-  transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(0, -50%, 0);
   transform-origin: center center;
   will-change: transform, opacity;
   backface-visibility: hidden;

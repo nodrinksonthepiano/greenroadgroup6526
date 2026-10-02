@@ -2,6 +2,7 @@
 
 import {
   forwardRef,
+  useEffect,
   useImperativeHandle,
   useRef,
   useMemo,
@@ -33,33 +34,64 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
     ref,
   ) {
     const inputRef = useRef<HTMLInputElement>(null);
+    const nameRef = useRef<HTMLInputElement>(null);
+    const emailRef = useRef<HTMLInputElement>(null);
+    const barRef = useRef<HTMLElement>(null);
     const requestId = useRef(0);
     const [mode, setMode] = useState<CommandMode>("explore");
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
-    const [phase, setPhase] = useState<"form" | "submitting" | "success">(
-      "form",
+    const [phase, setPhase] = useState<"ready" | "submitting" | "success">(
+      "ready",
     );
     const [error, setError] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
     function resetJoin() {
       requestId.current += 1;
-      setPhase("form");
+      setPhase("ready");
       setEmail("");
       setFirstName("");
       setError("");
       setSuccessMessage("");
     }
 
+    function returnToExplore() {
+      setMode("explore");
+      resetJoin();
+      window.setTimeout(() => inputRef.current?.focus(), 50);
+    }
+
+    useEffect(() => {
+      const bar = barRef.current;
+      const viewport = window.visualViewport;
+      if (!bar || !viewport) return;
+
+      const liftAboveKeyboard = () => {
+        const overlap = Math.max(
+          0,
+          window.innerHeight - viewport.height - viewport.offsetTop,
+        );
+        bar.style.bottom = overlap > 0 ? `${overlap}px` : "";
+      };
+
+      liftAboveKeyboard();
+      viewport.addEventListener("resize", liftAboveKeyboard);
+      viewport.addEventListener("scroll", liftAboveKeyboard);
+      return () => {
+        viewport.removeEventListener("resize", liftAboveKeyboard);
+        viewport.removeEventListener("scroll", liftAboveKeyboard);
+      };
+    }, []);
+
     useImperativeHandle(ref, () => ({
       focusEmail: () => {
         requestId.current += 1;
         setMode("join");
-        setPhase("form");
+        setPhase("ready");
         setError("");
         setSuccessMessage("");
-        window.setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 50);
+        window.setTimeout(() => emailRef.current?.focus({ preventScroll: true }), 50);
       },
     }));
 
@@ -73,6 +105,11 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
 
     async function handleJoin(event: FormEvent<HTMLFormElement>) {
       event.preventDefault();
+      if (phase === "submitting") return;
+      if (!email.trim()) {
+        emailRef.current?.focus();
+        return;
+      }
       setError("");
       setPhase("submitting");
       const id = ++requestId.current;
@@ -95,7 +132,7 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
         if (id !== requestId.current) return;
         if (!response.ok) {
           setError(payload?.error ?? "Could not join right now. Please try again.");
-          setPhase("form");
+          setPhase("ready");
           return;
         }
         setSuccessMessage("You're on the Green Road. Check your inbox.");
@@ -103,100 +140,116 @@ export const CommandSearch = forwardRef<CommandSearchHandle, CommandSearchProps>
       } catch {
         if (id !== requestId.current) return;
         setError("Could not join right now. Please try again.");
-        setPhase("form");
+        setPhase("ready");
       }
     }
 
     return (
       <footer
+        ref={barRef}
         id="join-section"
         className={`command-search${mode === "join" ? " command-search--join" : ""}`}
         aria-label="Explore and join"
       >
         <div
-          className={`command-search__inner${mode === "explore" ? " command-search__inner--explore" : " command-search__inner--join"}`}
+          className={`command-search__inner${mode === "explore" ? " command-search__inner--explore" : ""}`}
         >
           {mode === "join" && (
-            <div className="join-card">
+            <div className="command-search__mode-row">
+              <p className="command-search__label">Join the Green Road</p>
               <button
                 type="button"
-                className="join-card__back"
-                onClick={() => {
-                  setMode("explore");
-                  resetJoin();
-                  window.setTimeout(() => inputRef.current?.focus(), 50);
-                }}
+                className="command-search__mode-back"
+                aria-label="Back to explore"
+                onClick={returnToExplore}
               >
-                ← Explore
+                <span>← Explore</span>
+                <span className="command-search__close-x" aria-hidden="true">
+                  ×
+                </span>
               </button>
-              <h2 className="join-card__title">Join the Green Road</h2>
-              {phase === "success" ? (
-                <p className="join-card__success" role="status">
-                  {successMessage}
-                </p>
-              ) : (
-                <>
-                  <p className="join-card__support">
-                    Kind to your wallet and kind to the earth.
-                  </p>
-                  <form
-                    className="join-card__form"
-                    onSubmit={handleJoin}
-                    onKeyDown={(event) => {
-                      if (event.key !== "Enter") return;
-                      event.preventDefault();
-                      event.currentTarget.requestSubmit();
-                    }}
-                  >
-                    <label className="join-card__field" htmlFor="greenroad-join-name">
-                      <span className="join-card__label">
-                        First name <span>optional</span>
-                      </span>
-                      <input
-                        id="greenroad-join-name"
-                        type="text"
-                        name="firstName"
-                        autoComplete="given-name"
-                        maxLength={80}
-                        value={firstName}
-                        onChange={(event) => setFirstName(event.target.value)}
-                        disabled={phase === "submitting"}
-                      />
-                    </label>
-                    <label className="join-card__field" htmlFor="greenroad-join-email">
-                      <span className="join-card__label">Email</span>
-                      <input
-                        ref={inputRef}
-                        id="greenroad-join-email"
-                        type="email"
-                        name="email"
-                        autoComplete="email"
-                        required
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                        disabled={phase === "submitting"}
-                        aria-describedby="greenroad-join-consent"
-                      />
-                    </label>
-                    {error && (
-                      <p className="join-card__error" role="alert">
-                        {error}
-                      </p>
-                    )}
-                    <button
-                      type="submit"
-                      className="join-card__submit"
-                      disabled={phase === "submitting"}
-                    >
-                      {phase === "submitting" ? "Joining…" : "Join the Green Road"}
-                    </button>
-                    <p id="greenroad-join-consent" className="join-card__consent">
-                      {CONSENT_COPY}
-                    </p>
-                  </form>
-                </>
-              )}
             </div>
+          )}
+
+          {mode === "join" && phase === "success" && (
+            <p className="command-search__success" role="status">
+              {successMessage}
+            </p>
+          )}
+
+          {mode === "join" && phase !== "success" && (
+            <form
+              className="command-search__join"
+              onSubmit={handleJoin}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter" || event.nativeEvent.isComposing) return;
+                if (phase === "submitting") {
+                  event.preventDefault();
+                  return;
+                }
+                if (event.target === nameRef.current) {
+                  event.preventDefault();
+                  emailRef.current?.focus();
+                  return;
+                }
+                if (event.target === emailRef.current) {
+                  event.preventDefault();
+                  event.currentTarget.requestSubmit();
+                }
+              }}
+            >
+              <p className="command-search__hint">
+                Kind to your wallet and kind to the earth.
+              </p>
+              <div className="command-search__fields">
+                <input
+                  ref={nameRef}
+                  id="greenroad-join-name"
+                  type="text"
+                  className="command-search__input"
+                  placeholder="First name (optional)"
+                  aria-label="First name, optional"
+                  autoComplete="given-name"
+                  maxLength={80}
+                  value={firstName}
+                  onChange={(event) => setFirstName(event.target.value)}
+                  disabled={phase === "submitting"}
+                />
+                <div className="command-search__pill">
+                  <input
+                    ref={emailRef}
+                    id="greenroad-join-email"
+                    type="email"
+                    className="command-search__input command-search__input--join"
+                    placeholder="Email"
+                    aria-label="Email"
+                    aria-describedby="greenroad-join-consent"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    disabled={phase === "submitting"}
+                  />
+                  <button
+                    type="submit"
+                    className="command-search__send"
+                    aria-label={phase === "submitting" ? "Joining" : "Join"}
+                    aria-busy={phase === "submitting"}
+                    disabled={phase === "submitting"}
+                  >
+                    {phase === "submitting" ? "…" : "→"}
+                  </button>
+                </div>
+              </div>
+              {error && (
+                <p className="command-search__error" role="alert">
+                  {error}
+                </p>
+              )}
+              <p id="greenroad-join-consent" className="command-search__consent">
+                {CONSENT_COPY}
+              </p>
+            </form>
           )}
 
           {mode === "explore" && (

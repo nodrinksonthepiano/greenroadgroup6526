@@ -7,9 +7,28 @@ import { renderWelcomeEmailPreview } from "@/lib/welcome-email-preview";
 
 const PUBLIC_SITE_FALLBACK = "https://www.greenroad.group";
 
+function isPublicHttpsOrigin(value: string): boolean {
+  let url: URL;
+  try {
+    url = new URL(value);
+  } catch {
+    return false;
+  }
+  if (url.protocol !== "https:") return false;
+  const host = url.hostname.toLowerCase();
+  return (
+    host !== "localhost" &&
+    !host.endsWith(".localhost") &&
+    host !== "127.0.0.1" &&
+    host !== "::1" &&
+    host !== "0.0.0.0"
+  );
+}
+
 export function communitySiteUrl(): string {
-  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  return (configured || PUBLIC_SITE_FALLBACK).replace(/\/$/, "");
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") ?? "";
+  if (configured && isPublicHttpsOrigin(configured)) return configured;
+  return PUBLIC_SITE_FALLBACK;
 }
 
 export function newUnsubscribeToken(): { token: string; hash: string } {

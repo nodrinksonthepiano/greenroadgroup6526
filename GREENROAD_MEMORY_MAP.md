@@ -90,12 +90,24 @@ Custom-goods action phrase:
 
 **Upload it. Preview it. Gribbit.**
 
-Meaning:
+Gribbit means claim, save, or approve something into your Greenroad path. Locked October 1, 2026. Both uses are valid.
+
+Custom Goods still means:
 
 * upload a logo, name, art, initials, or idea
 * preview a proof or mockup
 * approve it
-* gribbit / grab it / order it
+* gribbit: approve that custom item before production
+
+The future Gribbit List is not built. It waits on profiles and sign-in. Its states are:
+
+* Gribbited: saved or wanted
+* Gift it to me: this specific item can be shown for someone else to gift. Off unless chosen.
+* Get it: the person is getting or buying it themselves
+* Got it: acquired, kept on the list as checked-off history
+* Private: only that person can see it
+
+Share the whole list means every item except Private. Sharing only Gift it to me items is the other share. The welcome-email line "Love it, want it, gribbit, got it." matches this model. It is preview copy until Jai approves sending it.
 
 ## Public Boundary Rule
 
@@ -558,6 +570,7 @@ Do not build yet:
   presentation work
 * proof editor
 * account system
+* Gribbit List, until profiles and sign-in exist. The language is locked. The list is not built.
 * TinaCMS
 * sub-orbits
 * mass content publishing
@@ -596,6 +609,7 @@ GOSHBOT should warn when:
 * mass AI content is being proposed without human editing
 * the project starts building checkout, proof editor, or full catalog too early
 * reunion ticketing expands into generic Greenroad or Custom Goods commerce
+* Gribbit is treated as only a slogan, or the custom-goods use and the future list are called a contradiction. Both mean claim, save, or approve something into your Greenroad path. Do not build the list before sign-in.
 * code auto-creates a later ticket batch or hardcodes the Batch 1
   `max_per_order` application-wide
 * a sequential capacity test is represented as proof of concurrent safety;

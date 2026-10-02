@@ -59,7 +59,13 @@ Custom-goods action phrase:
 
 **Upload it. Preview it. Gribbit.**
 
-Meaning: a customer uploads a logo, name, art, initials, or idea; sees a proof or mockup; approves it; then gribbits / grabs it / orders it.
+**Gribbit** means claim, save, or approve something into your Greenroad path.
+
+**Custom Goods:** “Upload it. Preview it. Gribbit.” means approving the custom item before production.
+
+**Future Gribbit List:** Gribbited means saved or wanted. Gift it to me means that item is publicly giftable. Get it means acquire it yourself. Got it means acquired or completed, and kept as history. Private means visible only to you.
+
+The Gribbit List is product language only for now. Do not build it until profiles and sign-in are approved.
 
 **Get Grouped In** can later mean join, save items, list, sell, become part of the community, or participate in Greenroad's commerce ecosystem.
 

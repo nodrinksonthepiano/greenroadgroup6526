@@ -1,6 +1,6 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** October 1, 2026 (reunion poster moved to November 1)
+**Last synced:** October 1, 2026 (Gribbit language locked; reunion poster is November 1)
 
 Read `GREENROAD_MEMORY_MAP.md` first, then this file. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
@@ -139,6 +139,21 @@ Custom goods are important, but they are not the whole identity.
 **Working public phrase:** Custom merch and better everyday goods — grouped in one place.
 
 **Custom action phrase:** Upload it. Preview it. Gribbit.
+
+**Gribbit (locked October 1, 2026):** claim, save, or approve something into your Greenroad path. Both uses below are valid. They are not a contradiction.
+
+- **Custom Goods:** Upload it. Preview it. Gribbit. The person approves the custom item before it goes into production. This line stays on the 20 oz tumbler.
+- **Gribbit List (not built):** Love it, want it, gribbit, got it. Do not build the list until profiles and sign-in exist.
+
+Future list states, when that work is opened:
+
+- **Gribbited** — saved or wanted
+- **Gift it to me** — this one item may be shown so someone else can gift it. Off unless chosen.
+- **Get it** — the person is getting or buying it themselves
+- **Got it** — acquired. Stays on the list, checked off, as history
+- **Private** — only that person can see it
+
+Share the whole list means every item except Private. A person can also share only items marked Gift it to me.
 
 People want better sleep, mornings, kitchens, homes, and routines — not "sheets" or "coffee filters" as the headline story.
 

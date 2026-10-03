@@ -7,7 +7,13 @@ import type { Discovery } from "@/data/types/discovery";
 import type { Room } from "@/data/types/discovery";
 import { getEcosystem } from "@/data/ecosystems";
 import { buildCustomQuoteMailto } from "@/data/discoverySearch";
+import { getProductCustomization } from "@/data/customization";
 import { track } from "@/lib/analytics";
+import {
+  CustomizerControls,
+  CustomizerHero,
+  ProductCustomizer,
+} from "./customization/ProductCustomizer";
 
 export type FeaturedViewProps =
   | {
@@ -112,23 +118,31 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
   const quoteHref = isCustomInquiry
     ? buildCustomQuoteMailto(discovery)
     : null;
+  const customization = isCustomInquiry
+    ? getProductCustomization(discovery.slug)
+    : null;
   const isEvent = Boolean(eventHref);
   const priceLine =
     isCustomInquiry && discovery.commerce.list_price != null
       ? `From $${discovery.commerce.list_price.toFixed(2)} + order fee + shipping estimate`
       : whyLine;
 
-  return (
+  const article = (
     <article
       className={`featured-discovery${isEvent ? " featured-discovery--event" : ""}`}
     >
       <div className="featured-discovery__hero">
-        <HeroImage key={discovery.id} discovery={discovery} />
+        {customization ? (
+          <CustomizerHero />
+        ) : (
+          <HeroImage key={discovery.id} discovery={discovery} />
+        )}
         <span className="featured-discovery__ecosystem-badge">
           {ecosystem?.tagline ?? "Discovery"}
         </span>
       </div>
       <div className="featured-discovery__body">
+        {customization ? <CustomizerControls /> : null}
         <h1 className="featured-discovery__title">{discovery.title}</h1>
         {hookLine && (
           <p className="featured-discovery__alternative">
@@ -194,5 +208,10 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
         </div>
       </div>
     </article>
+  );
+
+  if (!customization) return article;
+  return (
+    <ProductCustomizer customization={customization}>{article}</ProductCustomizer>
   );
 }

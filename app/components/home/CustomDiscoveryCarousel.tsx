@@ -105,7 +105,9 @@ function shortTitle(title: string): string {
 
 function isInteractiveTarget(target: EventTarget | null): boolean {
   const el = target as Element | null;
-  return !!el?.closest?.("a, button, input, textarea, label");
+  return !!el?.closest?.(
+    "a, button, input, textarea, label, [data-customizer-print], [data-customizer-controls]",
+  );
 }
 
 function CarouselPeekCard({

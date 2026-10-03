@@ -1,0 +1,40 @@
+{
+  "slug": "pod-adventure-brite-tumbler-20oz",
+  "supplierItem": "A401191PD",
+  "imprintCode": "ALE057",
+  "locationId": "400250",
+  "maxColorCount": 1,
+  "variants": [
+    { "id": "BLU", "name": "Blue", "code": "BLU", "swatch": "#53D2EE" },
+    { "id": "GRN", "name": "Green", "code": "GRN", "swatch": "#8BBFA8" },
+    { "id": "ORG", "name": "Orange", "code": "ORG", "swatch": "#FB8A1D" },
+    { "id": "PNK", "name": "Pink", "code": "PNK", "swatch": "#FD8BE0" },
+    { "id": "PRP", "name": "Purple", "code": "PRP", "swatch": "#B877EC" }
+  ],
+  "areas": [
+    {
+      "id": "side-1",
+      "name": "Logo And Text Side 1",
+      "method": "laser-engraved",
+      "widthInches": 2.25,
+      "heightInches": 2.25,
+      "vignette": "401191_SIDE1_S7",
+      "image": "/discoveries/customization/a401191-side1.jpg",
+      "imageWidth": 806,
+      "imageHeight": 1200,
+      "placement": { "x": 0.349735, "y": 0.291667, "width": 0.359657, "height": 0.241667 }
+    },
+    {
+      "id": "side-2",
+      "name": "Logo And Text Side 2",
+      "method": "laser-engraved",
+      "widthInches": 2.25,
+      "heightInches": 2.25,
+      "vignette": "401191_SIDE2_S7",
+      "image": "/discoveries/customization/a401191-side2.jpg",
+      "imageWidth": 806,
+      "imageHeight": 1200,
+      "placement": { "x": 0.300127, "y": 0.291667, "width": 0.359657, "height": 0.241667 }
+    }
+  ]
+}

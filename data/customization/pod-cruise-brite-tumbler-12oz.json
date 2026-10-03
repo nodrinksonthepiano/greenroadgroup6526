@@ -1,0 +1,41 @@
+{
+  "slug": "pod-cruise-brite-tumbler-12oz",
+  "supplierItem": "A401190PD",
+  "imprintCode": "ALE019",
+  "locationId": "PC",
+  "decoration": "laser-engraved",
+  "baseVariantCode": "ORG",
+  "colorLabel": "Tumbler color",
+  "removeLabel": "Remove from tumbler",
+  "previewLabel": "Engraving preview",
+  "treatments": {
+    "removeBackground": { "enabled": true, "defaultOn": true },
+    "invert": { "enabled": true, "defaultOn": false }
+  },
+  "variants": [
+    { "id": "BLU", "name": "Blue", "code": "BLU", "swatch": "#53D2EE" },
+    { "id": "GRN", "name": "Green", "code": "GRN", "swatch": "#8FCAB8" },
+    { "id": "ORG", "name": "Orange", "code": "ORG", "swatch": "#FB8A1D" },
+    { "id": "PNK", "name": "Pink", "code": "PNK", "swatch": "#FD8BE0" },
+    { "id": "PRP", "name": "Purple", "code": "PRP", "swatch": "#B97BF6" }
+  ],
+  "areas": [
+    {
+      "id": "product-center",
+      "label": "Product Center",
+      "name": "Product Center",
+      "widthInches": 2.125,
+      "heightInches": 2,
+      "vignette": "401190_FRONT_S7",
+      "image": "/discoveries/customization/a401190-front.jpg",
+      "imageWidth": 340,
+      "imageHeight": 414,
+      "placement": {
+        "x": 0.3023823529,
+        "y": 0.3,
+        "width": 0.3835588235,
+        "height": 0.2964705882
+      }
+    }
+  ]
+}

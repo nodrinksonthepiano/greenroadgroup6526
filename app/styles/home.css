@@ -859,10 +859,6 @@
   opacity: 0.72;
 }
 
-.custom-discovery-carousel__stage:has([data-has-art="true"]) {
-  height: clamp(17rem, 40vh, 20rem);
-}
-
 @media (max-width: 639px) {
   .customizer__controls {
     gap: 0.25rem;

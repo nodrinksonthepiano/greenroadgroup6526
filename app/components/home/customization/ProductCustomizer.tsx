@@ -165,10 +165,12 @@ function defaultTransform(): NormTransform {
 }
 
 function defaultVariantId(customization: ProductCustomization): string {
-  return (
-    customization.variants.find((item) => item.code === "ORG")?.id ??
-    customization.variants[0].id
-  );
+  const code = customization.baseVariantCode;
+  if (code) {
+    const match = customization.variants.find((item) => item.code === code);
+    if (match) return match.id;
+  }
+  return customization.variants[0].id;
 }
 
 function cloneTransforms(
@@ -349,9 +351,9 @@ export function ProductCustomizer({
   const [assetId, setAssetId] = useState<string | null>(null);
   const [colorChosen, setColorChosen] = useState(false);
   const [removeBackground, setRemoveBackground] = useState(
-    customization.hasOneImprintColorOnly,
+    customization.treatments.removeBackground.defaultOn,
   );
-  const [invert, setInvert] = useState(false);
+  const [invert, setInvert] = useState(customization.treatments.invert.defaultOn);
   const [editing, setEditing] = useState(false);
   const [editGroup, setEditGroup] = useState<EditGroup>("placement");
   const [assets, setAssets] = useState<ArtworkAsset[]>([]);
@@ -383,8 +385,8 @@ export function ProductCustomizer({
     areaId,
     assetId: null,
     colorChosen: false,
-    removeBackground: customization.hasOneImprintColorOnly,
-    invert: false,
+    removeBackground: customization.treatments.removeBackground.defaultOn,
+    invert: customization.treatments.invert.defaultOn,
     transforms,
   });
   const transformRef = useRef<NormTransform>(transforms[areaId] ?? defaultTransform());
@@ -635,7 +637,8 @@ export function ProductCustomizer({
     if (!showChoice) return;
     let cancelled = false;
     setCupReady(false);
-    if (variant.code === "ORG") {
+    const baseCode = customization.baseVariantCode;
+    if (!baseCode || variant.code === baseCode) {
       setCupSrc(area.image);
       setCupReady(true);
       return;
@@ -654,7 +657,7 @@ export function ProductCustomizer({
     return () => {
       cancelled = true;
     };
-  }, [showChoice, area, variant]);
+  }, [showChoice, area, variant, customization.baseVariantCode]);
 
   const paintEtch = useCallback(() => {
     const canvas = etchRef.current;
@@ -684,6 +687,11 @@ export function ProductCustomizer({
     const dx = (width - dw) / 2 + x * dpr;
     const dy = (height - dh) / 2 + y * dpr;
 
+    if (customization.decoration === "full-color") {
+      ctx.drawImage(image, dx, dy, dw, dh);
+      return;
+    }
+
     const scratch = document.createElement("canvas");
     scratch.width = Math.max(1, Math.ceil(dw));
     scratch.height = Math.max(1, Math.ceil(dh));
@@ -699,8 +707,11 @@ export function ProductCustomizer({
         break;
       }
     }
+    const useRemove =
+      customization.treatments.removeBackground.enabled && removeBackground;
+    const useInvert = customization.treatments.invert.enabled && invert;
     const background =
-      !transparent && removeBackground
+      !transparent && useRemove
         ? edgeConnectedNearWhite(data, scratch.width, scratch.height)
         : null;
     const pixelCount = scratch.width * scratch.height;
@@ -716,7 +727,7 @@ export function ProductCustomizer({
             ? 0
             : alpha
           : (1 - lum) * alpha;
-      if (invert) etch = 1 - etch;
+      if (useInvert) etch = 1 - etch;
       data[i] = ETCH.r;
       data[i + 1] = ETCH.g;
       data[i + 2] = ETCH.b;
@@ -724,7 +735,16 @@ export function ProductCustomizer({
     }
     sctx.putImageData(frame, 0, 0);
     ctx.drawImage(scratch, dx, dy);
-  }, [artwork, invert, removeBackground, transform.scale, transform.xNorm, transform.yNorm]);
+  }, [
+    artwork,
+    customization.decoration,
+    customization.treatments,
+    invert,
+    removeBackground,
+    transform.scale,
+    transform.xNorm,
+    transform.yNorm,
+  ]);
 
   useEffect(() => {
     if (!artwork) {
@@ -1024,6 +1044,7 @@ export function ProductCustomizer({
   }
 
   function toggleTreatment(key: "removeBackground" | "invert") {
+    if (!customization.treatments[key].enabled) return;
     if (phaseRef.current !== "ready" || !sessionRef.current.assetId) return;
     finishGesture();
     const before = cloneSession();
@@ -1219,8 +1240,8 @@ export function CustomizerHero() {
           }}
         />
       ) : null}
-      {showDesign && api.customization.hasOneImprintColorOnly ? (
-        <p className="customizer__preview-label">Engraving preview</p>
+      {showDesign && api.customization.previewLabel ? (
+        <p className="customizer__preview-label">{api.customization.previewLabel}</p>
       ) : null}
       {showDesign ? (
         <div
@@ -1359,7 +1380,7 @@ export function CustomizerColorControls() {
   const { customization, variant } = api;
   return (
     <div className="customizer__color-strip">
-      <div className="customizer__row customizer__row--swatches" role="listbox" aria-label="Tumbler color">
+      <div className="customizer__row customizer__row--swatches" role="listbox" aria-label={customization.colorLabel}>
         {customization.variants.map((item) => (
           <button
             key={item.id}
@@ -1435,7 +1456,18 @@ export function CustomizerControls() {
       </div>
       {artwork ? (
         <div className="customizer__artwork-options">
-          <div className="customizer__row customizer__row--side" role="tablist" aria-label="Artwork placement">
+          <div
+            className="customizer__row customizer__row--side"
+            role="tablist"
+            aria-label="Artwork placement"
+            style={
+              customization.areas.length === 2
+                ? undefined
+                : {
+                    gridTemplateColumns: `repeat(${customization.areas.length}, minmax(0, 1fr))`,
+                  }
+            }
+          >
             {customization.areas.map((item) => (
               <button
                 key={item.id}
@@ -1446,28 +1478,35 @@ export function CustomizerControls() {
                 disabled={!api.ready}
                 onClick={() => api.selectArea(item.id)}
               >
-                {item.id === "side-1" ? "Side 1" : "Side 2"}
+                {item.label}
               </button>
             ))}
           </div>
-          <div className="customizer__row customizer__row--treatment">
-            <button
-              type="button"
-              className={`customizer__tool${api.removeBackground ? " customizer__side--selected" : ""}`}
-              aria-pressed={api.removeBackground}
-              onClick={() => api.toggleRemoveBackground()}
-            >
-              Remove background
-            </button>
-            <button
-              type="button"
-              className={`customizer__tool${api.invert ? " customizer__side--selected" : ""}`}
-              aria-pressed={api.invert}
-              onClick={() => api.toggleInvert()}
-            >
-              Invert
-            </button>
-          </div>
+          {customization.treatments.removeBackground.enabled ||
+          customization.treatments.invert.enabled ? (
+            <div className="customizer__row customizer__row--treatment">
+              {customization.treatments.removeBackground.enabled ? (
+                <button
+                  type="button"
+                  className={`customizer__tool${api.removeBackground ? " customizer__side--selected" : ""}`}
+                  aria-pressed={api.removeBackground}
+                  onClick={() => api.toggleRemoveBackground()}
+                >
+                  Remove background
+                </button>
+              ) : null}
+              {customization.treatments.invert.enabled ? (
+                <button
+                  type="button"
+                  className={`customizer__tool${api.invert ? " customizer__side--selected" : ""}`}
+                  aria-pressed={api.invert}
+                  onClick={() => api.toggleInvert()}
+                >
+                  Invert
+                </button>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>
@@ -1537,7 +1576,7 @@ export function CustomizerControls() {
               className="customizer__tool customizer__tool--remove"
               onClick={() => api.removeArtwork()}
             >
-              Remove from tumbler
+              {customization.removeLabel}
             </button>
           </div>
           <p className="customizer__note">{PREVIEW_DISCLAIMER}</p>

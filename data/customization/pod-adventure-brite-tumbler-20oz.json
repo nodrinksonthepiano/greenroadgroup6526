@@ -3,8 +3,15 @@
   "supplierItem": "A401191PD",
   "imprintCode": "ALE057",
   "locationId": "400250",
-  "maxColorCount": 1,
-  "hasOneImprintColorOnly": true,
+  "decoration": "laser-engraved",
+  "baseVariantCode": "ORG",
+  "colorLabel": "Tumbler color",
+  "removeLabel": "Remove from tumbler",
+  "previewLabel": "Engraving preview",
+  "treatments": {
+    "removeBackground": { "enabled": true, "defaultOn": true },
+    "invert": { "enabled": true, "defaultOn": false }
+  },
   "variants": [
     { "id": "BLU", "name": "Blue", "code": "BLU", "swatch": "#53D2EE" },
     { "id": "GRN", "name": "Green", "code": "GRN", "swatch": "#8BBFA8" },
@@ -15,8 +22,8 @@
   "areas": [
     {
       "id": "side-1",
+      "label": "Side 1",
       "name": "Logo And Text Side 1",
-      "method": "laser-engraved",
       "widthInches": 2.25,
       "heightInches": 2.25,
       "vignette": "401191_SIDE1_S7",
@@ -27,8 +34,8 @@
     },
     {
       "id": "side-2",
+      "label": "Side 2",
       "name": "Logo And Text Side 2",
-      "method": "laser-engraved",
       "widthInches": 2.25,
       "heightInches": 2.25,
       "vignette": "401191_SIDE2_S7",

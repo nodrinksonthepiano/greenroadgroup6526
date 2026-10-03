@@ -1,8 +1,10 @@
 import type { ProductCustomization } from "./types";
 import tumbler20 from "./pod-adventure-brite-tumbler-20oz.json";
+import tumbler12 from "./pod-cruise-brite-tumbler-12oz.json";
 
 const CUSTOMIZATIONS: ProductCustomization[] = [
   tumbler20 as ProductCustomization,
+  tumbler12 as ProductCustomization,
 ];
 
 export function getProductCustomization(

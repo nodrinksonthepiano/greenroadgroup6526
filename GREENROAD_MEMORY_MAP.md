@@ -453,10 +453,12 @@ Fix rules:
 * No gold body text on pearl
 * Test all ecosystem backgrounds in `data/roomBackgrounds.ts`
 
+### 20 oz compact customizer
+
+The 20 oz card face is CUSTOM LOGO TUMBLER plus the compact spec line. It does not show the Gribbit phrase. "Upload it. Preview it. Gribbit." remains brand language. See `GREENROAD_MEMORY.md`. Do not build Send for Custom Proof until that sprint is opened.
+
 ### Later — Custom goods preview UX
 
-* Live ADG color swatches with real-time hero preview
-* Logo upload + quick render on product image
 * ADG proof approval gate — quick render is draft only; ADG mockup required before production
 
 ## Current Operating Priorities

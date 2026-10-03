@@ -33,6 +33,8 @@ export type ProductCustomization = {
   imprintCode: string;
   locationId: string;
   maxColorCount: 1;
+  /** One decoration treatment. Do not offer an imprint-color selector. */
+  hasOneImprintColorOnly: boolean;
   variants: CustomizationVariant[];
   areas: DecorationArea[];
 };

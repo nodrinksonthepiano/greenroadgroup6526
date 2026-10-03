@@ -4,6 +4,7 @@
   "imprintCode": "ALE057",
   "locationId": "400250",
   "maxColorCount": 1,
+  "hasOneImprintColorOnly": true,
   "variants": [
     { "id": "BLU", "name": "Blue", "code": "BLU", "swatch": "#53D2EE" },
     { "id": "GRN", "name": "Green", "code": "GRN", "swatch": "#8BBFA8" },

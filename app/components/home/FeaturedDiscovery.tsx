@@ -10,6 +10,7 @@ import { buildCustomQuoteMailto } from "@/data/discoverySearch";
 import { getProductCustomization } from "@/data/customization";
 import { track } from "@/lib/analytics";
 import {
+  CustomizerColorControls,
   CustomizerControls,
   CustomizerHero,
   ProductCustomizer,
@@ -102,6 +103,8 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
   const ecosystem = getEcosystem(discovery.room);
   const whyLine = discovery.why_we_like_it[0] ?? "";
   const hookLine = discovery.featured_hook ?? "";
+  const displayTitle = discovery.display_title ?? discovery.title;
+  const displaySize = discovery.display_size;
   const isCustomInquiry =
     discovery.room === "custom" &&
     discovery.commerce.sale_type === "inquiry";
@@ -137,19 +140,32 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
         ) : (
           <HeroImage key={discovery.id} discovery={discovery} />
         )}
-        <span className="featured-discovery__ecosystem-badge">
-          {ecosystem?.tagline ?? "Discovery"}
-        </span>
-      </div>
-      <div className="featured-discovery__body">
-        {customization ? <CustomizerControls /> : null}
-        <h1 className="featured-discovery__title">{discovery.title}</h1>
-        {hookLine && (
-          <p className="featured-discovery__alternative">
-            {hookLine}
-            {!isEvent && " — consider this."}
-          </p>
+        {customization ? (
+          <h1 className="featured-discovery__ecosystem-badge">{displayTitle}</h1>
+        ) : (
+          <span className="featured-discovery__ecosystem-badge">
+            {ecosystem?.tagline ?? "Discovery"}
+          </span>
         )}
+      </div>
+      {customization ? <CustomizerColorControls /> : null}
+      <div className="featured-discovery__body">
+        {customization ? (
+          displaySize ? (
+            <p className="featured-discovery__spec">{displaySize}</p>
+          ) : null
+        ) : (
+          <>
+            <h1 className="featured-discovery__title">{discovery.title}</h1>
+            {hookLine && (
+              <p className="featured-discovery__alternative">
+                {hookLine}
+                {!isEvent && " — consider this."}
+              </p>
+            )}
+          </>
+        )}
+        {customization ? <CustomizerControls /> : null}
         {priceLine && (
           <>
             <p className="featured-discovery__why-label">
@@ -212,6 +228,14 @@ export function FeaturedDiscovery(props: FeaturedViewProps) {
 
   if (!customization) return article;
   return (
-    <ProductCustomizer customization={customization}>{article}</ProductCustomizer>
+    <ProductCustomizer
+      customization={customization}
+      heroImage={discovery.hero_image}
+      heroAlt={
+        displaySize ? `${displayTitle}, ${displaySize}` : displayTitle
+      }
+    >
+      {article}
+    </ProductCustomizer>
   );
 }

@@ -1,6 +1,6 @@
 # Greenroad Memory — Agent Handoff
 
-**Last synced:** October 1, 2026 (Gribbit language locked; reunion poster is November 1)
+**Last synced:** October 2, 2026 (20 oz compact customizer; Gribbit phrase stays brand language and is off this card face)
 
 Read `GREENROAD_MEMORY_MAP.md` first, then this file. Do not assume pearl/olive work is on an experiment branch — that is outdated.
 
@@ -142,7 +142,7 @@ Custom goods are important, but they are not the whole identity.
 
 **Gribbit (locked October 1, 2026):** claim, save, or approve something into your Greenroad path. Both uses below are valid. They are not a contradiction.
 
-- **Custom Goods:** Upload it. Preview it. Gribbit. The person approves the custom item before it goes into production. This line stays on the 20 oz tumbler.
+- **Custom Goods:** Upload it. Preview it. Gribbit. The person approves the custom item before it goes into production. This remains brand language. The compact 20 oz card does not show the phrase.
 - **Gribbit List (not built):** Love it, want it, gribbit, got it. Do not build the list until profiles and sign-in exist.
 
 Future list states, when that work is opened:
@@ -345,11 +345,26 @@ Carousel order follows `DISCOVERY_SLUGS` filter for `room: "custom"`. Homepage S
 - Test across all ecosystem backdrops in `data/roomBackgrounds.ts`
 - Files: `home.css`, `DiscoveryAccordions.tsx`, `ContinueExploring.tsx`, `HomePage.tsx`
 
+### 20 oz compact customizer (implemented October 2, 2026)
+
+Customer-facing card only. Internal title stays "POD Adventure Brite Stainless Tumbler 20 oz". Price stays $15.83. Orbit name stays Custom Goods.
+
+Hero overlay on this card: CUSTOM LOGO TUMBLER. Under the hero: "20 oz · Stainless steel · Reusable · Hot & cold". Do not lead this card with POD, Adventure Brite, or the Gribbit phrase. "Upload it. Preview it. Gribbit." stays brand language in memory and discovery data.
+
+No artwork: lifestyle photo until any color swatch is tapped, including Orange. A tap switches to that supplier render and does not toggle back. Then color swatches, Add your logo, upload, Asset Basket thumbs, price, current quote actions. No placement, zoom, reset, undo, redo, or disclaimer.
+
+Artwork applied: supplier/custom render, selected color, full cup visible, Your artwork, colors, one control "Edit logo ›", and the line "Preview only · supplier proof required before production". Label the preview "Engraving preview". Drag works while Edit logo is closed.
+
+Edit logo opens in place, one group at a time: Placement (Side 1 / Side 2), Size (− / + / Reset), Treatment (Remove background / Invert). Undo, Redo, and Remove from tumbler stay in that open panel and are hidden before artwork exists. Remove from tumbler clears this session's assetId only. Delete on a thumbnail removes the IndexedDB asset and clears any session still pointing at it, after the written confirm when a session uses it.
+
+`removeBackground` and `invert` live on the product session, not the shared Blob. Original upload stays unchanged. Both are undoable and persist in IndexedDB. Remove-background defaults on for opaque art on this laser product and only clears near-white pixels connected to the image edge. Transparent PNG/SVG keep their transparency. No AI extraction.
+
+`hasOneImprintColorOnly: true` is sidecar truth. No imprint-color selector. CTA stays "Start a Custom Quote". Do not build Send for Custom Proof.
+
 ### Custom goods UX — Later
 
-- Live ADG color swatches with real-time hero preview (products with color options)
-- Logo upload + quick render preview on product image
 - ADG proof approval gate — quick render is draft only; final production requires ADG official proof/mockup approval
+- Send for Custom Proof (Sprint 1D) is not built
 
 ### Ops — Unchanged
 
@@ -500,10 +515,11 @@ Content should be human-edited and released gradually.
 
 ## Featured Discovery Fixture
 
-**Homepage default (July 6):**
+**Homepage default:**
 - **ID:** `pod-adventure-brite-tumbler-20oz`
-- **Title:** POD Adventure Brite Stainless Tumbler 20 oz
-- **Hook:** Upload it. Preview it. Gribbit.
+- **Internal title:** POD Adventure Brite Stainless Tumbler 20 oz
+- **Card face:** CUSTOM LOGO TUMBLER
+- **Hook in data:** Upload it. Preview it. Gribbit. Not shown on the compact card.
 - **Ecosystem:** Custom Goods
 
 **First better-goods fixture (still on site):**

@@ -76,6 +76,10 @@ export interface Discovery {
   slug: string;
   type: DiscoveryType;
   title: string;
+  /** Customer-facing name. Supplier catalog title stays in `title`. */
+  display_title?: string;
+  /** Compact customer-facing line under the hero. */
+  display_size?: string;
   room: Room;
   system: string;
   alternative_to: string[];
